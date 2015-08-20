@@ -1,0 +1,102 @@
+// Header text feature
+.call-out {
+  @extend %padding-regular;
+  display: inline-block;
+  width: 100%;
+  background-color:$background-color;
+  background-size: cover;
+  font-size: 1.2em;
+  text-align: center;
+  color: $header-desc-text-color;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: $font-family-title;
+}
+.call-out p:last-child {
+  margin-bottom: 0;
+}
+// Post listing
+.posts {
+  .post-teaser {
+    @extend %padding-regular;
+    width: 100%;
+    margin-bottom: 100px;
+    display: inline-block;
+    background-size: $feature-image-size;
+    p a:hover {
+      @extend %link-hover;
+    }
+  }
+  header {
+    h1.post-info {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      .meta {
+        background-color: #fc3;
+        font-size: 0.5em;
+        width: 50%;
+        color: #fff;
+        text-align: center;
+        height: 55px;
+        padding-top: 10px;
+      }
+      a.post-link {
+        margin: 0 auto;
+        padding: 0;
+        background-color: #8C8C8C;
+        width: 100%;
+        display: inline-block;
+        font-family: $font-family-title;
+        font-style: italic;
+        font-size: 0.8em;
+        color: rgb(51, 51, 51);
+        text-align: center;
+        height: 100px;
+        padding-top: 20px;
+        font-weight: 100;
+        &:hover {
+          color: #fc3;
+        }
+      }
+    }
+  }
+  .excerpt {
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(204, 204, 204, 0.35);
+    border-bottom: 5px solid $brand-color;
+    p {
+      margin: 0 auto;
+      padding: 40;
+      text-align: left;
+    }
+    a {
+      height: 200px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      width: 100%;
+      img {
+        border: none;
+        width: 70px;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
+}
+// Pagination
+.pagination .button {
+  margin: 0 1.5em;
+  i {
+    vertical-align: middle;
+  }
+}
+.pagination {
+  padding: $padding-small $padding-large 0 $padding-large;
+  text-align: center;
+}

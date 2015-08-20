@@ -1,0 +1,119 @@
+.site-header {
+  padding: $padding-small;
+  background: $brand-color;
+  border-bottom: 1px solid $border-color;
+  display: inline-block;
+  float: left;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 12px;
+
+  .avatar {
+    height: 2em;
+    width: 9em;
+    float: left;
+    margin-top: -3px;
+    border-radius: 0.2em;
+    margin-left: 1em;
+  }
+
+  .site-title {
+    float: left;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .site-nav {
+    -webkit-transition: height 0.4s ease;
+    -moz-transition: height 0.4s ease;
+    -ms-transition: height 0.4s ease;
+    -o-transition: height 0.4s ease;
+    transition: height 0.4s ease;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      line-height: 1.5;
+      float: right;
+      text-align: right;
+    }
+    .rightButton {
+      margin-left: 100px;
+    }
+    li {
+      display: inline;
+      float: left;
+      margin-right: 3em;
+      a {
+        color: $header-link-color;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+  .mobile {
+    height: 40px;
+    width: 100px;
+    float: right;
+    ul {
+      display: none;
+    }
+    button {
+      opacity: 0.8;
+      border: 3px solid #fff;
+      background-color: $brand-color;
+      padding: 7px;
+      border-radius: 32px;
+      width: 80px;
+      font-size: 16px;
+      font-family: $font-family-headings;
+      font-weight: 900;
+      &:hover {
+        background-color: #9C802C;
+      }
+    }
+  }
+  .openMenu {
+    margin: 0 auto;
+    padding: 0;
+    -webkit-transition: height 0.4s ease;
+    -moz-transition: height 0.4s ease;
+    -ms-transition: height 0.4s ease;
+    -o-transition: height 0.4s ease;
+    transition: height 0.4s ease;
+    height: 800px;
+    width: 100%;
+    background-color: $brand-color;
+    ul {
+      margin: 0 auto;
+      padding: 0;
+      display: block;
+      width: 100%;
+      li {
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        text-decoration: none;
+        list-style: none;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-top: 4px solid #fff;
+        text-align: left;
+      }
+    }
+    ul li.rightButton {
+      margin: 0 auto;
+      padding: 0;
+      padding: 10px;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    button {
+      float: right;
+      margin-top: -37px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}

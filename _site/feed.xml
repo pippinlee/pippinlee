@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <atom:link href="http://example.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://example.com/</link>
+    <description>A website with blog posts and pages</description>
+    <pubDate>Thu, 20 Aug 2015 18:21:02 -0400</pubDate>
+    
+      <item>
+        <title>How Literature and Code Overlap</title>
+        <link>http://example.com/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
+        <guid isPermaLink="true">http://example.com/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
+        <description>&lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
+
+&lt;p&gt;Software, on the other hand, has overhead and accessibility issues. Sure, it also allows you to invent new meanings, and even create new languages — but currently it only evolves when you tell the machine to do something specific, and with correct details. This makes it tough for most to get involved and interested in seeing how the web, and computers will shape publishing going forward.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/maxbittker&quot;&gt;Max Bittker&lt;/a&gt; and I were lucky enough to spend the last weekend in June on the West Coast working along side folks who also care about a number of these issues at &lt;a href=&quot;http://codexhackathon.com/&quot;&gt;CODEX Hackathon&lt;/a&gt;. CODEX billed itself as an event to play with the future of publishing, but was really just a good excuse for smart designers, developers, and publishers to come together to build things that asked an important question of the direction of reading.&lt;/p&gt;
+
+&lt;p&gt;So over that very frenetic weekend, we built &lt;a href=&quot;http://forkpad.me/&quot;&gt;forkpad.me&lt;/a&gt; — a service that allows the remixing of stories on the popular writing site &lt;a href=&quot;https://www.wattpad.com/home&quot;&gt;Wattpad&lt;/a&gt; — to help their community become better writers, and keep the web weird. Along the way we realized that the process of writing could take inspiration from the open source software development process. This idea lead us to asking these three questions, which helped shape the tool we wanted to build:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;What happens when writers are able to remix and reuse each others work?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;What happens when a story is never “finished”?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;What happens when a story can have multiple authors?&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Intrigued by this, Max and I asked ourselves how we could make a tool that could bring key aspects of Open Source Software (OSS) development to the writing and publishing process.&lt;/p&gt;
+
+&lt;h2 id=&quot;informality-will-rule-publishing&quot;&gt;Informality Will Rule Publishing&lt;/h2&gt;
+
+&lt;p&gt;One of the things Max and I love about the web is its ability to share information easily. Thanks to all the underlying technical protocols, we’re now able to build tools to reach many. When we showed up to &lt;a href=&quot;http://www.codeforamerica.org/&quot;&gt;Code for America’s&lt;/a&gt; San Francisco office Saturday morning, we knew the community on Wattpad was something we could have a lot of fun with.&lt;/p&gt;
+
+&lt;p&gt;We were given early access to the API for Wattpad, a massive serial writing community with over &lt;a href=&quot;https://www.wattpad.com/about&quot;&gt;40 million users&lt;/a&gt; who collectively spend more than 900 million years on the Wattpad site each month (85% of it on mobile).&lt;/p&gt;
+
+&lt;p&gt;In the time you’ll spend reading this article, Wattpad will receive enough werewolf fan fiction to last the rest of your life, in addition to other fan fiction of all niches and all personalities. I personally recommend checking out the entire &lt;a href=&quot;https://www.wattpad.com/story/30644165-50-shades-of-drake-drake-fanfic-series&quot;&gt;50 Shades of Drake&lt;/a&gt; volume, fan fiction about the rapper, if you’re curious.&lt;/p&gt;
+
+&lt;p&gt;As we explored the number of story categories and forums within Wattpad we found prolific communities sharing the wildest parts of their minds through stories. By far the biggest success within fan fiction (and informal publishing) is 50 Shades of Grey, which &lt;a href=&quot;https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey#Background&quot;&gt;started as Twilight&lt;/a&gt; fan fiction.&lt;/p&gt;
+
+&lt;p&gt;So we began thinking about the web and its impact on publishing. Traditionally, the final product would be a book in the local store, but what is the “final product” when the process to publishing is just a ≤button/&amp;gt; on a page?&lt;/p&gt;
+
+&lt;h2 id=&quot;the-end-of-a-story-is-no-longer-static&quot;&gt;The End of a Story is No Longer Static&lt;/h2&gt;
+
+&lt;p&gt;Traditionally a book would go through a publisher’s Book Product™ machine — but the web now allows the final product to be something different. The final product for an online book is no longer a function of traditional publishing’s Book Product™ formula, but something much less refined. A novella can be quickly written and published, and then evolve with reader interest to spawn a whole series of stories.&lt;/p&gt;
+
+&lt;p&gt;As we began to work with Wattpad’s API, we took a closer look at the niches that existed within the story comments and forums on Wattpad. We saw authors discussing ideas, and adding thoughts in hopes of pushing each other to create new narratives. This public process means that the end product isn’t static thing — and because the web allows a story to be edited and rewritten, every story has the ability to be dynamic and changing. Stories may end, but the process for many books is always evolving — which is especially true on Wattpad.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Ambient lighting. Gives &lt;a href=&quot;https://twitter.com/pippinlee&quot;&gt;@pippinlee&lt;/a&gt; a nice glow. He worked on Forkpad with Max. &lt;a href=&quot;http://t.co/ODK8B9ntdo&quot;&gt;pic.twitter.com/ODK8B9ntdo&lt;/a&gt;&lt;/p&gt;&amp;mdash; CODEX Hackathon (@codexhackathon) &lt;a href=&quot;https://twitter.com/codexhackathon/status/616069391357075457&quot;&gt;July 1, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;em&gt;Hard at work at the CODEX Hackathon with a Canadian contingent.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;can-remixing-help-the-writing-process&quot;&gt;Can Remixing Help the Writing Process?&lt;/h2&gt;
+
+&lt;p&gt;From our quick study of Wattpad, Max and I realized that this community could likely use a tool to help create a better feedback loop for authors working through story ideas. The idea of the “remix loop”, where creators spin off each others work can be incredible powerful tools within the writing process. Forkpad allows writers to take a part (“chapter”) from a Wattpad story and adapt it to their own liking.&lt;/p&gt;
+
+&lt;p&gt;When developing Forkpad, we found the concept of being able to change an ending or adapt characters to follow our own ideas a fun and important tool in the writing process. The ability to “fork” a Wattpad story means that others can post a link to their Forkpad version back on Wattpad to better share their thoughts on a story, as well as build off of each others’ work.&lt;/p&gt;
+
+&lt;p&gt;This idea of “forking” code is now common in software development. When computers were giant room-sized machines, the people who operated them (usually academics) would use tape as a medium to “write” their programs on. They would then feed these lengths of tape into a reader which would interpret their programs and run them on the computer. The programs were usually relatively small because computers could only process small bits of information. The idea of open source can be traced back to these early computer users, who stored their tapes in a drawer so that anyone using the computer could use their completed code. This saved colleagues from having to write a similar program from scratch, because they could share their completed tape programs.&lt;/p&gt;
+
+&lt;p&gt;Despite a period of highly commercialized and proprietary software during the 1980s and 1990s (a shift catalyzed, in part, by &lt;a href=&quot;https://en.wikipedia.org/wiki/Open_Letter_to_Hobbyists&quot;&gt;Microsoft&lt;/a&gt;), developers’ natural desire to share their code has roared back to life in the last twenty years (embodied by &lt;a href=&quot;https://en.wikipedia.org/wiki/Linus_Torvalds&quot;&gt;Linus Torvalds&lt;/a&gt; and his software versioning system &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_%28software%29&quot;&gt;Git&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/1200/1*YFy69Cx6aidKv8BrMit7VA.png&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Early computers would run programs that were created by punching holes in tape. Photo: wikimedia&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Building off each other’s work is common in the open source world of software, where a team may spend a year solving a specific problem, and then they’ll share the code with other developers so that others don’t have to waste their time solving a problem that’s already been solved. Starting with an empty text box is a barrier to writing — so we wanted Forkpad to help get writers writing more. The process of consuming other’s work, and building off of it is one way that we can learn to be better writers, and Forkpad aims to make that easier.&lt;/p&gt;
+
+&lt;p&gt;As Saturday ended and Sunday began, we’d already built the main functionality of the Forkpad app — so we spent the last few hours before demo time getting our app up and running with a database so that writers could get a link that they could share. The ability to easily share their remixes means writers will hopefully be encouraged to build off each others work.&lt;/p&gt;
+
+&lt;p&gt;The process for using and publishing with Forkpad is much less formal than a traditional publishing process, but we think giving writers the ability to get writing will always trump a process that start with big end goals in mind. Writing is a process, so hopefully Forkpad can ask how that process can evolve for writers with the help of the machine. Much like the atmosphere at CODEX, it’s not a zero-sum game between the machine and publisher, but finding situations that allow both to be part of the creative process.&lt;/p&gt;
+
+&lt;p&gt;We’re not sure what writers will make, and we definitely don’t know what the end products will be, but we think it will be something fun.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://forkpad.me/&quot;&gt;Forkpad.me&lt;/a&gt; is live. Send us some Drake fanfic?&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a class=&quot;m-story&quot; data-collapsed=&quot;true&quot; href=&quot;https://medium.com/codex-hack/will-the-future-of-writing-be-more-like-software-49f2a6900ca9&quot;&gt;Thoughts from making tools for literature&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Jul 2015 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Joining educreations</title>
+        <link>http://example.com/2012/10/09/Joining-Educreations.html</link>
+        <guid isPermaLink="true">http://example.com/2012/10/09/Joining-Educreations.html</guid>
+        <description>&lt;h2 id=&quot;one-to-many&quot;&gt;One, to many&lt;/h2&gt;
+&lt;p&gt;“You know I never finished university. I’d even tell you, you don’t need university.”&lt;/p&gt;
+
+&lt;p&gt;These are the few words I remember from a chance encounter with the critically-minded &lt;a href=&quot;https://twitter.com/doctorow&quot;&gt;Cory Doctorow&lt;/a&gt; last year while attending a discussion on media at UofT. I don’t remember the actual discussion too much but those words seem to have stuck in my head. It’s been over a year since the event but as the humour in fate would have it, I have decided to take a year off. Not as Cory suggested, leave, but take a year off.&lt;/p&gt;
+
+&lt;h2 id=&quot;why&quot;&gt;Why&lt;/h2&gt;
+&lt;p&gt;Let’s pause for a second to mention my honest excitement towards academia. This statement isn’t a play to my brave parents or the faculty I’ve had the chance to work with. I honestly believe there’s huge value placed in the research and findings done at the academic level. In fact the small outside of school research project I co-founded, Open Journalism, hinted to me the power of understanding complex problems that meet at the intersection of social, and technological change. We need these places of discussion and research, greatly.&lt;/p&gt;
+
+&lt;p&gt;With that said, I’m really excited to working with the &lt;a href=&quot;https://www.educreations.com/&quot;&gt;Educreations&lt;/a&gt; team in Palo Alto, California for the next 9 months. I will miss Canada.&lt;/p&gt;
+
+&lt;p&gt;It’s likely not a coincidence that I chose to work with a team of people that care deeply about democratizing the tools to teach.&lt;/p&gt;
+
+&lt;p&gt;Imagine for a second if Newton, Feynman, or Einstein had the ability to share their knowledge to anyone with a computer. It’s with that hope, knowing that the next Newtons are being born and giving them the right tools to share what they know. That excites me.&lt;/p&gt;
+
+&lt;p&gt;The Educreations iPad app and website take a step forward from the giant whose shoulders many of us stand on, Sal Khan, to give anyone who wants to teach the tools to do so.&lt;/p&gt;
+
+&lt;p&gt;It’s apparent that as our ability to reach everyone around the world increases, it’s important to build things that allow distribution of knowledge in really easy to use ways. Tim O’Reilly has done a really good job with this idea in his creation of O’Reilly publishing, with the ethos that it was important to build things that allowed the sharing of information from one to many.&lt;/p&gt;
+
+&lt;h2 id=&quot;tool-maker&quot;&gt;Tool Maker&lt;/h2&gt;
+&lt;p&gt;I’ll be spending the next 10 months better understanding how to make tools that are joy to use. That means a focus on building a tool that both understands and experiments with the future of technology and the classroom.&lt;/p&gt;
+
+&lt;p&gt;If you know me well, you know that I spend most nights working on small code/design projects. I’m excited to see what my full focus and working closely with some brilliant engineers can do to help build a really important technology.&lt;/p&gt;
+
+&lt;p&gt;We have big expectations to fill if the next Newton is just being born and grabbing for that iPad, after all.&lt;/p&gt;
+
+&lt;p&gt;If dots are minds, and minds are full of knowledge, surely connecting the dots will make humankind a bit more humble, and a lot more educated.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I can’t take all the credit for making working in education cool again. Apparently GZA was &lt;a href=&quot;http://www.cbc.ca/news/yourcommunity/2012/11/wu-tang-clans-gza-to-help-teach-science-with-hip-hop.html&quot;&gt;on board&lt;/a&gt; before me.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Oct 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Globe and Mail: whiteboard alternative</title>
+        <link>http://example.com/2012/10/05/Globe-and-Mail-whiteboard.html</link>
+        <guid isPermaLink="true">http://example.com/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
+        <description>&lt;p&gt;Was interviewed by Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
+
+&lt;p&gt;I was originally inspired to start looking for cheaper versions of whiteboards after spending a weekend at Stanford’s &lt;a href=&quot;http://dschool.stanford.edu/&quot;&gt;D.School&lt;/a&gt; working on Ben Huh’s &lt;a href=&quot;http://benhuh.com/2011/05/23/why-are-we-still-consuming-the-news-like-its-1899/&quot;&gt;Moby Dick project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The space is opinionated only in the sense of allowing space to be extemely flexible. Everything object within the building can be moved around to accomadate to “space” a team needs. If you’re curious, the below video explains it well.&lt;/p&gt;
+
+&lt;iframe width=&quot;800&quot; height=&quot;400&quot; src=&quot;https://www.youtube.com/embed/HLQvxH40a-E&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;I got mine from &lt;a href=&quot;https://maps.google.ca/maps?q=home+depot+woodbridge&amp;amp;hl=en&amp;amp;sll=43.70536,-79.378967&amp;amp;sspn=0.085997,0.154324&amp;amp;hq=home+depot&amp;amp;hnear=Woodbridge,+Vaughan,+York+Regional+Municipality,+Ontario&amp;amp;t=m&amp;amp;z=13&quot;&gt;this Toronto home depot.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lexan is the company that makes the highest quality boards. It is important to note that as the price goes down the grade (quality) of plastic goes down slightly.&lt;/p&gt;
+
+&lt;p&gt;If you’re interested here are a few other resources I found helpful along the way:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rumkin.com/reference/whiteboard/surfaces.php&quot;&gt;Cheap whiteboard material can also be found online here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dschool.stanford.edu/wp-content/uploads/2011/03/BootcampBootleg2010v2SLIM.pdf&quot;&gt;Stanford’s D.School very thorough design handbook&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.instructables.com/id/A-glass-whiteboard/&quot;&gt;Creating a glass whiteboard - instructables&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Someone also just sent me their (much bigger than mine) DIY whiteboard:
+&lt;img src=&quot;http://f.cl.ly/items/370s3K3d1d0o06073J1n/20120324_013248.jpg&quot; alt=&quot;big&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let me know if you have any other questions or if you try anything different I’d love to know if it works better?&lt;/p&gt;
+</description>
+        <pubDate>Fri, 05 Oct 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Gifpost.me: building a GIF site for Martha</title>
+        <link>http://example.com/2012/05/28/building-gifpost.html</link>
+        <guid isPermaLink="true">http://example.com/2012/05/28/building-gifpost.html</guid>
+        <description>&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Christmas is coming! &lt;a href=&quot;http://t.co/tbmRuV4gbD&quot;&gt;http://t.co/tbmRuV4gbD&lt;/a&gt; &lt;a href=&quot;http://t.co/6tyiTdxAGK&quot;&gt;pic.twitter.com/6tyiTdxAGK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Martha Stewart (@MarthaStewart) &lt;a href=&quot;https://twitter.com/MarthaStewart/status/413044190331678720&quot;&gt;December 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A few months ago just before heading to bed I got a text from Stephen with a “stupid idea”.&lt;/p&gt;
+
+&lt;p&gt;The idea centered around being able to save any GIF to Gifpost that catches your eye online. This would save you from having to download the GIF to be able to find it next time you want to use it.&lt;/p&gt;
+
+&lt;p&gt;A couple weeks later and &lt;a href=&quot;http://www.gifpost.me/&quot;&gt;gifpost.me&lt;/a&gt; was born. Full credit again to Stephen for doing all the heavy lifting when we build the site.&lt;/p&gt;
+
+&lt;p&gt;A few months after releasing the site online, it started getting used by people that weren’t just our friends.&lt;/p&gt;
+
+&lt;p&gt;Rapper Mac Miller used it to announce his new album:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;30 minutes til &lt;a href=&quot;https://twitter.com/hashtag/SDS?src=hash&quot;&gt;#SDS&lt;/a&gt; &lt;a href=&quot;http://t.co/EfMsXnJODs&quot;&gt;http://t.co/EfMsXnJODs&lt;/a&gt;&lt;/p&gt;&amp;mdash; Mac (@MacMiller) &lt;a href=&quot;https://twitter.com/MacMiller/status/326538408933617664&quot;&gt;April 23, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;So, it turns out building a tool with a very specific focus–however trivial–can be helpful to the right people. Maybe everyone that needs your tool won’t find it right away. Patience.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;July 2015 update: site should still be working, though is unattended so needs a poke every month or so&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 May 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Where are the Lee&#39;s?</title>
+        <link>http://example.com/2012/05/13/where-are-the-lees.html</link>
+        <guid isPermaLink="true">http://example.com/2012/05/13/where-are-the-lees.html</guid>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
+
+&lt;p&gt;Harry Potter, of course. The weasley’s had a clock.&lt;/p&gt;
+
+&lt;p&gt;Short of being magicla, we created this because my mom doesn’t yet own a cell phone.&lt;/p&gt;
+
+&lt;p&gt;
+
+
+                Harry Potter, of course. The Weasley&#39;s had a clock (&lt;a href=&quot;http://en.wikipedia.org/wiki/Magical_objects_in_Harry_Potter#Weasley_family_clock&quot; target=&quot;_blank&quot;&gt;Whereabouts Clock&lt;/a&gt;) that told them where everyone in the family was at all times. &lt;br /&gt;&lt;br /&gt;
+
+                Short of being magical, we created this because my Mom doesn&#39;t yet own a cell phone. &lt;br /&gt;&lt;br /&gt;
+
+                Right now it&#39;s a mash-up of &lt;a href=&quot;https://developers.google.com/maps/&quot; target=&quot;_blank&quot;&gt;Google&#39;s Map API&lt;/a&gt; and &lt;a href=&quot;https://dev.twitter.com/&quot; target=&quot;_blank&quot;&gt;Twitter&#39;s API&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;
+
+                A &quot;DINNER!&quot; button that allows my Mom to press a button that sends a text to all our phones may be in the pipes for the near future.
+
+                &lt;img src=&quot;/img/wherearethelees.jpg&quot; /&gt;
+
+
+&lt;/p&gt;
+</description>
+        <pubDate>Sun, 13 May 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+  </channel>
+</rss>
