@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <atom:link href="http://example.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <link>http://example.com/</link>
+    <atom:link href="http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/</link>
     <description>A website with blog posts and pages</description>
-    <pubDate>Thu, 20 Aug 2015 18:21:02 -0400</pubDate>
+    <pubDate>Fri, 21 Aug 2015 00:56:58 -0400</pubDate>
     
       <item>
         <title>How Literature and Code Overlap</title>
-        <link>http://example.com/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
-        <guid isPermaLink="true">http://example.com/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
+        <link>http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
         <description>&lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
 
 &lt;p&gt;Software, on the other hand, has overhead and accessibility issues. Sure, it also allows you to invent new meanings, and even create new languages — but currently it only evolves when you tell the machine to do something specific, and with correct details. This makes it tough for most to get involved and interested in seeing how the web, and computers will shape publishing going forward.&lt;/p&gt;
@@ -81,8 +81,8 @@
     
       <item>
         <title>Joining educreations</title>
-        <link>http://example.com/2012/10/09/Joining-Educreations.html</link>
-        <guid isPermaLink="true">http://example.com/2012/10/09/Joining-Educreations.html</guid>
+        <link>http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/10/09/Joining-Educreations.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/10/09/Joining-Educreations.html</guid>
         <description>&lt;h2 id=&quot;one-to-many&quot;&gt;One, to many&lt;/h2&gt;
 &lt;p&gt;“You know I never finished university. I’d even tell you, you don’t need university.”&lt;/p&gt;
 
@@ -117,8 +117,8 @@
     
       <item>
         <title>Globe and Mail: whiteboard alternative</title>
-        <link>http://example.com/2012/10/05/Globe-and-Mail-whiteboard.html</link>
-        <guid isPermaLink="true">http://example.com/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
+        <link>http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/10/05/Globe-and-Mail-whiteboard.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
         <description>&lt;p&gt;Was interviewed by Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
 
 &lt;p&gt;I was originally inspired to start looking for cheaper versions of whiteboards after spending a weekend at Stanford’s &lt;a href=&quot;http://dschool.stanford.edu/&quot;&gt;D.School&lt;/a&gt; working on Ben Huh’s &lt;a href=&quot;http://benhuh.com/2011/05/23/why-are-we-still-consuming-the-news-like-its-1899/&quot;&gt;Moby Dick project&lt;/a&gt;.&lt;/p&gt;
@@ -149,8 +149,8 @@
     
       <item>
         <title>Gifpost.me: building a GIF site for Martha</title>
-        <link>http://example.com/2012/05/28/building-gifpost.html</link>
-        <guid isPermaLink="true">http://example.com/2012/05/28/building-gifpost.html</guid>
+        <link>http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/05/28/building-gifpost.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/05/28/building-gifpost.html</guid>
         <description>&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Christmas is coming! &lt;a href=&quot;http://t.co/tbmRuV4gbD&quot;&gt;http://t.co/tbmRuV4gbD&lt;/a&gt; &lt;a href=&quot;http://t.co/6tyiTdxAGK&quot;&gt;pic.twitter.com/6tyiTdxAGK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Martha Stewart (@MarthaStewart) &lt;a href=&quot;https://twitter.com/MarthaStewart/status/413044190331678720&quot;&gt;December 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -176,8 +176,8 @@
     
       <item>
         <title>Where are the Lee&#39;s?</title>
-        <link>http://example.com/2012/05/13/where-are-the-lees.html</link>
-        <guid isPermaLink="true">http://example.com/2012/05/13/where-are-the-lees.html</guid>
+        <link>http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/05/13/where-are-the-lees.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/pippinlee/pippinlee/pippinlee/2012/05/13/where-are-the-lees.html</guid>
         <description>&lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
 
 &lt;p&gt;Harry Potter, of course. The weasley’s had a clock.&lt;/p&gt;
