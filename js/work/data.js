@@ -49,7 +49,7 @@ var work = {
     'item-link': 'react-formation',
     'item-description': 'A friend and I wanted to make building forms with React simpler, so we a made small React library to do just that. The library makes implementating forms easy, and with just a few dozen lines of code includes validation and A/B testing.',
     'tech': ['React for component based views', 'npm scripts for optimized development', 'Mocha.js for unit testing'],
-    'images': ['../../img/work/react-formation.png'],
+    'images': ['../img/work/react-formation.png'],
     'color': '#00c596',
     'shadow1': 'rgba(36, 214, 156, 0.5)',
     'shadow2': 'rgba(32, 234, 159, 0.22)'

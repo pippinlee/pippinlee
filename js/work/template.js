@@ -32,7 +32,7 @@ $('content').html(
 
       <div class="permalink col-sm-12 hidden-md hidden-lg">
         <div class="col-sm-2 item-link">
-          <img class="share-icon" src="../../img/work/share-b.svg" />
+          <img class="share-icon" src="../img/work/share-b.svg" />
         </div>
         <div class="link-icon col-sm-10">
           <a class="item-anchor" href=${work[item]["item-anchor"]}>${work[item]["item-link"]}</a>
@@ -41,7 +41,7 @@ $('content').html(
 
       <div class="permalink hidden-sm pull-right">
         <div class="col-md-2 item-link">
-          <img class="share-icon" src="../../img/work/share-b.svg" />
+          <img class="share-icon" src="../img/work/share-b.svg" />
         </div>
         <div class="link-icon col-md-2">
           <a class="item-anchor" target='_blank' href=${work[item]["item-anchor"]}>${work[item]["item-link"]}</a>
