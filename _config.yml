@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
-baseurl: "https://pippinlee.github.io/test-work" # the subpath of your site, e.g. /blog/
-url: "https://pippinlee.github.io/test-work" # the base hostname & protocol for your site
+baseurl: "http://pippinlee.github.io/test-work" # the subpath of your site, e.g. /blog/
+url: "http://pippinlee.github.io/test-work" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 thetheme:
