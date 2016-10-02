@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+baseurl: "http://pippinlee.github.io/work-test" # the subpath of your site, e.g. /blog/
+url: "http://pippinlee.github.io/work-test" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 theme:
@@ -45,8 +45,6 @@ theme:
 
   # Post navigation
   post_navigation: false
-
-gems: [jekyll-paginate]
 
 # PAGINATION
 paginate: 4
