@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <link>/</link>
+    <atom:link href="http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/</link>
     <description>Pippin Lee: javascript, open source, and humans</description>
-    <pubDate>Sun, 02 Oct 2016 12:07:43 -0400</pubDate>
+    <pubDate>Sun, 02 Oct 2016 12:50:20 -0400</pubDate>
     
       <item>
         <title>How to convert your Gruntfile to npm scripts</title>
-        <link>/2015/10/05/npm-scripts.html</link>
-        <guid isPermaLink="true">/2015/10/05/npm-scripts.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/10/05/npm-scripts.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/10/05/npm-scripts.html</guid>
         <description>&lt;p&gt;In this post we’re going to take a quick look at npm scripts, and the thought process behind writing them. We’ll do this by taking &lt;a href=&quot;https://github.com/mozilla/makerstrap&quot;&gt;Mozilla’s Makerstrap project&lt;/a&gt; and its &lt;a href=&quot;https://github.com/mozilla/makerstrap/blob/master/package.json&quot;&gt;Gruntfile&lt;/a&gt; and convert it to npm scripts to show us the benefits of npm scripts as a frontend build tool.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;I should note before starting that there are many use cases for Grunt or Gulp, and npm scripts may not cover all of them. While it’s likely npm scripts can reduce your Grunt or Gulp files greatly, this post’s goal isn’t to diminish the usefulness of those task running services.&lt;/strong&gt;&lt;/p&gt;
@@ -378,8 +378,8 @@
     
       <item>
         <title>Announcing the Open Journalism fellowship</title>
-        <link>/2015/08/25/Announcing-Open-Journalism-fellowships.html</link>
-        <guid isPermaLink="true">/2015/08/25/Announcing-Open-Journalism-fellowships.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/08/25/Announcing-Open-Journalism-fellowships.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/08/25/Announcing-Open-Journalism-fellowships.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;shipping-a-fellow&quot;&gt;Shipping a Fellow&lt;/h1&gt;
@@ -486,8 +486,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>Will the future of books be more like Git?</title>
-        <link>/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
-        <guid isPermaLink="true">/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*5moklcdrPhG6WmN-KC3sLw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
@@ -560,8 +560,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>The Elements of Programming Style (1978)</title>
-        <link>/2015/06/16/The-Elements-of-Programming-Style.html</link>
-        <guid isPermaLink="true">/2015/06/16/The-Elements-of-Programming-Style.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/06/16/The-Elements-of-Programming-Style.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/06/16/The-Elements-of-Programming-Style.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://cldup.com/3NY1WV6NAH.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;How do principles become timeless?&lt;/p&gt;
@@ -675,8 +675,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>Releasing Open Journalism Project</title>
-        <link>/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
-        <guid isPermaLink="true">/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*oBWUXtszDsiv_-Qq2bFLTQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We pushed out the first version of the &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/&quot;&gt;Open Journalism site&lt;/a&gt; in January. Our goal is for the site to be a place to teach students what they should know about journalism on the web. It should be fun too.&lt;/p&gt;
@@ -888,8 +888,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Command line news headlines</title>
-        <link>/2014/12/14/Command-Line-News-Headlines.html</link>
-        <guid isPermaLink="true">/2014/12/14/Command-Line-News-Headlines.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/14/Command-Line-News-Headlines.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/14/Command-Line-News-Headlines.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/4f4886778578cabc1d52a45cc3ffb7a5f2032d57/687474703a2f2f6769616e742e6766796361742e636f6d2f506c656173696e67496c6c66617465644879646174696474617065776f726d2e676966&quot; alt=&quot;cli&quot; /&gt;
 &lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/news-cli&quot;&gt;github.com/pippinlee/news-cli&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
@@ -939,8 +939,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Driving dashboard</title>
-        <link>/2014/12/04/Driving-data-dashboard.html</link>
-        <guid isPermaLink="true">/2014/12/04/Driving-data-dashboard.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/04/Driving-data-dashboard.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/04/Driving-data-dashboard.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;http://f.cl.ly/items/2j1W1w031w2Q432X1W0S/Screen%20Recording%202015-09-17%20at%2004.32%20PM.gif&quot; alt=&quot;drive&quot; /&gt;
 &lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/drive-dashboard&quot;&gt;https://github.com/pippinlee/drive-dashboard&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
@@ -966,8 +966,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Joining educreations</title>
-        <link>/2012/10/09/Joining-Educreations.html</link>
-        <guid isPermaLink="true">/2012/10/09/Joining-Educreations.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/09/Joining-Educreations.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/09/Joining-Educreations.html</guid>
         <description>&lt;h2 id=&quot;one-to-many&quot;&gt;One, to many&lt;/h2&gt;
 &lt;p&gt;“You know I never finished university. I’d even tell you, you don’t need university.”&lt;/p&gt;
 
@@ -1002,8 +1002,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Globe and Mail: whiteboard alternative</title>
-        <link>/2012/10/05/Globe-and-Mail-whiteboard.html</link>
-        <guid isPermaLink="true">/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/05/Globe-and-Mail-whiteboard.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;../../img/whiteboard.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Was interviewed by Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
@@ -1037,8 +1037,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Gifpost.me: building a GIF site for Martha</title>
-        <link>/2012/05/28/building-gifpost.html</link>
-        <guid isPermaLink="true">/2012/05/28/building-gifpost.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/28/building-gifpost.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/28/building-gifpost.html</guid>
         <description>&lt;blockquote id=&quot;tweet&quot; class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Christmas is coming! &lt;a href=&quot;http://t.co/tbmRuV4gbD&quot;&gt;http://t.co/tbmRuV4gbD&lt;/a&gt; &lt;a href=&quot;http://t.co/6tyiTdxAGK&quot;&gt;pic.twitter.com/6tyiTdxAGK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Martha Stewart (@MarthaStewart) &lt;a href=&quot;https://twitter.com/MarthaStewart/status/413044190331678720&quot;&gt;December 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -1064,8 +1064,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Where are the Lee&#39;s?</title>
-        <link>/2012/05/13/where-are-the-lees.html</link>
-        <guid isPermaLink="true">/2012/05/13/where-are-the-lees.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/13/where-are-the-lees.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/13/where-are-the-lees.html</guid>
         <description>&lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
 
 &lt;p&gt;Harry Potter, of course. The weasley’s had a clock.&lt;/p&gt;
@@ -1093,8 +1093,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Importance of travel</title>
-        <link>/2012/04/12/importance-of-travel.html</link>
-        <guid isPermaLink="true">/2012/04/12/importance-of-travel.html</guid>
+        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/04/12/importance-of-travel.html</link>
+        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/04/12/importance-of-travel.html</guid>
         <description>&lt;h3 id=&quot;culture&quot;&gt;Culture&lt;/h3&gt;
 
 &lt;p&gt;One of the biggest values you get from traveling the world is interacting with different cultures. I’ll admit that technology has made it a lot easier to learn, and having video calls with people halfway around the world is impressive, but it’s not perfect.&lt;/p&gt;
