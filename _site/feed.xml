@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <atom:link href="http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/feed.xml" rel="self" type="application/rss+xml"/>
-    <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/</link>
-    <description>Pippin Lee: javascript, open source, and humans</description>
-    <pubDate>Sun, 02 Oct 2016 12:50:20 -0400</pubDate>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>/</link>
+    <description></description>
+    <pubDate>Sun, 02 Oct 2016 13:39:17 -0400</pubDate>
     
       <item>
         <title>How to convert your Gruntfile to npm scripts</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/10/05/npm-scripts.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/10/05/npm-scripts.html</guid>
+        <link>/2015/10/05/npm-scripts.html</link>
+        <guid isPermaLink="true">/2015/10/05/npm-scripts.html</guid>
         <description>&lt;p&gt;In this post we’re going to take a quick look at npm scripts, and the thought process behind writing them. We’ll do this by taking &lt;a href=&quot;https://github.com/mozilla/makerstrap&quot;&gt;Mozilla’s Makerstrap project&lt;/a&gt; and its &lt;a href=&quot;https://github.com/mozilla/makerstrap/blob/master/package.json&quot;&gt;Gruntfile&lt;/a&gt; and convert it to npm scripts to show us the benefits of npm scripts as a frontend build tool.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;I should note before starting that there are many use cases for Grunt or Gulp, and npm scripts may not cover all of them. While it’s likely npm scripts can reduce your Grunt or Gulp files greatly, this post’s goal isn’t to diminish the usefulness of those task running services.&lt;/strong&gt;&lt;/p&gt;
@@ -21,35 +21,35 @@
 
 &lt;p&gt;If you already have a good understanding of npm scripts you can skip this overview.&lt;/p&gt;
 
-&lt;p&gt;If you’re less confident with &lt;a href=&quot;https://docs.npmjs.com/misc/scripts&quot;&gt;npm scripts&lt;/a&gt;, all you really need to know is that it allows you to add tasks to your package.json’s &lt;code&gt;scripts&lt;/code&gt; object. These tasks are run pretty much exactly like how you would run them through the command line.&lt;/p&gt;
+&lt;p&gt;If you’re less confident with &lt;a href=&quot;https://docs.npmjs.com/misc/scripts&quot;&gt;npm scripts&lt;/a&gt;, all you really need to know is that it allows you to add tasks to your package.json’s &lt;code class=&quot;highlighter-rouge&quot;&gt;scripts&lt;/code&gt; object. These tasks are run pretty much exactly like how you would run them through the command line.&lt;/p&gt;
 
-&lt;p&gt;What does a npm script look like? &lt;code&gt;start: node server.js&lt;/code&gt; is a example of a simple script that allows a node server to start when you type &lt;code&gt;npm start&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;What does a npm script look like? &lt;code class=&quot;highlighter-rouge&quot;&gt;start: node server.js&lt;/code&gt; is a example of a simple script that allows a node server to start when you type &lt;code class=&quot;highlighter-rouge&quot;&gt;npm start&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;There are 3 main things you should know about npm script naming:&lt;/p&gt;
 
 &lt;h4 id=&quot;built-in-script-naming&quot;&gt;1) built-in script naming&lt;/h4&gt;
 
-&lt;p&gt;npm has a list of ready-to-use npm script property names such as &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;run&lt;/code&gt;, and &lt;code&gt;test&lt;/code&gt;. In fact the command you likely use daily, &lt;code&gt;npm install&lt;/code&gt;, is an npm script! You can run a script by running &lt;code&gt;$ npm &amp;lt;name of script&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;npm has a list of ready-to-use npm script property names such as &lt;code class=&quot;highlighter-rouge&quot;&gt;start&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;run&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;. In fact the command you likely use daily, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install&lt;/code&gt;, is an npm script! You can run a script by running &lt;code class=&quot;highlighter-rouge&quot;&gt;$ npm &amp;lt;name of script&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;pre-and-post-script-naming&quot;&gt;2) pre and post script naming&lt;/h4&gt;
 
-&lt;p&gt;When naming your scripts, you can add &lt;code&gt;pre&lt;/code&gt; or &lt;code&gt;post&lt;/code&gt; to tell npm to run them before or after. So if you have a &lt;code&gt;start&lt;/code&gt; script, you could also write a &lt;code&gt;prestart&lt;/code&gt; script that will run something before the &lt;code&gt;start&lt;/code&gt; script runs.&lt;/p&gt;
+&lt;p&gt;When naming your scripts, you can add &lt;code class=&quot;highlighter-rouge&quot;&gt;pre&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt; to tell npm to run them before or after. So if you have a &lt;code class=&quot;highlighter-rouge&quot;&gt;start&lt;/code&gt; script, you could also write a &lt;code class=&quot;highlighter-rouge&quot;&gt;prestart&lt;/code&gt; script that will run something before the &lt;code class=&quot;highlighter-rouge&quot;&gt;start&lt;/code&gt; script runs.&lt;/p&gt;
 
 &lt;h4 id=&quot;custom-script-naming&quot;&gt;3) custom script naming&lt;/h4&gt;
 
-&lt;p&gt;If you’re like me, and want to be more 🐠expressive🐠, you can use your own script names. If for example we wanted to re-write that start command we could do so with &lt;code&gt;getTheFluxCapacitorFluxingDoc: node server.js&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you’re like me, and want to be more 🐠expressive🐠, you can use your own script names. If for example we wanted to re-write that start command we could do so with &lt;code class=&quot;highlighter-rouge&quot;&gt;getTheFluxCapacitorFluxingDoc: node server.js&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;To run our custom named script we’d then run &lt;code&gt;$ npm run getTheFluxCapacitorFluxingDoc&lt;/code&gt;, with &lt;code&gt;run&lt;/code&gt; telling npm to run a non-standard named script.&lt;/p&gt;
+&lt;p&gt;To run our custom named script we’d then run &lt;code class=&quot;highlighter-rouge&quot;&gt;$ npm run getTheFluxCapacitorFluxingDoc&lt;/code&gt;, with &lt;code class=&quot;highlighter-rouge&quot;&gt;run&lt;/code&gt; telling npm to run a non-standard named script.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://cldup.com/HqEb5nx20B.gif&quot; alt=&quot;npm scripts&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Running multiple scripts&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;To run multiple scripts we can use syntax like &lt;code&gt;npm run watch:*&lt;/code&gt; which looks for any &lt;code&gt;watch:&amp;lt;asubtask&amp;gt;&lt;/code&gt; and runs them. This allows us to break use a script strucutre that represent smaller individual tasks, and then run them altogether.&lt;/p&gt;
+&lt;p&gt;To run multiple scripts we can use syntax like &lt;code class=&quot;highlighter-rouge&quot;&gt;npm run watch:*&lt;/code&gt; which looks for any &lt;code class=&quot;highlighter-rouge&quot;&gt;watch:&amp;lt;asubtask&amp;gt;&lt;/code&gt; and runs them. This allows us to break use a script strucutre that represent smaller individual tasks, and then run them altogether.&lt;/p&gt;
 
-&lt;p&gt;Another popular way of running scripts is with &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;&lt;code&gt;npm-run-all&lt;/code&gt;&lt;/a&gt; module which allows us to use its &lt;code&gt;--parallel&lt;/code&gt; argument to run scripts in parallel.&lt;/p&gt;
+&lt;p&gt;Another popular way of running scripts is with &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm-run-all&lt;/code&gt;&lt;/a&gt; module which allows us to use its &lt;code class=&quot;highlighter-rouge&quot;&gt;--parallel&lt;/code&gt; argument to run scripts in parallel.&lt;/p&gt;
 
-&lt;p&gt;Just like on the command line, npm scripts also allows us to use &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; syntax to add additional commands to a script.&lt;/p&gt;
+&lt;p&gt;Just like on the command line, npm scripts also allows us to use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt; syntax to add additional commands to a script.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;TLDR: Why do I use npm scripts?&lt;/strong&gt;&lt;/p&gt;
 
@@ -62,86 +62,86 @@
 
 &lt;h2 id=&quot;lets-begin&quot;&gt;Let’s begin&lt;/h2&gt;
 
-&lt;p&gt;We’re going to work through converting Makerstrap’s Gruntfile into npm scripts that will live in &lt;code&gt;package.json&lt;/code&gt;. This should hopefully show that simplifying your build process isn’t too painful. Let’s take quick look at the Gruntfile:&lt;/p&gt;
+&lt;p&gt;We’re going to work through converting Makerstrap’s Gruntfile into npm scripts that will live in &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;. This should hopefully show that simplifying your build process isn’t too painful. Let’s take quick look at the Gruntfile:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;time-grunt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;jit-grunt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;grunt-shell-spawn&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'time-grunt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'jit-grunt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'grunt-shell-spawn'&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readJSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;package.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.dev.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;pkg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readJSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'package.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;'demo/compiled/demo.dev.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'demo/less/demo.less'&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;sourceMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;sourceMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.complete.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-          &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.complete.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;'dist/makerstrap.min.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'less/build/makerstrap.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;'dist/makerstrap.complete.min.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;'less/build/makerstrap.complete.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;'demo/compiled/demo.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'demo/less/demo.less'&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;runServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;runServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;node demo/server.js&amp;#39;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'node demo/server.js'&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'less/**/*.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'demo/less/**/*.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'less:development'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/latest/&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dist/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'**/*'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'deploy/latest/'&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/v&amp;lt;%= pkg.version %&amp;gt;/&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dist/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'**/*'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'deploy/v&amp;lt;%= pkg.version %&amp;gt;/'&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;filesize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;filesize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
           &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;*.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dist/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'*.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
           &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
-  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;shell:runServer&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s1&quot;&gt;&amp;#39;watch&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;stats&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;filesize&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;build&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:build&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;filesize&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;copy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'less:development'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'shell:runServer'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;'watch'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'stats'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'less:development'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'filesize'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'build'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'less:build'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'filesize'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'deploy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'copy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;so-whats-under-there-anyways-under-wear&quot;&gt;So what’s under there anyways? Under wear?&lt;/h3&gt;
@@ -149,7 +149,7 @@
 &lt;p&gt;To start our process of writing npm scripts, let’s start by breaking the Gruntfile into it’s different pieces. There are 4 registered tasks at the bottom of the Gruntfile:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;default (works with just running &lt;code&gt;grunt&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;default (works with just running &lt;code class=&quot;highlighter-rouge&quot;&gt;grunt&lt;/code&gt;)&lt;/li&gt;
   &lt;li&gt;stats&lt;/li&gt;
   &lt;li&gt;build&lt;/li&gt;
   &lt;li&gt;deploy&lt;/li&gt;
@@ -157,144 +157,144 @@
 
 &lt;p&gt;We’ll use this structure for writing our npm scripts.&lt;/p&gt;
 
-&lt;h2 id=&quot;default-task&quot;&gt;1) &lt;code&gt;default&lt;/code&gt; task&lt;/h2&gt;
+&lt;h2 id=&quot;default-task&quot;&gt;1) &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; task&lt;/h2&gt;
 
-&lt;p&gt;These tasks would be typically run by running &lt;code&gt;grunt&lt;/code&gt;, and were used as a way to get the necessary server and files going for development. The task is made up of three pieces that are wrapped together in a &lt;code&gt;registerTask&lt;/code&gt; called &lt;code&gt;default&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;These tasks would be typically run by running &lt;code class=&quot;highlighter-rouge&quot;&gt;grunt&lt;/code&gt;, and were used as a way to get the necessary server and files going for development. The task is made up of three pieces that are wrapped together in a &lt;code class=&quot;highlighter-rouge&quot;&gt;registerTask&lt;/code&gt; called &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;default&#39;, [&#39;less:development&#39;, &#39;shell:runServer&#39;, &#39;watch&#39; ]);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grunt.registerTask('default', ['less:development', 'shell:runServer', 'watch' ]);&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;a-lessdevelopment&quot;&gt;a) &lt;code&gt;less:development&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;a-lessdevelopment&quot;&gt;a) &lt;code class=&quot;highlighter-rouge&quot;&gt;less:development&lt;/code&gt;&lt;/h4&gt;
 
-&lt;p&gt;Let’s first look at trying to rewrite the &lt;code&gt;less:development&lt;/code&gt; part of the task as an npm script.&lt;/p&gt;
+&lt;p&gt;Let’s first look at trying to rewrite the &lt;code class=&quot;highlighter-rouge&quot;&gt;less:development&lt;/code&gt; part of the task as an npm script.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.dev.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;'demo/compiled/demo.dev.css'&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'demo/less/demo.less'&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;sourceMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;sourceMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;In the Gruntfile we used &lt;code&gt;&#39;demo/compiled/demo.dev.css&#39;: &#39;demo/less/demo.less&#39;&lt;/code&gt; to compile &lt;code&gt;demo.less&lt;/code&gt; to &lt;code&gt;demo.dev.css&lt;/code&gt; and place it in a &lt;code&gt;compiled&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;In the Gruntfile we used &lt;code class=&quot;highlighter-rouge&quot;&gt;'demo/compiled/demo.dev.css': 'demo/less/demo.less'&lt;/code&gt; to compile &lt;code class=&quot;highlighter-rouge&quot;&gt;demo.less&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;demo.dev.css&lt;/code&gt; and place it in a &lt;code class=&quot;highlighter-rouge&quot;&gt;compiled&lt;/code&gt; directory.&lt;/p&gt;
 
-&lt;p&gt;We can use the great &lt;a href=&quot;https://github.com/jgonera/autoless&quot;&gt;autoless&lt;/a&gt; module to help us compile our &lt;code&gt;.less&lt;/code&gt; file. While autoless does have a &lt;code&gt;watch&lt;/code&gt; feature we don’t need that here because we just want the compile feature.&lt;/p&gt;
+&lt;p&gt;We can use the great &lt;a href=&quot;https://github.com/jgonera/autoless&quot;&gt;autoless&lt;/a&gt; module to help us compile our &lt;code class=&quot;highlighter-rouge&quot;&gt;.less&lt;/code&gt; file. While autoless does have a &lt;code class=&quot;highlighter-rouge&quot;&gt;watch&lt;/code&gt; feature we don’t need that here because we just want the compile feature.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;autoless&lt;/code&gt; doesn’t let’s you specify a specific file, so we can just give it the &lt;code&gt;demo/less/&lt;/code&gt; directory as a source, and &lt;code&gt;demo/compiled/&lt;/code&gt; as the output point for the compiled &lt;code&gt;.css&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;autoless&lt;/code&gt; doesn’t let’s you specify a specific file, so we can just give it the &lt;code class=&quot;highlighter-rouge&quot;&gt;demo/less/&lt;/code&gt; directory as a source, and &lt;code class=&quot;highlighter-rouge&quot;&gt;demo/compiled/&lt;/code&gt; as the output point for the compiled &lt;code class=&quot;highlighter-rouge&quot;&gt;.css&lt;/code&gt; file.&lt;/p&gt;
 
 &lt;p&gt;Here’s what the above Gruntfile code looks like as an npm script:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map --no-watch demo/less/ demo/compiled/&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;less-dev&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;autoless --source-map --no-watch demo/less/ demo/compiled/&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h4 id=&quot;b-watch&quot;&gt;b) &lt;code&gt;watch&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;b-watch&quot;&gt;b) &lt;code class=&quot;highlighter-rouge&quot;&gt;watch&lt;/code&gt;&lt;/h4&gt;
 
 &lt;p&gt;Our next ~task~ to recreate as a script is a watch task:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'less/**/*.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'demo/less/**/*.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'less:development'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The above code watches a set of &lt;code&gt;.less&lt;/code&gt; files and runs the &lt;code&gt;less:development&lt;/code&gt; compile task when it sees a change.&lt;/p&gt;
+&lt;p&gt;The above code watches a set of &lt;code class=&quot;highlighter-rouge&quot;&gt;.less&lt;/code&gt; files and runs the &lt;code class=&quot;highlighter-rouge&quot;&gt;less:development&lt;/code&gt; compile task when it sees a change.&lt;/p&gt;
 
-&lt;p&gt;We can use &lt;code&gt;autoless&lt;/code&gt; here again. We’ll also give it the general directory name:&lt;/p&gt;
+&lt;p&gt;We can use &lt;code class=&quot;highlighter-rouge&quot;&gt;autoless&lt;/code&gt; here again. We’ll also give it the general directory name:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:demo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map demo/less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:base&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;watch:demo&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;autoless --source-map demo/less/ &amp;amp;&amp;amp; npm run less-dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;watch:base&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;autoless --source-map less/ &amp;amp;&amp;amp; npm run less-dev&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h4 id=&quot;c-shellrunserver&quot;&gt;c) &lt;code&gt;shell:runServer&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;c-shellrunserver&quot;&gt;c) &lt;code class=&quot;highlighter-rouge&quot;&gt;shell:runServer&lt;/code&gt;&lt;/h4&gt;
 
 &lt;p&gt;Finally, we need to look at adding a short script to replace this command.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;runServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;runServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;node demo/server.js&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'node demo/server.js'&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This Grunt task can be summed up very nicely like so:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;&quot;server&quot;: &quot;node demo/server.js&quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;server&quot;: &quot;node demo/server.js&quot;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Note: &lt;code&gt;server&lt;/code&gt; is one of npm’s reserved properties.&lt;/p&gt;
+&lt;p&gt;Note: &lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; is one of npm’s reserved properties.&lt;/p&gt;
 
-&lt;h2 id=&quot;stats-task&quot;&gt;2) &lt;code&gt;stats&lt;/code&gt; task&lt;/h2&gt;
+&lt;h2 id=&quot;stats-task&quot;&gt;2) &lt;code class=&quot;highlighter-rouge&quot;&gt;stats&lt;/code&gt; task&lt;/h2&gt;
 
-&lt;p&gt;For the stats task we’ll need to write a script that checks the filesize. We already have the &lt;code&gt;less:dev&lt;/code&gt; task completed above.&lt;/p&gt;
+&lt;p&gt;For the stats task we’ll need to write a script that checks the filesize. We already have the &lt;code class=&quot;highlighter-rouge&quot;&gt;less:dev&lt;/code&gt; task completed above.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;stats&#39;, [&#39;less:development&#39;, &#39;filesize&#39;]);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grunt.registerTask('stats', ['less:development', 'filesize']);&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;a-filesize&quot;&gt;a) &lt;code&gt;filesize&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;a-filesize&quot;&gt;a) &lt;code class=&quot;highlighter-rouge&quot;&gt;filesize&lt;/code&gt;&lt;/h4&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;filesize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;filesize&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;*.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dist/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'*.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The above code outputs the following when &lt;code&gt;$ grunt stats&lt;/code&gt; is run:&lt;/p&gt;
+&lt;p&gt;The above code outputs the following when &lt;code class=&quot;highlighter-rouge&quot;&gt;$ grunt stats&lt;/code&gt; is run:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://cldup.com/I4qr6-GSHp.png&quot; alt=&quot;grunt task&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;It returns the size &lt;code&gt;makerstrap.complete.min.css&lt;/code&gt; and &lt;code&gt;makerstrap.min.css&lt;/code&gt;, it also tells us how long it took for the task to run.&lt;/p&gt;
+&lt;p&gt;It returns the size &lt;code class=&quot;highlighter-rouge&quot;&gt;makerstrap.complete.min.css&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;makerstrap.min.css&lt;/code&gt;, it also tells us how long it took for the task to run.&lt;/p&gt;
 
 &lt;p&gt;For the purpose of this post, we’ll skip trying to output nice charts, and focus just on returning the file sizes.&lt;/p&gt;
 
-&lt;p&gt;I couldn’t find an alternative to the Grunt filesize plugin, but it’s a very simple feature to recreate. Just create a tiny &lt;code&gt;filesize.js&lt;/code&gt; module and use &lt;code&gt;fs.stat&lt;/code&gt; to return the filesize values.&lt;/p&gt;
+&lt;p&gt;I couldn’t find an alternative to the Grunt filesize plugin, but it’s a very simple feature to recreate. Just create a tiny &lt;code class=&quot;highlighter-rouge&quot;&gt;filesize.js&lt;/code&gt; module and use &lt;code class=&quot;highlighter-rouge&quot;&gt;fs.stat&lt;/code&gt; to return the filesize values.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fs'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cli-color&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cli-color'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;kb&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;': '&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'kb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Because npm scripts allows us to run a node command from the script, we can use &lt;code&gt;filesize.js&lt;/code&gt; like so to return the filesizes:&lt;/p&gt;
+&lt;p&gt;Because npm scripts allows us to run a node command from the script, we can use &lt;code class=&quot;highlighter-rouge&quot;&gt;filesize.js&lt;/code&gt; like so to return the filesizes:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;stats: node filesize.js makerstrap.complete.min.js &amp;amp;&amp;amp; node filesize.js makerstrap.min.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;stats: node filesize.js makerstrap.complete.min.js &amp;amp;&amp;amp; node filesize.js makerstrap.min.js&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;which outputs something very similar to the grunt plug-in.
 &lt;img src=&quot;https://cldup.com/BKWn1bE3wu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;build-task&quot;&gt;3) &lt;code&gt;build&lt;/code&gt; task&lt;/h2&gt;
+&lt;h2 id=&quot;build-task&quot;&gt;3) &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; task&lt;/h2&gt;
 
-&lt;p&gt;We’ve already written a &lt;code&gt;filesize&lt;/code&gt; script, so we’ll just focus on &lt;code&gt;less:build&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We’ve already written a &lt;code class=&quot;highlighter-rouge&quot;&gt;filesize&lt;/code&gt; script, so we’ll just focus on &lt;code class=&quot;highlighter-rouge&quot;&gt;less:build&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;build&#39;, [&#39;less:build&#39;, &#39;filesize&#39;]);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grunt.registerTask('build', ['less:build', 'filesize']);&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;a-lessbuild&quot;&gt;a) &lt;code&gt;less:build&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;a-lessbuild&quot;&gt;a) &lt;code class=&quot;highlighter-rouge&quot;&gt;less:build&lt;/code&gt;&lt;/h4&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.complete.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.complete.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'dist/makerstrap.min.css'&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'less/build/makerstrap.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'dist/makerstrap.complete.min.css'&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'less/build/makerstrap.complete.less'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;'demo/compiled/demo.css'&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'demo/less/demo.less'&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The above code builds our Makerstrap app readying it for deployment.&lt;/p&gt;
 
-&lt;p&gt;It creates &lt;code&gt;dist/makerstrap.min.css&lt;/code&gt;, &lt;code&gt;dist/makerstrap.complete.min.css&lt;/code&gt;, and &lt;code&gt;demo/compiled/demo.css&lt;/code&gt; from their respective &lt;code&gt;.less&lt;/code&gt; files.&lt;/p&gt;
+&lt;p&gt;It creates &lt;code class=&quot;highlighter-rouge&quot;&gt;dist/makerstrap.min.css&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;dist/makerstrap.complete.min.css&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;demo/compiled/demo.css&lt;/code&gt; from their respective &lt;code class=&quot;highlighter-rouge&quot;&gt;.less&lt;/code&gt; files.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;less/build/makerstrap.less -&amp;gt; dist/makerstrap.min.css&lt;/li&gt;
@@ -302,61 +302,61 @@
   &lt;li&gt;demo/less/demo.less -&amp;gt; demo/compiled/demo.css&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;To accomplish this, we can re-use our &lt;code&gt;less-dev&lt;/code&gt; task and combine it with another &lt;code&gt;autoless&lt;/code&gt; command to handle the two &lt;code&gt;build/&lt;/code&gt; files. Altogether our npm script for the build task would look something like this:&lt;/p&gt;
+&lt;p&gt;To accomplish this, we can re-use our &lt;code class=&quot;highlighter-rouge&quot;&gt;less-dev&lt;/code&gt; task and combine it with another &lt;code class=&quot;highlighter-rouge&quot;&gt;autoless&lt;/code&gt; command to handle the two &lt;code class=&quot;highlighter-rouge&quot;&gt;build/&lt;/code&gt; files. Altogether our npm script for the build task would look something like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;npm run less-dev &amp;amp;&amp;amp; autoless --source-map --no-watch less/build/ dist/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run less-dev &amp;amp;&amp;amp; autoless --source-map --no-watch less/build/ dist/&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;deploy&quot;&gt;4) &lt;code&gt;deploy&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;deploy&quot;&gt;4) &lt;code class=&quot;highlighter-rouge&quot;&gt;deploy&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;Now, we can write the script for the final Grunt task:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;deploy&#39;, [&#39;copy&#39;]);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grunt.registerTask('deploy', ['copy']);&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;a-copy&quot;&gt;a) &lt;code&gt;copy&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;a-copy&quot;&gt;a) &lt;code class=&quot;highlighter-rouge&quot;&gt;copy&lt;/code&gt;&lt;/h4&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/latest/&amp;#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dist/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'**/*'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'deploy/latest/'&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/v&amp;lt;%= pkg.version %&amp;gt;/&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dist/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'**/*'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'deploy/v&amp;lt;%= pkg.version %&amp;gt;/'&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code&gt;copy:latest&lt;/code&gt; creates a directory called &lt;code&gt;latest&lt;/code&gt; in &lt;code&gt;/dist&lt;/code&gt; and adds a build version of your app.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;copy:latest&lt;/code&gt; creates a directory called &lt;code class=&quot;highlighter-rouge&quot;&gt;latest&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;/dist&lt;/code&gt; and adds a build version of your app.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;copy:version&lt;/code&gt; creates a directory called &lt;code&gt;version&lt;/code&gt; in &lt;code&gt;/dist&lt;/code&gt; and adds a build version of Makerstrap’s css files.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;copy:version&lt;/code&gt; creates a directory called &lt;code class=&quot;highlighter-rouge&quot;&gt;version&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;/dist&lt;/code&gt; and adds a build version of Makerstrap’s css files.&lt;/p&gt;
 
-&lt;p&gt;We can use the great &lt;a href=&quot;https://www.npmjs.com/package/cpx&quot;&gt;&lt;code&gt;cpx module&lt;/code&gt;&lt;/a&gt; to copy files to &lt;code&gt;/dist&lt;/code&gt; like so:&lt;/p&gt;
+&lt;p&gt;We can use the great &lt;a href=&quot;https://www.npmjs.com/package/cpx&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cpx module&lt;/code&gt;&lt;/a&gt; to copy files to &lt;code class=&quot;highlighter-rouge&quot;&gt;/dist&lt;/code&gt; like so:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;build:deploy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm run build:copy &amp;amp;&amp;amp; build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;&amp;quot;build:copy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;**/*\&amp;quot; deploy/latest/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;&amp;quot;build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;dist/**/*\&amp;quot; deploy/pkg-version/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;build:deploy&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;npm run build:copy &amp;amp;&amp;amp; build:version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;build:copy&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cpx \&quot;**/*\&quot; deploy/latest/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;build:version&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cpx \&quot;dist/**/*\&quot; deploy/pkg-version/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;wrap-up&quot;&gt;Wrap up&lt;/h2&gt;
 
 &lt;p&gt;So if we take all of our newly written npm scripts, we should have something that looks like this:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;start&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm-run-all --parallel server watch:*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map --no-watch demo/less/ demo/compiled/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:demo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map demo/less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:base&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm run less-dev &amp;amp;&amp;amp; autoless --source-map --no-watch less/build dist/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build:deploy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm run build:copy &amp;amp;&amp;amp; build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build:copy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;**/*\&amp;quot; deploy/latest/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;dist/**/*\&amp;quot; deploy/pkg-version/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;node demo/server.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;postinstall&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bower install&amp;quot;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;npm-run-all --parallel server watch:*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;less-dev&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;autoless --source-map --no-watch demo/less/ demo/compiled/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;watch:demo&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;autoless --source-map demo/less/ &amp;amp;&amp;amp; npm run less-dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;watch:base&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;autoless --source-map less/ &amp;amp;&amp;amp; npm run less-dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;npm run less-dev &amp;amp;&amp;amp; autoless --source-map --no-watch less/build dist/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;build:deploy&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;npm run build:copy &amp;amp;&amp;amp; build:version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;build:copy&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cpx \&quot;**/*\&quot; deploy/latest/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;build:version&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cpx \&quot;dist/**/*\&quot; deploy/pkg-version/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;node demo/server.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;postinstall&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bower install&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;For ease I’ve used the &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;&lt;code&gt;npm-run-all&lt;/code&gt;&lt;/a&gt; module to be able to run the server and watch tasks in parallel when I run &lt;code&gt;npm start&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For ease I’ve used the &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm-run-all&lt;/code&gt;&lt;/a&gt; module to be able to run the server and watch tasks in parallel when I run &lt;code class=&quot;highlighter-rouge&quot;&gt;npm start&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;All told, that wasn’t too painless, and should hopefully be easier to handle as your app and frontend pieces evolve.&lt;/p&gt;
 
@@ -370,7 +370,7 @@
   &lt;li&gt;&lt;a href=&quot;http://substack.net/task_automation_with_npm_run&quot;&gt;Substack on “npm run”&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=0RYETb9YVrk&quot;&gt;Kate Hudson’s “advanced front-end automation with npm” talk&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.npmjs.com/cli/run-script&quot;&gt;npm’s great docs on “run-script”&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Please do be careful if you include the &lt;code&gt;getTheFluxCapacitorFluxingDoc&lt;/code&gt; command in your npm script, I can’t tell you how often I’ve forgotten to include an &lt;code&gt;end&lt;/code&gt; script to cool and shut it down and then ended up back at Alamos with Feynman.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Please do be careful if you include the &lt;code class=&quot;highlighter-rouge&quot;&gt;getTheFluxCapacitorFluxingDoc&lt;/code&gt; command in your npm script, I can’t tell you how often I’ve forgotten to include an &lt;code class=&quot;highlighter-rouge&quot;&gt;end&lt;/code&gt; script to cool and shut it down and then ended up back at Alamos with Feynman.&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 05 Oct 2015 00:00:00 -0400</pubDate>
@@ -378,8 +378,8 @@
     
       <item>
         <title>Announcing the Open Journalism fellowship</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/08/25/Announcing-Open-Journalism-fellowships.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/08/25/Announcing-Open-Journalism-fellowships.html</guid>
+        <link>/2015/08/25/Announcing-Open-Journalism-fellowships.html</link>
+        <guid isPermaLink="true">/2015/08/25/Announcing-Open-Journalism-fellowships.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;shipping-a-fellow&quot;&gt;Shipping a Fellow&lt;/h1&gt;
@@ -486,8 +486,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>Will the future of books be more like Git?</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
+        <link>/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
+        <guid isPermaLink="true">/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*5moklcdrPhG6WmN-KC3sLw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
@@ -516,7 +516,7 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;As we explored the number of story categories and forums within Wattpad we found prolific communities sharing the wildest parts of their minds through stories. By far the biggest success within fan fiction (and informal publishing) is 50 Shades of Grey, which &lt;a href=&quot;https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey#Background&quot;&gt;started as Twilight&lt;/a&gt; fan fiction.&lt;/p&gt;
 
-&lt;p&gt;So we began thinking about the web and its impact on publishing. Traditionally, the final product would be a book in the local store, but what is the “final product” when the process to publishing is just a &lt;code&gt;≤button/&amp;gt;&lt;/code&gt; on a page?&lt;/p&gt;
+&lt;p&gt;So we began thinking about the web and its impact on publishing. Traditionally, the final product would be a book in the local store, but what is the “final product” when the process to publishing is just a &lt;code class=&quot;highlighter-rouge&quot;&gt;≤button/&amp;gt;&lt;/code&gt; on a page?&lt;/p&gt;
 
 &lt;h2 id=&quot;the-end-of-a-story-is-no-longer-static&quot;&gt;The End of a Story is No Longer Static&lt;/h2&gt;
 
@@ -560,8 +560,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>The Elements of Programming Style (1978)</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/06/16/The-Elements-of-Programming-Style.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/06/16/The-Elements-of-Programming-Style.html</guid>
+        <link>/2015/06/16/The-Elements-of-Programming-Style.html</link>
+        <guid isPermaLink="true">/2015/06/16/The-Elements-of-Programming-Style.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://cldup.com/3NY1WV6NAH.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;How do principles become timeless?&lt;/p&gt;
@@ -675,8 +675,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>Releasing Open Journalism Project</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
+        <link>/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
+        <guid isPermaLink="true">/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*oBWUXtszDsiv_-Qq2bFLTQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We pushed out the first version of the &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/&quot;&gt;Open Journalism site&lt;/a&gt; in January. Our goal is for the site to be a place to teach students what they should know about journalism on the web. It should be fun too.&lt;/p&gt;
@@ -888,12 +888,12 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Command line news headlines</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/14/Command-Line-News-Headlines.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/14/Command-Line-News-Headlines.html</guid>
+        <link>/2014/12/14/Command-Line-News-Headlines.html</link>
+        <guid isPermaLink="true">/2014/12/14/Command-Line-News-Headlines.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/4f4886778578cabc1d52a45cc3ffb7a5f2032d57/687474703a2f2f6769616e742e6766796361742e636f6d2f506c656173696e67496c6c66617465644879646174696474617065776f726d2e676966&quot; alt=&quot;cli&quot; /&gt;
 &lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/news-cli&quot;&gt;github.com/pippinlee/news-cli&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Try it: &lt;code&gt;npm install get-healines -g&lt;/code&gt; (or without -g flag)&lt;/p&gt;
+&lt;p&gt;Try it: &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install get-healines -g&lt;/code&gt; (or without -g flag)&lt;/p&gt;
 
 &lt;p&gt;Most projects I start come from a question, or a few. While part of the excuse of doing this project was to get more familiar with working with node and scraping data, I also wanted to help answer these questions:&lt;/p&gt;
 
@@ -913,7 +913,7 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
 
 &lt;h3 id=&quot;building-a-database-for-scraping&quot;&gt;Building a database for scraping&lt;/h3&gt;
 
-&lt;p&gt;Design-wise, I’ve made it so that users can add additional arguments to specify if they want news from a specific city, province, state, or country. When you type in &lt;code&gt;get-headlines canada&lt;/code&gt;, the scraper runs and grabs all the headlines I’ve specified it to get. For now I have it set to purposefully only grab the most recent headline of each website.&lt;/p&gt;
+&lt;p&gt;Design-wise, I’ve made it so that users can add additional arguments to specify if they want news from a specific city, province, state, or country. When you type in &lt;code class=&quot;highlighter-rouge&quot;&gt;get-headlines canada&lt;/code&gt;, the scraper runs and grabs all the headlines I’ve specified it to get. For now I have it set to purposefully only grab the most recent headline of each website.&lt;/p&gt;
 
 &lt;p&gt;In their newer versions, Firefox does make it much easier to find the correct DOM path to get to an element. Once your FF inspector is open you can right click on an element in the inspector window and copy its path.&lt;/p&gt;
 
@@ -921,7 +921,7 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
 
 &lt;p&gt;Anecdotally, there’s a wide range of ways we could get headlines outside of scraping. Many sites do have half-decent RSS feeds, and some (too few), have public API’s for their stories.&lt;/p&gt;
 
-&lt;p&gt;You can download the &lt;code&gt;get-headlines&lt;/code&gt; command line tool with &lt;code&gt;npm install get-headlines -g&lt;/code&gt;, or without &lt;code&gt;-g&lt;/code&gt; if you don’t want it installed globally.&lt;/p&gt;
+&lt;p&gt;You can download the &lt;code class=&quot;highlighter-rouge&quot;&gt;get-headlines&lt;/code&gt; command line tool with &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install get-headlines -g&lt;/code&gt;, or without &lt;code class=&quot;highlighter-rouge&quot;&gt;-g&lt;/code&gt; if you don’t want it installed globally.&lt;/p&gt;
 
 &lt;p&gt;Right now there are 25 different local news sites that can be queried via command line. One difficulty going forward will be monitoring for when websites change their URL paths or site design, so the current scraper paths I have will no longer work. Adding a testing system would be a good way to get my attention that I need to update a site’s URL path or query path.&lt;/p&gt;
 
@@ -939,8 +939,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Driving dashboard</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/04/Driving-data-dashboard.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/04/Driving-data-dashboard.html</guid>
+        <link>/2014/12/04/Driving-data-dashboard.html</link>
+        <guid isPermaLink="true">/2014/12/04/Driving-data-dashboard.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;http://f.cl.ly/items/2j1W1w031w2Q432X1W0S/Screen%20Recording%202015-09-17%20at%2004.32%20PM.gif&quot; alt=&quot;drive&quot; /&gt;
 &lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/drive-dashboard&quot;&gt;https://github.com/pippinlee/drive-dashboard&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
@@ -966,8 +966,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Joining educreations</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/09/Joining-Educreations.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/09/Joining-Educreations.html</guid>
+        <link>/2012/10/09/Joining-Educreations.html</link>
+        <guid isPermaLink="true">/2012/10/09/Joining-Educreations.html</guid>
         <description>&lt;h2 id=&quot;one-to-many&quot;&gt;One, to many&lt;/h2&gt;
 &lt;p&gt;“You know I never finished university. I’d even tell you, you don’t need university.”&lt;/p&gt;
 
@@ -1002,8 +1002,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Globe and Mail: whiteboard alternative</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/05/Globe-and-Mail-whiteboard.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
+        <link>/2012/10/05/Globe-and-Mail-whiteboard.html</link>
+        <guid isPermaLink="true">/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;../../img/whiteboard.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Was interviewed by Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
@@ -1037,8 +1037,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Gifpost.me: building a GIF site for Martha</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/28/building-gifpost.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/28/building-gifpost.html</guid>
+        <link>/2012/05/28/building-gifpost.html</link>
+        <guid isPermaLink="true">/2012/05/28/building-gifpost.html</guid>
         <description>&lt;blockquote id=&quot;tweet&quot; class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Christmas is coming! &lt;a href=&quot;http://t.co/tbmRuV4gbD&quot;&gt;http://t.co/tbmRuV4gbD&lt;/a&gt; &lt;a href=&quot;http://t.co/6tyiTdxAGK&quot;&gt;pic.twitter.com/6tyiTdxAGK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Martha Stewart (@MarthaStewart) &lt;a href=&quot;https://twitter.com/MarthaStewart/status/413044190331678720&quot;&gt;December 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -1063,9 +1063,9 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
       </item>
     
       <item>
-        <title>Where are the Lee&#39;s?</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/13/where-are-the-lees.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/05/13/where-are-the-lees.html</guid>
+        <title>Where are the Lee's?</title>
+        <link>/2012/05/13/where-are-the-lees.html</link>
+        <guid isPermaLink="true">/2012/05/13/where-are-the-lees.html</guid>
         <description>&lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
 
 &lt;p&gt;Harry Potter, of course. The weasley’s had a clock.&lt;/p&gt;
@@ -1075,11 +1075,11 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
 &lt;p&gt;
 
 
-                Harry Potter, of course. The Weasley&#39;s had a clock (&lt;a href=&quot;http://en.wikipedia.org/wiki/Magical_objects_in_Harry_Potter#Weasley_family_clock&quot; target=&quot;_blank&quot;&gt;Whereabouts Clock&lt;/a&gt;) that told them where everyone in the family was at all times. &lt;br /&gt;&lt;br /&gt;
+                Harry Potter, of course. The Weasley's had a clock (&lt;a href=&quot;http://en.wikipedia.org/wiki/Magical_objects_in_Harry_Potter#Weasley_family_clock&quot; target=&quot;_blank&quot;&gt;Whereabouts Clock&lt;/a&gt;) that told them where everyone in the family was at all times. &lt;br /&gt;&lt;br /&gt;
 
-                Short of being magical, we created this because my Mom doesn&#39;t yet own a cell phone. &lt;br /&gt;&lt;br /&gt;
+                Short of being magical, we created this because my Mom doesn't yet own a cell phone. &lt;br /&gt;&lt;br /&gt;
 
-                Right now it&#39;s a mash-up of &lt;a href=&quot;https://developers.google.com/maps/&quot; target=&quot;_blank&quot;&gt;Google&#39;s Map API&lt;/a&gt; and &lt;a href=&quot;https://dev.twitter.com/&quot; target=&quot;_blank&quot;&gt;Twitter&#39;s API&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;
+                Right now it's a mash-up of &lt;a href=&quot;https://developers.google.com/maps/&quot; target=&quot;_blank&quot;&gt;Google's Map API&lt;/a&gt; and &lt;a href=&quot;https://dev.twitter.com/&quot; target=&quot;_blank&quot;&gt;Twitter's API&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;
 
                 A &quot;DINNER!&quot; button that allows my Mom to press a button that sends a text to all our phones may be in the pipes for the near future.
 
@@ -1093,8 +1093,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Importance of travel</title>
-        <link>http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/04/12/importance-of-travel.html</link>
-        <guid isPermaLink="true">http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2012/04/12/importance-of-travel.html</guid>
+        <link>/2012/04/12/importance-of-travel.html</link>
+        <guid isPermaLink="true">/2012/04/12/importance-of-travel.html</guid>
         <description>&lt;h3 id=&quot;culture&quot;&gt;Culture&lt;/h3&gt;
 
 &lt;p&gt;One of the biggest values you get from traveling the world is interacting with different cultures. I’ll admit that technology has made it a lot easier to learn, and having video calls with people halfway around the world is impressive, but it’s not perfect.&lt;/p&gt;

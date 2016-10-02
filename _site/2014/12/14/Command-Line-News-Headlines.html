@@ -8,16 +8,16 @@
 	<meta http-equiv="X-Frame-Options" content="sameorigin">
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="http://pippinlee.github.io/work-test/css/main.css">
+	<link rel="stylesheet" href="/css/main.css">
 
 	<!--Favicon-->
-	<link rel="shortcut icon" href="http://pippinlee.github.io/work-test/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Canonical -->
-	<link rel="canonical" href="http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/2014/12/14/Command-Line-News-Headlines.html">
+	<link rel="canonical" href="/2014/12/14/Command-Line-News-Headlines.html">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="" href="http://pippinlee.github.io/work-testhttp://pippinlee.github.io/work-test/feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="" href="/feed.xml" />
 
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic' rel='stylesheet' type='text/css'>
 	
 
-  <script type="text/javascript" src="http://pippinlee.github.io/work-test/js/mobile-view.js"></script>
+  <script type="text/javascript" src="/js/mobile-view.js"></script>
 
 
 	<!-- KaTeX -->
@@ -53,17 +53,17 @@
     <header class="site-header">
 	<div class="branding">
 		
-		<a href="http://pippinlee.github.io/work-test/">
-			<img class="avatar" src="http://pippinlee.github.io/work-test/img/avatar.png" alt=""/>
-		</a>
-		
 		<h1 class="site-title">
-			<a href="http://pippinlee.github.io/work-test/"></a>
+			<a href="/"></a>
 		</h1>
 	</div>
 	<nav class="site-nav">
     <button>MENU</button>
 		<ul>
+			
+			
+			
+			
 			
 			
 			
@@ -146,7 +146,7 @@
 
     <div class="content">
       <article >
-  <header style="background-image: url('http://pippinlee.github.io/work-test/')">
+  <header style="background-image: url('/')">
   </header>
   <section class="post-content">
     <h1 class="title">Command line news headlines</h1>
@@ -158,7 +158,7 @@
     <p><img src="https://camo.githubusercontent.com/4f4886778578cabc1d52a45cc3ffb7a5f2032d57/687474703a2f2f6769616e742e6766796361742e636f6d2f506c656173696e67496c6c66617465644879646174696474617065776f726d2e676966" alt="cli" />
 <em><a href="https://github.com/pippinlee/news-cli">github.com/pippinlee/news-cli</a></em></p>
 
-<p>Try it: <code>npm install get-healines -g</code> (or without -g flag)</p>
+<p>Try it: <code class="highlighter-rouge">npm install get-healines -g</code> (or without -g flag)</p>
 
 <p>Most projects I start come from a question, or a few. While part of the excuse of doing this project was to get more familiar with working with node and scraping data, I also wanted to help answer these questions:</p>
 
@@ -178,7 +178,7 @@
 
 <h3 id="building-a-database-for-scraping">Building a database for scraping</h3>
 
-<p>Design-wise, I’ve made it so that users can add additional arguments to specify if they want news from a specific city, province, state, or country. When you type in <code>get-headlines canada</code>, the scraper runs and grabs all the headlines I’ve specified it to get. For now I have it set to purposefully only grab the most recent headline of each website.</p>
+<p>Design-wise, I’ve made it so that users can add additional arguments to specify if they want news from a specific city, province, state, or country. When you type in <code class="highlighter-rouge">get-headlines canada</code>, the scraper runs and grabs all the headlines I’ve specified it to get. For now I have it set to purposefully only grab the most recent headline of each website.</p>
 
 <p>In their newer versions, Firefox does make it much easier to find the correct DOM path to get to an element. Once your FF inspector is open you can right click on an element in the inspector window and copy its path.</p>
 
@@ -186,7 +186,7 @@
 
 <p>Anecdotally, there’s a wide range of ways we could get headlines outside of scraping. Many sites do have half-decent RSS feeds, and some (too few), have public API’s for their stories.</p>
 
-<p>You can download the <code>get-headlines</code> command line tool with <code>npm install get-headlines -g</code>, or without <code>-g</code> if you don’t want it installed globally.</p>
+<p>You can download the <code class="highlighter-rouge">get-headlines</code> command line tool with <code class="highlighter-rouge">npm install get-headlines -g</code>, or without <code class="highlighter-rouge">-g</code> if you don’t want it installed globally.</p>
 
 <p>Right now there are 25 different local news sites that can be queried via command line. One difficulty going forward will be monitoring for when websites change their URL paths or site design, so the current scraper paths I have will no longer work. Adding a testing system would be a good way to get my attention that I need to update a site’s URL path or query path.</p>
 

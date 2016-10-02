@@ -42,11 +42,7 @@ layout: default
       </header>
       <div class="excerpt">
 
-        {% if post.content contains "highlight" %}
-          {{ post.content }}
-        {% elsif post.content != contain "<!-- /.navbar-collapse -->" %}
-          {{ post.content  | truncatewords:180 }}
-        {% endif %}
+        {{ post.content  | truncatewords:180 }}
 
         <a href="{{ post.url | prepend: site.baseurl }}">
           <img class="button" src="http://pippinlee.github.io/pippinlee/img/read.png">
