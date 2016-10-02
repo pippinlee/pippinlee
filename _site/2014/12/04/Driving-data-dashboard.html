@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Driving dashboard | </title>
+	<meta name="description" content="https://github.com/pippinlee/drive-dashboard">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="/2014/12/04/Driving-data-dashboard.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="" href="/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic' rel='stylesheet' type='text/css'>
+	
+
+  <script type="text/javascript" src="/js/mobile-view.js"></script>
+
+
+	<!-- KaTeX -->
+	
+
+	<!-- Google Analytics -->
+	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-30411108-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/"></a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+    <button>MENU</button>
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+<li class="rightButton">
+	<a href="mailto:pippinblee@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/pippinlee" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="http://stackoverflow.com/users/1234279/pippin" title="Follow on Stack Exchange">
+		<i class="fa fa-fw fa-stack-exchange"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/pippinlee" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+  </header>
+  <section class="post-content">
+    <h1 class="title">Driving dashboard</h1>
+    <p class="meta">
+      December 4, 2014
+      
+    </p>
+
+    <p><img src="http://f.cl.ly/items/2j1W1w031w2Q432X1W0S/Screen%20Recording%202015-09-17%20at%2004.32%20PM.gif" alt="drive" />
+<em><a href="https://github.com/pippinlee/drive-dashboard">https://github.com/pippinlee/drive-dashboard</a></em></p>
+
+<p>You can see a live version of this project here: <a href="http://www.pippinlee.com/drive-dashboard">pippinlee.com/drive-dashboard</a></p>
+
+<p>This project started with a friend sending me ~51,000 points of data. He’d just bought an adapter that allowed him to start collecting the driving data his car’s computer was producing. Car’s have had computers built into them for quite a while, but only recently has their data become more thorough. The third-party market for accessories for accessing this information has also exploded.</p>
+
+<p>There are also a growing number of products, like Eric Evenchick’s <a href="http://linklayer.github.io/cantact/">CANtact</a>, that give car owner’s more control over their car’s internal computers.</p>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/pippinlee">@pippinlee</a> <a href="https://twitter.com/zmanji">@zmanji</a> <a href="http://t.co/Nh0IQYd0px">http://t.co/Nh0IQYd0px</a> bluetooth OBDII port adapter -&gt; Android Torque app -&gt; MySQL in real time (local logs are in .csv)</p>&mdash; Stephen Vescio (@stephenvescio) <a href="https://twitter.com/stephenvescio/status/539557867372965889">December 1, 2014</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Most of the work of making data useful is asking the right questions, which leads to being able to build a helpful interface. Along with avoiding <a href="https://en.wikipedia.org/wiki/Chartjunk">chartjunk</a>, filtering out many of the data points was helpful while building this dashboard.</p>
+
+<p>Finally, it was a good excuse to work with d3.js and leaflet.</p>
+
+<p><img src="https://cldup.com/59wNcZfYyo.png" alt="" /></p>
+
+<p><em>Zoomed out view of of the .csv</em></p>
+
+  </section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+    </div>
+  </body>
+</html>

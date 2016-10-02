@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>/</link>
+    <description>Pippin Lee: javascript, open source, and humans</description>
+    <pubDate>Sun, 02 Oct 2016 12:07:43 -0400</pubDate>
+    
+      <item>
+        <title>How to convert your Gruntfile to npm scripts</title>
+        <link>/2015/10/05/npm-scripts.html</link>
+        <guid isPermaLink="true">/2015/10/05/npm-scripts.html</guid>
+        <description>&lt;p&gt;In this post we’re going to take a quick look at npm scripts, and the thought process behind writing them. We’ll do this by taking &lt;a href=&quot;https://github.com/mozilla/makerstrap&quot;&gt;Mozilla’s Makerstrap project&lt;/a&gt; and its &lt;a href=&quot;https://github.com/mozilla/makerstrap/blob/master/package.json&quot;&gt;Gruntfile&lt;/a&gt; and convert it to npm scripts to show us the benefits of npm scripts as a frontend build tool.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I should note before starting that there are many use cases for Grunt or Gulp, and npm scripts may not cover all of them. While it’s likely npm scripts can reduce your Grunt or Gulp files greatly, this post’s goal isn’t to diminish the usefulness of those task running services.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The goal of this post is to introduce another way that arguably has some simplification benefits. I ❤️ what Gulp and Grunt have done for frontend workflows—npm scripts is simply another option that we should consider.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;quick-overview&quot;&gt;Quick overview&lt;/h2&gt;
+
+&lt;p&gt;If you already have a good understanding of npm scripts you can skip this overview.&lt;/p&gt;
+
+&lt;p&gt;If you’re less confident with &lt;a href=&quot;https://docs.npmjs.com/misc/scripts&quot;&gt;npm scripts&lt;/a&gt;, all you really need to know is that it allows you to add tasks to your package.json’s &lt;code&gt;scripts&lt;/code&gt; object. These tasks are run pretty much exactly like how you would run them through the command line.&lt;/p&gt;
+
+&lt;p&gt;What does a npm script look like? &lt;code&gt;start: node server.js&lt;/code&gt; is a example of a simple script that allows a node server to start when you type &lt;code&gt;npm start&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are 3 main things you should know about npm script naming:&lt;/p&gt;
+
+&lt;h4 id=&quot;built-in-script-naming&quot;&gt;1) built-in script naming&lt;/h4&gt;
+
+&lt;p&gt;npm has a list of ready-to-use npm script property names such as &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;run&lt;/code&gt;, and &lt;code&gt;test&lt;/code&gt;. In fact the command you likely use daily, &lt;code&gt;npm install&lt;/code&gt;, is an npm script! You can run a script by running &lt;code&gt;$ npm &amp;lt;name of script&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;pre-and-post-script-naming&quot;&gt;2) pre and post script naming&lt;/h4&gt;
+
+&lt;p&gt;When naming your scripts, you can add &lt;code&gt;pre&lt;/code&gt; or &lt;code&gt;post&lt;/code&gt; to tell npm to run them before or after. So if you have a &lt;code&gt;start&lt;/code&gt; script, you could also write a &lt;code&gt;prestart&lt;/code&gt; script that will run something before the &lt;code&gt;start&lt;/code&gt; script runs.&lt;/p&gt;
+
+&lt;h4 id=&quot;custom-script-naming&quot;&gt;3) custom script naming&lt;/h4&gt;
+
+&lt;p&gt;If you’re like me, and want to be more 🐠expressive🐠, you can use your own script names. If for example we wanted to re-write that start command we could do so with &lt;code&gt;getTheFluxCapacitorFluxingDoc: node server.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To run our custom named script we’d then run &lt;code&gt;$ npm run getTheFluxCapacitorFluxingDoc&lt;/code&gt;, with &lt;code&gt;run&lt;/code&gt; telling npm to run a non-standard named script.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cldup.com/HqEb5nx20B.gif&quot; alt=&quot;npm scripts&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Running multiple scripts&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To run multiple scripts we can use syntax like &lt;code&gt;npm run watch:*&lt;/code&gt; which looks for any &lt;code&gt;watch:&amp;lt;asubtask&amp;gt;&lt;/code&gt; and runs them. This allows us to break use a script strucutre that represent smaller individual tasks, and then run them altogether.&lt;/p&gt;
+
+&lt;p&gt;Another popular way of running scripts is with &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;&lt;code&gt;npm-run-all&lt;/code&gt;&lt;/a&gt; module which allows us to use its &lt;code&gt;--parallel&lt;/code&gt; argument to run scripts in parallel.&lt;/p&gt;
+
+&lt;p&gt;Just like on the command line, npm scripts also allows us to use &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; syntax to add additional commands to a script.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR: Why do I use npm scripts?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;if you’re already using npm, you don’t need to install anything. No extra task runner to install&lt;/li&gt;
+  &lt;li&gt;no added abstraction of learning the ins and outs of Gulp and Grunt (that isn’t to say there aren’t some benefits to their abstraction too)&lt;/li&gt;
+  &lt;li&gt;in my experience the code and time spent writing npm scripts is considerably less!&lt;/li&gt;
+  &lt;li&gt;no more plugins&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;lets-begin&quot;&gt;Let’s begin&lt;/h2&gt;
+
+&lt;p&gt;We’re going to work through converting Makerstrap’s Gruntfile into npm scripts that will live in &lt;code&gt;package.json&lt;/code&gt;. This should hopefully show that simplifying your build process isn’t too painful. Let’s take quick look at the Gruntfile:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;time-grunt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;jit-grunt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;grunt-shell-spawn&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readJSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;package.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.dev.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;sourceMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.complete.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.complete.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;runServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;node demo/server.js&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/latest/&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/v&amp;lt;%= pkg.version %&amp;gt;/&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;filesize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;*.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;shell:runServer&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;watch&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;stats&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;filesize&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;build&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:build&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;filesize&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;copy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;so-whats-under-there-anyways-under-wear&quot;&gt;So what’s under there anyways? Under wear?&lt;/h3&gt;
+
+&lt;p&gt;To start our process of writing npm scripts, let’s start by breaking the Gruntfile into it’s different pieces. There are 4 registered tasks at the bottom of the Gruntfile:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;default (works with just running &lt;code&gt;grunt&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;stats&lt;/li&gt;
+  &lt;li&gt;build&lt;/li&gt;
+  &lt;li&gt;deploy&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We’ll use this structure for writing our npm scripts.&lt;/p&gt;
+
+&lt;h2 id=&quot;default-task&quot;&gt;1) &lt;code&gt;default&lt;/code&gt; task&lt;/h2&gt;
+
+&lt;p&gt;These tasks would be typically run by running &lt;code&gt;grunt&lt;/code&gt;, and were used as a way to get the necessary server and files going for development. The task is made up of three pieces that are wrapped together in a &lt;code&gt;registerTask&lt;/code&gt; called &lt;code&gt;default&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;default&#39;, [&#39;less:development&#39;, &#39;shell:runServer&#39;, &#39;watch&#39; ]);&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-lessdevelopment&quot;&gt;a) &lt;code&gt;less:development&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Let’s first look at trying to rewrite the &lt;code&gt;less:development&lt;/code&gt; part of the task as an npm script.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.dev.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;sourceMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In the Gruntfile we used &lt;code&gt;&#39;demo/compiled/demo.dev.css&#39;: &#39;demo/less/demo.less&#39;&lt;/code&gt; to compile &lt;code&gt;demo.less&lt;/code&gt; to &lt;code&gt;demo.dev.css&lt;/code&gt; and place it in a &lt;code&gt;compiled&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;We can use the great &lt;a href=&quot;https://github.com/jgonera/autoless&quot;&gt;autoless&lt;/a&gt; module to help us compile our &lt;code&gt;.less&lt;/code&gt; file. While autoless does have a &lt;code&gt;watch&lt;/code&gt; feature we don’t need that here because we just want the compile feature.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;autoless&lt;/code&gt; doesn’t let’s you specify a specific file, so we can just give it the &lt;code&gt;demo/less/&lt;/code&gt; directory as a source, and &lt;code&gt;demo/compiled/&lt;/code&gt; as the output point for the compiled &lt;code&gt;.css&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Here’s what the above Gruntfile code looks like as an npm script:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map --no-watch demo/less/ demo/compiled/&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;b-watch&quot;&gt;b) &lt;code&gt;watch&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Our next ~task~ to recreate as a script is a watch task:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/**/*.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;less:development&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The above code watches a set of &lt;code&gt;.less&lt;/code&gt; files and runs the &lt;code&gt;less:development&lt;/code&gt; compile task when it sees a change.&lt;/p&gt;
+
+&lt;p&gt;We can use &lt;code&gt;autoless&lt;/code&gt; here again. We’ll also give it the general directory name:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:demo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map demo/less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:base&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;c-shellrunserver&quot;&gt;c) &lt;code&gt;shell:runServer&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Finally, we need to look at adding a short script to replace this command.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;runServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;node demo/server.js&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This Grunt task can be summed up very nicely like so:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&quot;server&quot;: &quot;node demo/server.js&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Note: &lt;code&gt;server&lt;/code&gt; is one of npm’s reserved properties.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats-task&quot;&gt;2) &lt;code&gt;stats&lt;/code&gt; task&lt;/h2&gt;
+
+&lt;p&gt;For the stats task we’ll need to write a script that checks the filesize. We already have the &lt;code&gt;less:dev&lt;/code&gt; task completed above.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;stats&#39;, [&#39;less:development&#39;, &#39;filesize&#39;]);&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-filesize&quot;&gt;a) &lt;code&gt;filesize&lt;/code&gt;&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;filesize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;*.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The above code outputs the following when &lt;code&gt;$ grunt stats&lt;/code&gt; is run:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cldup.com/I4qr6-GSHp.png&quot; alt=&quot;grunt task&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It returns the size &lt;code&gt;makerstrap.complete.min.css&lt;/code&gt; and &lt;code&gt;makerstrap.min.css&lt;/code&gt;, it also tells us how long it took for the task to run.&lt;/p&gt;
+
+&lt;p&gt;For the purpose of this post, we’ll skip trying to output nice charts, and focus just on returning the file sizes.&lt;/p&gt;
+
+&lt;p&gt;I couldn’t find an alternative to the Grunt filesize plugin, but it’s a very simple feature to recreate. Just create a tiny &lt;code&gt;filesize.js&lt;/code&gt; module and use &lt;code&gt;fs.stat&lt;/code&gt; to return the filesize values.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cli-color&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;kb&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Because npm scripts allows us to run a node command from the script, we can use &lt;code&gt;filesize.js&lt;/code&gt; like so to return the filesizes:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;stats: node filesize.js makerstrap.complete.min.js &amp;amp;&amp;amp; node filesize.js makerstrap.min.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;which outputs something very similar to the grunt plug-in.
+&lt;img src=&quot;https://cldup.com/BKWn1bE3wu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;build-task&quot;&gt;3) &lt;code&gt;build&lt;/code&gt; task&lt;/h2&gt;
+
+&lt;p&gt;We’ve already written a &lt;code&gt;filesize&lt;/code&gt; script, so we’ll just focus on &lt;code&gt;less:build&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;build&#39;, [&#39;less:build&#39;, &#39;filesize&#39;]);&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-lessbuild&quot;&gt;a) &lt;code&gt;less:build&lt;/code&gt;&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/makerstrap.complete.min.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;less/build/makerstrap.complete.less&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/compiled/demo.css&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;demo/less/demo.less&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The above code builds our Makerstrap app readying it for deployment.&lt;/p&gt;
+
+&lt;p&gt;It creates &lt;code&gt;dist/makerstrap.min.css&lt;/code&gt;, &lt;code&gt;dist/makerstrap.complete.min.css&lt;/code&gt;, and &lt;code&gt;demo/compiled/demo.css&lt;/code&gt; from their respective &lt;code&gt;.less&lt;/code&gt; files.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;less/build/makerstrap.less -&amp;gt; dist/makerstrap.min.css&lt;/li&gt;
+  &lt;li&gt;less/build/makerstrap.complete.less -&amp;gt; dist/makerstrap.complete.min.css&lt;/li&gt;
+  &lt;li&gt;demo/less/demo.less -&amp;gt; demo/compiled/demo.css&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To accomplish this, we can re-use our &lt;code&gt;less-dev&lt;/code&gt; task and combine it with another &lt;code&gt;autoless&lt;/code&gt; command to handle the two &lt;code&gt;build/&lt;/code&gt; files. Altogether our npm script for the build task would look something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm run less-dev &amp;amp;&amp;amp; autoless --source-map --no-watch less/build/ dist/&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;deploy&quot;&gt;4) &lt;code&gt;deploy&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Now, we can write the script for the final Grunt task:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;grunt.registerTask(&#39;deploy&#39;, [&#39;copy&#39;]);&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-copy&quot;&gt;a) &lt;code&gt;copy&lt;/code&gt;&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/latest/&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;deploy/v&amp;lt;%= pkg.version %&amp;gt;/&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;copy:latest&lt;/code&gt; creates a directory called &lt;code&gt;latest&lt;/code&gt; in &lt;code&gt;/dist&lt;/code&gt; and adds a build version of your app.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;copy:version&lt;/code&gt; creates a directory called &lt;code&gt;version&lt;/code&gt; in &lt;code&gt;/dist&lt;/code&gt; and adds a build version of Makerstrap’s css files.&lt;/p&gt;
+
+&lt;p&gt;We can use the great &lt;a href=&quot;https://www.npmjs.com/package/cpx&quot;&gt;&lt;code&gt;cpx module&lt;/code&gt;&lt;/a&gt; to copy files to &lt;code&gt;/dist&lt;/code&gt; like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;build:deploy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm run build:copy &amp;amp;&amp;amp; build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;build:copy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;**/*\&amp;quot; deploy/latest/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;dist/**/*\&amp;quot; deploy/pkg-version/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;wrap-up&quot;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;So if we take all of our newly written npm scripts, we should have something that looks like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;start&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm-run-all --parallel server watch:*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map --no-watch demo/less/ demo/compiled/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:demo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map demo/less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;watch:base&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;autoless --source-map less/ &amp;amp;&amp;amp; npm run less-dev&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm run less-dev &amp;amp;&amp;amp; autoless --source-map --no-watch less/build dist/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build:deploy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;npm run build:copy &amp;amp;&amp;amp; build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build:copy&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;**/*\&amp;quot; deploy/latest/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;build:version&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cpx \&amp;quot;dist/**/*\&amp;quot; deploy/pkg-version/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;node demo/server.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;postinstall&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bower install&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;For ease I’ve used the &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;&lt;code&gt;npm-run-all&lt;/code&gt;&lt;/a&gt; module to be able to run the server and watch tasks in parallel when I run &lt;code&gt;npm start&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;All told, that wasn’t too painless, and should hopefully be easier to handle as your app and frontend pieces evolve.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I’d love to know about any errors or clarifications needed in this post, so please do &lt;a href=&quot;https://twitter.com/pippinlee&quot;&gt;tweet me&lt;/a&gt;, or email me: &lt;a href=&quot;mailto:pippin@pippinlee.com?subject=Heads up&quot;&gt;pippin@pippinlee.com&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’ the final version of Makerstrap done using npm scripts: &lt;a href=&quot;https://github.com/pippinlee/makerstrap&quot;&gt;github.com/pippinlee/makerstrap&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;additional-information&quot;&gt;Additional information&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://substack.net/task_automation_with_npm_run&quot;&gt;Substack on “npm run”&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=0RYETb9YVrk&quot;&gt;Kate Hudson’s “advanced front-end automation with npm” talk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.npmjs.com/cli/run-script&quot;&gt;npm’s great docs on “run-script”&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Please do be careful if you include the &lt;code&gt;getTheFluxCapacitorFluxingDoc&lt;/code&gt; command in your npm script, I can’t tell you how often I’ve forgotten to include an &lt;code&gt;end&lt;/code&gt; script to cool and shut it down and then ended up back at Alamos with Feynman.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 05 Oct 2015 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Announcing the Open Journalism fellowship</title>
+        <link>/2015/08/25/Announcing-Open-Journalism-fellowships.html</link>
+        <guid isPermaLink="true">/2015/08/25/Announcing-Open-Journalism-fellowships.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;shipping-a-fellow&quot;&gt;Shipping a Fellow&lt;/h1&gt;
+
+&lt;p&gt;Good news — today the &lt;a href=&quot;http://openjournalismproject.com/&quot;&gt;Open Journalism Project&lt;/a&gt; is announcing the start of a Fellowship program.&lt;/p&gt;
+
+&lt;p&gt;A few months ago when Asad and I &lt;a href=&quot;https://medium.com/@pippinlee/the-open-journalism-project-better-student-journalism-fb39f4f701bb&quot;&gt;wrote about the experience and research&lt;/a&gt; we’d done in understanding problems that student newsrooms are facing — we got many thoughtful responses. We were able to talk to students quite literally scattered across the globe, from Pakistan and India, to small-town USA, and big cities in Europe. These were students that shared our frustration with the lack of opportunities at their universities to tinker at the intersection of code and journalism.&lt;/p&gt;
+
+&lt;p&gt;While we’ve written, talked, and advised students newsrooms — &lt;strong&gt;we’ve been lacking in our methodology&lt;/strong&gt;. At best we’re able to recommend similar setups we’ve seen at professional newsrooms. We haven’t been able to clearly point to what has (and hasn’t) worked. We can’t share how we got a student newsroom curious about programming or obsessing over data. In part this is because nothing like this exists in Canada — we’re carving out a new and important path in journalism education. Today we’re announcing our fellowship program, something that is very much an experiment — but we believe if we do it in an open way, it will help show us and everyone what student newsrooms can be.&lt;/p&gt;
+
+&lt;p&gt;From our research:&lt;/p&gt;
+
+&lt;h3 id=&quot;we-dont-know-what-we-dont-know&quot;&gt;&lt;em&gt;We don’t know what we don’t know&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;“We spent much of the rest of the school year asking “what should we be doing in the newsroom?”, which mainly led us to ask “how do we use digital platforms to tell stories?” It was a straightforward question that led to many more questions. Out in the real world, traditional journalists were struggling to keep their jobs in a dying print world. They wore the same design of shoes that we were supposed to fill. Being pushed to repeat old, failing strategies and blocked from trying something new scared us.”&lt;/p&gt;
+
+&lt;h3 id=&quot;why&quot;&gt;Why?&lt;/h3&gt;
+
+&lt;p&gt;We’re kickstarting the process of getting Canadian student newsrooms thinking about the web. The Open Journalism Fellowships will seek students with strong computer science, web, data, or interactive skills by funding them as fellows to work at their campus student newsroom. We’re asking fellows to play a critical role as a colleague, mentor, and coder — but we know they’re up to the challenge. Our model is heavily inspired by our friends at the &lt;a href=&quot;http://knightlab.northwestern.edu/&quot;&gt;Knight Lab&lt;/a&gt; at Northwestern University, as well as the &lt;a href=&quot;https://opennews.org/what/fellowships/&quot;&gt;Knight Mozilla OpenNews Fellowship&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We’re focused on student newsrooms because that’s the part of the ecosystem we know best, and also the part where we can have the most influence. We believe student newsrooms are the perfect place to experiment because of how much flexibility and control over the process students have. That said, for this project to be successful we realized we’d also need to have the perspective of the professional newsroom, so we’ve brought on &lt;a href=&quot;https://twitter.com/juruwolfe&quot;&gt;Julia Wolfe&lt;/a&gt;, news developer and designer for the Globe and Mail, and &lt;a href=&quot;https://twitter.com/timalamenciak&quot;&gt;Tim Alamenciak&lt;/a&gt;, from TVO, to keep fellowships in line with what professional newsrooms are doing.&lt;/p&gt;
+
+&lt;p&gt;Who’s involved
+For this first year we’ve partnered with the &lt;a href=&quot;http://queensjournal.ca/&quot;&gt;Queen’s Journal&lt;/a&gt;, at Queen’s University, which is being helmed by editors-in-chief Anisa Rawhani and Sebastian Leck. Our first Open Journalism fellow will be Max Bittker.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/400/1*szZIQn9jdAq43umHzPnaNg.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Max Bittker (photo: Megan Gamble)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Max is a developer interested in digital empowerment and delight, Twitter bots, generative worlds, roasted vegetables, and neural networks. He’s a fourth-year computer engineering student at Queen’s University hailing from Rochester, New York. He looks forward to being the first Open Journalism Fellow and building skills, bridges, and weird stuff with the Queen’s Journal. You can find him here: &lt;a href=&quot;http://maxbittker.github.io/&quot;&gt;maxbittker.github.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In addition to The Journal, we’ve brought together UBC’s &lt;a href=&quot;http://ubyssey.ca/&quot;&gt;Ubyssey&lt;/a&gt;, the &lt;a href=&quot;http://mcgilltribune.com/&quot;&gt;McGill Tribune&lt;/a&gt;, uOttawa’s &lt;a href=&quot;http://thefulcrum.ca/&quot;&gt;The Fulcrum&lt;/a&gt;, and UofT’s &lt;a href=&quot;http://thevarsity.ca/&quot;&gt;The Varsity&lt;/a&gt; to help build a strong community of students experimenting with telling stories on the web.&lt;/p&gt;
+
+&lt;p&gt;Our decision to make our first year of the fellowship program small is with the understanding that if we can work towards a model that fits student newsrooms, we’d be happy to expand in future years to more Canadian campuses.&lt;/p&gt;
+
+&lt;h2 id=&quot;collaborators&quot;&gt;Collaborators&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/400/1*CwoYV9JXgobrjV4smGQRrA.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Aniqah Mair (photo: Khalil Mair)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;We’re also fortunate to have &lt;a href=&quot;https://github.com/aniqah&quot;&gt;Aniqah Mair&lt;/a&gt; and &lt;a href=&quot;https://github.com/jpittis&quot;&gt;Jake Pittis&lt;/a&gt;, both second year Computer Science students who will be collaborators with the project at Queen’s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/400/1*g6ix2lWw7vqZMo8UZX2E7Q.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Jake Pittis (photo: Hack Western)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Both Aniqah and Jake have backgrounds in creating friendly environments for learning and programming — key pieces to the workshops, events, and mentorship we’re planning for the Queen’s Journal for the upcoming school year.&lt;/p&gt;
+
+&lt;h3 id=&quot;goals-and-requirements&quot;&gt;Goals and requirements&lt;/h3&gt;
+
+&lt;p&gt;We understand that as the Fellowships progress we’ll learn how to make the experience for both the student newsrooms and fellows better, so there may be adjustments to our requirements.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Requirements for the fellow:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;10 hours per week in the newsroom&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Plan in collaboration with the newsroom + community for media week&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Stipend + additional support around hardware, software, and mentoring&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Running workshops locally to increase computer literacy&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Helping us design and build curriculum as open-sourced manuals, which includes documenting process of “going-digital” in blog posts&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run for a full year with the last month budgeted for transition and reflection&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;What daily life looks like for fellows:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Treated as journalists&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Have access to meetings involving story planning&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Work with section heads/digital-editor to develop and showcase web-worthy stories&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Commit/publish/document code to Github weekly&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ll have frequent updates here at The Open Journalism Project publication &lt;a href=&quot;https://medium.com/the-open-journalism-project&quot;&gt;https://medium.com/the-open-journalism-project&lt;/a&gt; to publicly discuss what works and doesn’t.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to be part of the conversation, or talk, drop me a note at pippin@pippinlee.com or ping us on Twitter &lt;a href=&quot;https://twitter.com/
+openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a class=&quot;m-story&quot; data-collapsed=&quot;true&quot; href=&quot;https://medium.com/the-open-journalism-project/shipping-a-fellow-47fb10fa83de&quot;&gt;Shipping a Fellow&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Aug 2015 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Will the future of books be more like Git?</title>
+        <link>/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
+        <guid isPermaLink="true">/2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*5moklcdrPhG6WmN-KC3sLw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
+
+&lt;p&gt;Software, on the other hand, has overhead and accessibility issues. Sure, it also allows you to invent new meanings, and even create new languages — but currently it only evolves when you tell the machine to do something specific, and with correct details. This makes it tough for most to get involved and interested in seeing how the web, and computers will shape publishing going forward.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/maxbittker&quot;&gt;Max Bittker&lt;/a&gt; and I were lucky enough to spend the last weekend in June on the West Coast working along side folks who also care about a number of these issues at &lt;a href=&quot;http://codexhackathon.com/&quot;&gt;CODEX Hackathon&lt;/a&gt;. CODEX billed itself as an event to play with the future of publishing, but was really just a good excuse for smart designers, developers, and publishers to come together to build things that asked an important question of the direction of reading.&lt;/p&gt;
+
+&lt;p&gt;So over that very frenetic weekend, we built &lt;a href=&quot;http://forkpad.me/&quot;&gt;forkpad.me&lt;/a&gt; — a service that allows the remixing of stories on the popular writing site &lt;a href=&quot;https://www.wattpad.com/home&quot;&gt;Wattpad&lt;/a&gt; — to help their community become better writers, and keep the web weird. Along the way we realized that the process of writing could take inspiration from the open source software development process. This idea lead us to asking these three questions, which helped shape the tool we wanted to build:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;What happens when writers are able to remix and reuse each others work?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;What happens when a story is never “finished”?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;What happens when a story can have multiple authors?&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Intrigued by this, Max and I asked ourselves how we could make a tool that could bring key aspects of Open Source Software (OSS) development to the writing and publishing process.&lt;/p&gt;
+
+&lt;h2 id=&quot;informality-will-rule-publishing&quot;&gt;Informality Will Rule Publishing&lt;/h2&gt;
+
+&lt;p&gt;One of the things Max and I love about the web is its ability to share information easily. Thanks to all the underlying technical protocols, we’re now able to build tools to reach many. When we showed up to &lt;a href=&quot;http://www.codeforamerica.org/&quot;&gt;Code for America’s&lt;/a&gt; San Francisco office Saturday morning, we knew the community on Wattpad was something we could have a lot of fun with.&lt;/p&gt;
+
+&lt;p&gt;We were given early access to the API for Wattpad, a massive serial writing community with over &lt;a href=&quot;https://www.wattpad.com/about&quot;&gt;40 million users&lt;/a&gt; who collectively spend more than 900 million years on the Wattpad site each month (85% of it on mobile).&lt;/p&gt;
+
+&lt;p&gt;In the time you’ll spend reading this article, Wattpad will receive enough werewolf fan fiction to last the rest of your life, in addition to other fan fiction of all niches and all personalities. I personally recommend checking out the entire &lt;a href=&quot;https://www.wattpad.com/story/30644165-50-shades-of-drake-drake-fanfic-series&quot;&gt;50 Shades of Drake&lt;/a&gt; volume, fan fiction about the rapper, if you’re curious.&lt;/p&gt;
+
+&lt;p&gt;As we explored the number of story categories and forums within Wattpad we found prolific communities sharing the wildest parts of their minds through stories. By far the biggest success within fan fiction (and informal publishing) is 50 Shades of Grey, which &lt;a href=&quot;https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey#Background&quot;&gt;started as Twilight&lt;/a&gt; fan fiction.&lt;/p&gt;
+
+&lt;p&gt;So we began thinking about the web and its impact on publishing. Traditionally, the final product would be a book in the local store, but what is the “final product” when the process to publishing is just a &lt;code&gt;≤button/&amp;gt;&lt;/code&gt; on a page?&lt;/p&gt;
+
+&lt;h2 id=&quot;the-end-of-a-story-is-no-longer-static&quot;&gt;The End of a Story is No Longer Static&lt;/h2&gt;
+
+&lt;p&gt;Traditionally a book would go through a publisher’s Book Product™ machine — but the web now allows the final product to be something different. The final product for an online book is no longer a function of traditional publishing’s Book Product™ formula, but something much less refined. A novella can be quickly written and published, and then evolve with reader interest to spawn a whole series of stories.&lt;/p&gt;
+
+&lt;p&gt;As we began to work with Wattpad’s API, we took a closer look at the niches that existed within the story comments and forums on Wattpad. We saw authors discussing ideas, and adding thoughts in hopes of pushing each other to create new narratives. This public process means that the end product isn’t static thing — and because the web allows a story to be edited and rewritten, every story has the ability to be dynamic and changing. Stories may end, but the process for many books is always evolving — which is especially true on Wattpad.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Ambient lighting. Gives &lt;a href=&quot;https://twitter.com/pippinlee&quot;&gt;@pippinlee&lt;/a&gt; a nice glow. He worked on Forkpad with Max. &lt;a href=&quot;http://t.co/ODK8B9ntdo&quot;&gt;pic.twitter.com/ODK8B9ntdo&lt;/a&gt;&lt;/p&gt;&amp;mdash; CODEX Hackathon (@codexhackathon) &lt;a href=&quot;https://twitter.com/codexhackathon/status/616069391357075457&quot;&gt;July 1, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;em&gt;Hard at work at the CODEX Hackathon with a Canadian contingent.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;can-remixing-help-the-writing-process&quot;&gt;Can Remixing Help the Writing Process?&lt;/h2&gt;
+
+&lt;p&gt;From our quick study of Wattpad, Max and I realized that this community could likely use a tool to help create a better feedback loop for authors working through story ideas. The idea of the “remix loop”, where creators spin off each others work can be incredible powerful tools within the writing process. Forkpad allows writers to take a part (“chapter”) from a Wattpad story and adapt it to their own liking.&lt;/p&gt;
+
+&lt;p&gt;When developing Forkpad, we found the concept of being able to change an ending or adapt characters to follow our own ideas a fun and important tool in the writing process. The ability to “fork” a Wattpad story means that others can post a link to their Forkpad version back on Wattpad to better share their thoughts on a story, as well as build off of each others’ work.&lt;/p&gt;
+
+&lt;p&gt;This idea of “forking” code is now common in software development. When computers were giant room-sized machines, the people who operated them (usually academics) would use tape as a medium to “write” their programs on. They would then feed these lengths of tape into a reader which would interpret their programs and run them on the computer. The programs were usually relatively small because computers could only process small bits of information. The idea of open source can be traced back to these early computer users, who stored their tapes in a drawer so that anyone using the computer could use their completed code. This saved colleagues from having to write a similar program from scratch, because they could share their completed tape programs.&lt;/p&gt;
+
+&lt;p&gt;Despite a period of highly commercialized and proprietary software during the 1980s and 1990s (a shift catalyzed, in part, by &lt;a href=&quot;https://en.wikipedia.org/wiki/Open_Letter_to_Hobbyists&quot;&gt;Microsoft&lt;/a&gt;), developers’ natural desire to share their code has roared back to life in the last twenty years (embodied by &lt;a href=&quot;https://en.wikipedia.org/wiki/Linus_Torvalds&quot;&gt;Linus Torvalds&lt;/a&gt; and his software versioning system &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_%28software%29&quot;&gt;Git&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/1200/1*YFy69Cx6aidKv8BrMit7VA.png&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Early computers would run programs that were created by punching holes in tape. Photo: wikimedia&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Building off each other’s work is common in the open source world of software, where a team may spend a year solving a specific problem, and then they’ll share the code with other developers so that others don’t have to waste their time solving a problem that’s already been solved. Starting with an empty text box is a barrier to writing — so we wanted Forkpad to help get writers writing more. The process of consuming other’s work, and building off of it is one way that we can learn to be better writers, and Forkpad aims to make that easier.&lt;/p&gt;
+
+&lt;p&gt;As Saturday ended and Sunday began, we’d already built the main functionality of the Forkpad app — so we spent the last few hours before demo time getting our app up and running with a database so that writers could get a link that they could share. The ability to easily share their remixes means writers will hopefully be encouraged to build off each others work.&lt;/p&gt;
+
+&lt;p&gt;The process for using and publishing with Forkpad is much less formal than a traditional publishing process, but we think giving writers the ability to get writing will always trump a process that start with big end goals in mind. Writing is a process, so hopefully Forkpad can ask how that process can evolve for writers with the help of the machine. Much like the atmosphere at CODEX, it’s not a zero-sum game between the machine and publisher, but finding situations that allow both to be part of the creative process.&lt;/p&gt;
+
+&lt;p&gt;We’re not sure what writers will make, and we definitely don’t know what the end products will be, but we think it will be something fun.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://forkpad.me/&quot;&gt;Forkpad.me&lt;/a&gt; is live. Send us some Drake fanfic?&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a class=&quot;m-story&quot; data-collapsed=&quot;true&quot; href=&quot;https://medium.com/codex-hack/will-the-future-of-writing-be-more-like-software-49f2a6900ca9&quot;&gt;Thoughts from making tools for literature&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Jul 2015 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>The Elements of Programming Style (1978)</title>
+        <link>/2015/06/16/The-Elements-of-Programming-Style.html</link>
+        <guid isPermaLink="true">/2015/06/16/The-Elements-of-Programming-Style.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://cldup.com/3NY1WV6NAH.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;How do principles become timeless?&lt;/p&gt;
+
+&lt;p&gt;When I discovered Strunk and White’s (1920) famous &lt;a href=&quot;http://www.amazon.com/The-Elements-Style-Fourth-Edition/dp/020530902X&quot;&gt;The Element of Style&lt;/a&gt; in school, it provided one of the best lessons in brevity I’ve experienced. I still keep it in mind whenever I’m asked to write, because its concise points are timeless––timeless in the sense that while it is about style, it is not binded to style. Strunk and White’s style guide is still incredibly in-touch with writers almost 100 years later.&lt;/p&gt;
+
+&lt;p&gt;So I was happy to find this book, a derivative of the famous Strunk and White book, &lt;a href=&quot;http://www.amazon.com/The-Elements-Programming-Style-Edition/dp/0070342075&quot;&gt;The Elements of Programming Style&lt;/a&gt; by Kernighan and Plauger, written in 1978, close to 40 years ago.&lt;/p&gt;
+
+&lt;p&gt;TEPS uses Fortran as its example language, but much like the book that inspired it, the lessons it teaches are timeless and still hold up today. When you can distill rule and opinion to good practice, you can advice that lasts a longtime.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I don’t think it’s quite right to call either the English, or programming style guide timeless, but it’s still evidence that core principles can last many decades, even if the software world feels like it’s evolving every hour.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I took some time to summarize each chapter’s points, and as you can see most still apply to modern software development.&lt;/p&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Write clearly- don’t be too clever.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;expression&quot;&gt;Expression&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Say what you mean, simply and directly.&lt;/li&gt;
+  &lt;li&gt;Use library functions.&lt;/li&gt;
+  &lt;li&gt;Avoid temporary variable&lt;/li&gt;
+  &lt;li&gt;Write clearly – don’t sacrifice clarity for “efficiency”&lt;/li&gt;
+  &lt;li&gt;Let the machine do the directly work&lt;/li&gt;
+  &lt;li&gt;Replace repetitive expressions by calls to ca common function&lt;/li&gt;
+  &lt;li&gt;Parenthesize to avoid ambiguity&lt;/li&gt;
+  &lt;li&gt;Choose variable names that won’t be confused&lt;/li&gt;
+  &lt;li&gt;Avoid the Fortran arithmetic IF&lt;/li&gt;
+  &lt;li&gt;Use the good features of a language; avoid the bad ones&lt;/li&gt;
+  &lt;li&gt;Use the “telephone test” for readability&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;control-structure&quot;&gt;Control Structure&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Follow each decision as closely as possible with its associated action&lt;/li&gt;
+  &lt;li&gt;Don’t stop with your first draft&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;program-structure&quot;&gt;Program Structure&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Modularize&lt;/li&gt;
+  &lt;li&gt;Make the coupling between modules visible&lt;/li&gt;
+  &lt;li&gt;Each module should do one thing well&lt;/li&gt;
+  &lt;li&gt;Make sure every module hides something&lt;/li&gt;
+  &lt;li&gt;Let the data structure the program&lt;/li&gt;
+  &lt;li&gt;Don’t patch bad code – rewrite it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;input-and-output&quot;&gt;Input and Output&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Test input for validity and plausibility&lt;/li&gt;
+  &lt;li&gt;Make sure input cannot violate the limits of the program&lt;/li&gt;
+  &lt;li&gt;Identify bad input; recover if possible&lt;/li&gt;
+  &lt;li&gt;Make input easy to prepare and output self-explanatory&lt;/li&gt;
+  &lt;li&gt;Make input easy to proofread&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;common-blunders&quot;&gt;Common Blunders&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Don’t stop at one bug&lt;/li&gt;
+  &lt;li&gt;Watch out for off-by-one errors&lt;/li&gt;
+  &lt;li&gt;Avoid multiple exits from loops&lt;/li&gt;
+  &lt;li&gt;Make sure your code “does nothing” gracefully&lt;/li&gt;
+  &lt;li&gt;Test programs at their boundary values&lt;/li&gt;
+  &lt;li&gt;Program defensively&lt;/li&gt;
+  &lt;li&gt;10.0 times 0.1 is hardly ever 1.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;efficiency-and-instrumentation&quot;&gt;Efficiency and Instrumentation&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Make it right before you make it faster&lt;/li&gt;
+  &lt;li&gt;Keep it right when you make it faster&lt;/li&gt;
+  &lt;li&gt;Make it clear before you make it faster&lt;/li&gt;
+  &lt;li&gt;Don’t sacrifice clarity for small gains in “efficiency”&lt;/li&gt;
+  &lt;li&gt;Let your compiler do the simple optimizations&lt;/li&gt;
+  &lt;li&gt;Don’t strain to re-use code; reorganize instead&lt;/li&gt;
+  &lt;li&gt;Keep it simple to make it faster&lt;/li&gt;
+  &lt;li&gt;Don’t diddle code to make it faster – find a better algorithm&lt;/li&gt;
+  &lt;li&gt;Instrument your programs. Measure before making “efficiency” changes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;documentation-and-readability&quot;&gt;Documentation and readability&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Make sure comments and code agree&lt;/li&gt;
+  &lt;li&gt;Don’t just echo the code with comments – make every comment count&lt;/li&gt;
+  &lt;li&gt;Don’t comment bad code – rewrite it&lt;/li&gt;
+  &lt;li&gt;Use variable names that mean something&lt;/li&gt;
+  &lt;li&gt;Format a program to help the reader understand it&lt;/li&gt;
+  &lt;li&gt;Document your data layouts&lt;/li&gt;
+  &lt;li&gt;Don’t over-comment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;additional-reading&quot;&gt;Additional reading&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&quot;&gt;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_tarpit&quot;&gt;https://en.wikipedia.org/wiki/Turing_tarpit&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Jun 2015 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Releasing Open Journalism Project</title>
+        <link>/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
+        <guid isPermaLink="true">/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*oBWUXtszDsiv_-Qq2bFLTQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We pushed out the first version of the &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/&quot;&gt;Open Journalism site&lt;/a&gt; in January. Our goal is for the site to be a place to teach students what they should know about journalism on the web. It should be fun too.&lt;/p&gt;
+
+&lt;p&gt;Topics like &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/Mapping/&quot;&gt;mapping&lt;/a&gt;, &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/Security/&quot;&gt;security&lt;/a&gt;, command line tools, and &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/Open-source/&quot;&gt;open source&lt;/a&gt; are all concepts that should be made more accessible, and should be easily understood at a basic level by all journalists. We’re focusing on students because we know student journalism well, and we believe that teaching maturing journalists about the web will provide them with an important lens to view the world with. This is how we got to where we are now.&lt;/p&gt;
+
+&lt;h3 id=&quot;circa-2011&quot;&gt;Circa 2011&lt;/h3&gt;
+&lt;p&gt;In late 2011 I sat in the design room of our university’s student newsroom with some of the other editors: Kate Hudson, Brent Rose, and Nicholas Maronese. I was working as the photo editor then—something I loved doing. I was very happy travelling and photographing people while listening to their stories.&lt;/p&gt;
+
+&lt;p&gt;Photography was my lucky way of experiencing the many types of people my generation seemed to avoid, as well as many the public spends too much time discussing. One of my habits as a photographer was scouring sites like Flickr to see how others could frame the world in ways I hadn’t previously considered.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*AzYWbe4cZkMMEUbfRjysLQ.png&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;&lt;a href=&quot;http://www.topleftpixel.com&quot;&gt;http://www.topleftpixel.com&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I started discovering beautiful things the &lt;a href=&quot;http://wvs.topleftpixel.com/13/02/06/timelapse-strips-homewood.htm&quot;&gt;web could do with images&lt;/a&gt;: things not possible with print. Just as every generation revolts against walking in the previous generations shoes, I found myself questioning the expectations that I came up against as a photo editor. In our newsroom the expectations were built from an outdated information world. We were expected to fill old shoes.&lt;/p&gt;
+
+&lt;p&gt;So we sat in our student newsroom—not very happy with what we were doing. Our weekly newspaper had remained essentially unchanged for 40+ years. Each editorial position had the same requirement every year. The big change happened in the 80s when the paper started using colour. We’d also stumbled into having a website, but it was updated just once a week with the release of the newspaper.&lt;/p&gt;
+
+&lt;p&gt;Information had changed form, but the student newsroom hadn’t, and it was becoming harder to romanticize the dusty newsprint smell coming from the shoes we were handed down from previous generations of editors. It was, we were told, all part of “becoming a journalist.”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*d0Hp6KlzyIcGHcL6to1sYQ.png&quot; alt=&quot;new medium&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;we-dont-know-what-we-dont-know&quot;&gt;We don’t know what we don’t know&lt;/h3&gt;
+&lt;p&gt;We spent much of the rest of the school year asking “what should we be doing in the newsroom?”, which mainly led us to ask “how do we use the web to tell stories?” It was a straightforward question that led to many more questions about the web: something we knew little about. Out in the real world, traditional journalists were struggling to keep their jobs in a dying print world. They wore the same design of shoes that we were supposed to fill. Being pushed to repeat old, failing strategies and blocked from trying something new scared us.&lt;/p&gt;
+
+&lt;p&gt;We had questions, so we started doing some research. We talked with student newsrooms in Canada and the United States, and filled too many Google Doc files with notes. Looking at the notes now, they scream of fear. We annotated our notes with naive solutions, often involving scrambled and immature odysseys into the future of online journalism.&lt;/p&gt;
+
+&lt;p&gt;There was a lot we didn’t know. We didn’t know &lt;strong&gt;how to build a mobile app&lt;/strong&gt;. We didn’t know &lt;strong&gt;if we should build a mobile app&lt;/strong&gt;. We didn’t know how to run a server. We didn’t know &lt;strong&gt;where to go to find a server&lt;/strong&gt;. We didn’t know &lt;strong&gt;how the web worked&lt;/strong&gt;. We didn’t know &lt;strong&gt;how people used the web to read news&lt;/strong&gt;. We didn’t know &lt;strong&gt;what news should be on the web&lt;/strong&gt;. If news is just information, what does that even look like?&lt;/p&gt;
+
+&lt;p&gt;We asked these questions to many students at other papers to get a consensus of what had worked and what hadn’t. They reported similar questions and fears about the web but followed with “print advertising is keeping us afloat so we can’t abandon it”.&lt;/p&gt;
+
+&lt;p&gt;In other words, we knew that we should be building a newer pair of shoes, but we didn’t know what the function of the shoes should be.&lt;/p&gt;
+
+&lt;h3 id=&quot;common-problems-in-student-newsrooms-2011&quot;&gt;Common problems in student newsrooms (2011)&lt;/h3&gt;
+&lt;p&gt;Our questioning of other student journalists in 15 student newsrooms brought up a few repeating issues.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lack of mentorship&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A news process that lacked consideration of the web&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;No editor/position specific to the web&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Little exposure to many of the cool projects being put together by professional newsrooms&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lack of diverse skills within the newsroom. Writers made up 95% of the personnel. Students with other skills were not sought because journalism was seen as “a career with words.” The other 5% were designers, designing words on computers, for print.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Not enough discussion between the business side and web efforts&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*_9KYIFrk_PqWFgptsMDeww.png&quot; alt=&quot;data&quot; /&gt;
+&lt;em&gt;From our 2011 research&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Common problems in student newsrooms (2013)
+Two years later, we went back and looked at what had changed. We talked to a dozen more newsrooms and weren’t surprised by our findings.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Still no mentorship or link to professional newsrooms building stories for the web&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Very little control of website and technology&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The lack of exposure that student journalists have to interactive storytelling. While some newsrooms are in touch with what’s happening with the web and journalism, there still exists a huge gap between the student newsroom and its professional counterpart&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;No time in the current news development cycle for student newsrooms to experiment with the web&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lack of skill diversity (specifically coding, interaction design, and statistics)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Overly restricted access to student website technology. Changes are primarily visual rather than functional.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Significantly reduced print production of many papers&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Computers aren’t set up for experimenting with software and code, and often locked down&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Newsrooms have traditionally been covered in copies of The New York Times or Globe and Mail. Instead newsrooms should try spend at 20 minutes each week going over the coolest/weirdest online storytelling in an effort to expose each other to what is possible. “&lt;a href=&quot;http://nytlabs.com/&quot;&gt;Hey, what has the New York Times R&amp;amp;D lab been up to this week?&lt;/a&gt;”&lt;/p&gt;
+
+&lt;p&gt;Instead of having computers that are locked down, try setting aside a few office computers that allow students to play and “break”, or encourage editors to buy their own Macbooks so they’re always able to practice with code and new tools on their own.&lt;/p&gt;
+
+&lt;p&gt;From all this we realized that changing a student newsroom is difficult. It takes patience. It requires that the business and editorial departments of the student newsroom be on the same (web)page. The shoes of the future must be different from the shoes we were given.&lt;/p&gt;
+
+&lt;p&gt;We need to rethink how long the new shoe design will be valid. It’s more important that we focus on the process behind making footwear than on actually creating a specific shoe. We shouldn’t be building a shoe to last 40 years. Our footwear design process will allow us to change and adapt as technology evolves. The media landscape will change, so having a newsroom that can change with it will be critical.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;We are building a shoe machine, not a shoe.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;a-train-or-light-at-the-end-of-the-tunnel-are-student-newsrooms-changing-for-the-better&quot;&gt;A train or light at the end of the tunnel: are student newsrooms changing for the better?&lt;/h3&gt;
+
+&lt;p&gt;In our 2013 research we found that almost 50% of student newsrooms had created roles specifically for the web. This sounds great, but is still problematic in its current state.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*Vh2MpQjqjPkzYJaaWExoVg.png&quot; alt=&quot;noise&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We designed many of these slides to help explain to ourselves what we were doing
+When a newsroom decides to create a position for the web, it’s often with the intent of having content flow steadily from writers onto the web. This is a big improvement from just uploading stories to the web whenever there is a print issue. However…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. The handoff&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Problems arise because web editors are given roles that absolve the rest of the editors from thinking about the web. All editors should be involved in the process of story development for the web. While it’s a good idea to have one specific editor manage the website, contributors and editors should all play with and learn about the web. Instead of “can you make a computer do XYZ for me?”, we should be saying “can you show me how to make a computer do XYZ?”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Not just social media&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A web editor could do much more than simply being in charge of the social media accounts for the student paper. Their responsibility could include teaching all other editors to be listening to what’s happening online. The web editor can take advantage of live information to change how the student newsroom reports news in real time.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Web (interactive) editor&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The goal of having a web editor should be for someone to build and tell stories that take full advantage of the web as their medium. Too often the web’s interactivity is not considered when developing the story. The web then ends up as a resting place for print words.&lt;/p&gt;
+
+&lt;p&gt;Editors at newsrooms are still figuring out how to convince writers of the benefit to having their content online. There’s still a stronger draw to writers seeing their name in print than on the web. Showing writers that their stories can be told in new ways to larger audiences is a convincing argument that the web is a starting point for telling a story, not its graveyard.&lt;/p&gt;
+
+&lt;p&gt;When everyone in the newsroom approaches their website with the intention of using it to explore the web as a medium, they all start to ask “what is possible?” and “what can be done?” You can’t expect students to think in terms of the web if it’s treated as a place for print words to hang out on a web page.&lt;/p&gt;
+
+&lt;p&gt;We’re OK with this problem, if we see newsrooms continue to take small steps towards having all their editors involved in the stories for the web.&lt;/p&gt;
+
+&lt;p&gt;The current Open Journalism site was a few years in the making. This was an original launch page we use in 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*2Ln_DmC95Xpz6LzgywkcFQ.png&quot; alt=&quot;old oj&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-we-know&quot;&gt;What we know&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;New process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Our rough research has told us newsrooms need to be reorganized. This includes every part of the newsroom’s workflow: from where a story and its information comes from, to thinking of every word, pixel, and interaction the reader will have with your stories. If I was a photo editor that wanted to re-think my process with digital tools in mind, I’d start by asking “how are photo assignments processed and sent out?”, “how do we receive images?”, “what formats do images need to be exported in?”, “what type of screens will the images be viewed on?”, and “how are the designers getting these images?” Making a student newsroom digital isn’t about producing “digital manifestos”, it’s about being curious enough that you’ll want to to continue experimenting with your process until you’ve found one that fits your newsroom’s needs.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;More (remote) mentorship&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lack of mentorship is still a big problem. &lt;a href=&quot;http://www.google.com/get/journalismfellowship/&quot;&gt;Google’s fellowship program&lt;/a&gt; is great. The fact that it only caters to United States students isn’t. There are only a handful of internships in Canada where students interested in journalism can get experience writing code and building interactive stories. We’re OK with this for now, as we expect internships and mentorship over the next 5 years between professional newsrooms and student newsrooms will only increase. It’s worth noting that some of that mentorship will likely be done remotely.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Changing a newsroom culture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Skill diversity needs to change. We encourage every student newsroom we talk to, to start building a partnership with their school’s Computer Science department. It will take some work, but you’ll find there are many CS undergrads that love playing with web technologies, and using data to tell stories. Changing who is in the newsroom should be one of the first steps newsrooms take to changing how they tell stories. The same goes with getting designers who understand the wonderful interactive elements of the web and students who love statistics and exploring data. Getting students who are amazing at design, data, code, words, and images into one room is one of the coolest experience I’ve had. Everyone benefits from a more diverse newsroom.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-we-dont-know&quot;&gt;What we don’t know&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sharing curiosity for the web&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We don’t know how to best teach students about the web. It’s not efficient for us to teach coding classes. We do go into newsrooms and get them running their first code exercises, but if someone wants to learn to program, we can only provide the initial push and curiosity. We will be trying out “labs” with a few schools next school year to hopefully get a better idea of how to teach students about the web.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Business&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We don’t know how to convince the business side of student papers that they should invest in the web. At the very least we’re able to explain that having students graduate with their current skill set is painful in the current job market.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The future&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We don’t know what journalism or the web will be like in 10 years, but we can start encouraging students to keep an open mind about the skills they’ll need. We’re less interested in preparing students for the current newsroom climate, than we are in teaching students to have the ability to learn new tools quickly as they come and go.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/1200/1*Zz5haO6iz7Hlj0z2IUHulg.png&quot; alt=&quot;old OJ&quot; /&gt;
+&lt;em&gt;Another slide from 2012 website&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-were-trying-to-share-with-others&quot;&gt;What we’re trying to share with others&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;A concise guide to building stories for the web
+There are too many options to get started. We hope to provide an opinionated guide that follows both our experiences, research, and observations from trying to teach our peers.
+Student newsrooms don’t have investors to please. Student newsrooms can change their website every week if they want to try a new design or interaction. As long as students start treating the web as a different medium, and start building stories around that idea, then we’ll know we’re moving forward.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;a-note-to-professional-news-orgs&quot;&gt;A note to professional news orgs&lt;/h3&gt;
+&lt;p&gt;We’re also asking professional newsrooms to be more open about their process of developing stories for the web. You play a big part in this. This means writing about it, and sharing code. We need to start building a bridge between student journalism and professional newsrooms.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*bXaR_NBJdoHpRc8lUWSsow.png&quot; alt=&quot;2012&quot; /&gt;
+&lt;em&gt;2012&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;this-is-a-start&quot;&gt;This is a start&lt;/h3&gt;
+&lt;p&gt;We going to continue slowly growing the content on &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/&quot;&gt;Open Journalism&lt;/a&gt;. We still consider this the beta version, but expect to polish it, and beef up the content for a real launch at the beginning of the summer.&lt;/p&gt;
+
+&lt;p&gt;We expect to have more original tutorials as well as the beginnings of what a curriculum may look like that a student newsroom can adopt to start guiding their transition to become a web first newsroom. We’re also going to be working with the &lt;a href=&quot;http://queensjournal.ca/&quot;&gt;Queen’s Journal&lt;/a&gt; and &lt;a href=&quot;http://ubyssey.ca/&quot;&gt;The Ubyssey&lt;/a&gt; next school year to better understand how to make the student newsroom a place for experimenting with telling stories on the web. If this sound like a good idea in your newsroom, we’re still looking to add 1 more school.&lt;/p&gt;
+
+&lt;p&gt;We’re trying out some new shoes. And while they’re not self-lacing, and smell a bit different, we feel lacing up a new pair of kicks can change a lot.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*lulfisQxgSQ209vPHMAifg.png&quot; alt=&quot;new shoe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s talk. Let’s listen.&lt;/p&gt;
+
+&lt;p&gt;We’re still in the early stages of what this project will look like, so if you want to help or have thoughts, let’s talk.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;mailto:pippin@pippinlee.com?Subject=Saying%20hey&quot;&gt;pippin@pippinlee.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This isn’t supposed to be a &lt;strong&gt;manifesto™©&lt;/strong&gt; we just think it’s pretty cool to share what we’ve learned so far, and hope you’ll do the same. We’re all in this together.&lt;/em&gt;&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a class=&quot;m-story&quot; data-collapsed=&quot;true&quot; href=&quot;https://medium.com/@pippinlee/the-open-journalism-project-better-student-journalism-fb39f4f701bb&quot;&gt;The Open Journalism Project: Better Student Journalism&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 17 Mar 2015 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Command line news headlines</title>
+        <link>/2014/12/14/Command-Line-News-Headlines.html</link>
+        <guid isPermaLink="true">/2014/12/14/Command-Line-News-Headlines.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/4f4886778578cabc1d52a45cc3ffb7a5f2032d57/687474703a2f2f6769616e742e6766796361742e636f6d2f506c656173696e67496c6c66617465644879646174696474617065776f726d2e676966&quot; alt=&quot;cli&quot; /&gt;
+&lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/news-cli&quot;&gt;github.com/pippinlee/news-cli&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Try it: &lt;code&gt;npm install get-healines -g&lt;/code&gt; (or without -g flag)&lt;/p&gt;
+
+&lt;p&gt;Most projects I start come from a question, or a few. While part of the excuse of doing this project was to get more familiar with working with node and scraping data, I also wanted to help answer these questions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;what tools can we build to make people more aware of the world around them?&lt;/li&gt;
+  &lt;li&gt;what information would be helpful to give a reader to fill in their gaps of awareness?&lt;/li&gt;
+  &lt;li&gt;what information exists already that we can use?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ask-then-build&quot;&gt;Ask, then build&lt;/h3&gt;
+
+&lt;p&gt;I ended up focusing on local news for the following reasons: If an individual is to look at major news sites, for example BBC or the Globe and Mail, their top headlines are usually the same major international stories. There is little to glean about an actual geographical region and it’s pulse unless we start to look at what’s being written in subsets (local) news headlines.&lt;/p&gt;
+
+&lt;p&gt;While building this tool I also became aware of how information (stories) trickle up to bigger publications. Watching stories pick up steam attention-wise was a good part of the fun.&lt;/p&gt;
+
+&lt;p&gt;The command line tool in this project is part of a larger project I’m working on to take the pain out of accessing a wide variety of news headlines from around the world. The biggest pain if someone were to try do this now is figure out the DOM’s scraping path of each local news site. You can see I’ve had to manually find the &lt;a href=&quot;https://github.com/pippinlee/news-cli/blob/master/lib/data.json&quot;&gt;best scraping path for each headline&lt;/a&gt;, which wasn’t too much fun.&lt;/p&gt;
+
+&lt;h3 id=&quot;building-a-database-for-scraping&quot;&gt;Building a database for scraping&lt;/h3&gt;
+
+&lt;p&gt;Design-wise, I’ve made it so that users can add additional arguments to specify if they want news from a specific city, province, state, or country. When you type in &lt;code&gt;get-headlines canada&lt;/code&gt;, the scraper runs and grabs all the headlines I’ve specified it to get. For now I have it set to purposefully only grab the most recent headline of each website.&lt;/p&gt;
+
+&lt;p&gt;In their newer versions, Firefox does make it much easier to find the correct DOM path to get to an element. Once your FF inspector is open you can right click on an element in the inspector window and copy its path.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cldup.com/YhegqFIpUP.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Anecdotally, there’s a wide range of ways we could get headlines outside of scraping. Many sites do have half-decent RSS feeds, and some (too few), have public API’s for their stories.&lt;/p&gt;
+
+&lt;p&gt;You can download the &lt;code&gt;get-headlines&lt;/code&gt; command line tool with &lt;code&gt;npm install get-headlines -g&lt;/code&gt;, or without &lt;code&gt;-g&lt;/code&gt; if you don’t want it installed globally.&lt;/p&gt;
+
+&lt;p&gt;Right now there are 25 different local news sites that can be queried via command line. One difficulty going forward will be monitoring for when websites change their URL paths or site design, so the current scraper paths I have will no longer work. Adding a testing system would be a good way to get my attention that I need to update a site’s URL path or query path.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-will-the-information-be-good-for&quot;&gt;What will the information be good for?&lt;/h3&gt;
+
+&lt;p&gt;With all this local data you could…&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;overlay it on an interactive map to help people get a sense of what’s happening elsewhere&lt;/li&gt;
+  &lt;li&gt;use it as a starting point for headline archival&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 14 Dec 2014 00:00:00 -0500</pubDate>
+      </item>
+    
+      <item>
+        <title>Driving dashboard</title>
+        <link>/2014/12/04/Driving-data-dashboard.html</link>
+        <guid isPermaLink="true">/2014/12/04/Driving-data-dashboard.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;http://f.cl.ly/items/2j1W1w031w2Q432X1W0S/Screen%20Recording%202015-09-17%20at%2004.32%20PM.gif&quot; alt=&quot;drive&quot; /&gt;
+&lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/drive-dashboard&quot;&gt;https://github.com/pippinlee/drive-dashboard&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;You can see a live version of this project here: &lt;a href=&quot;http://www.pippinlee.com/drive-dashboard&quot;&gt;pippinlee.com/drive-dashboard&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This project started with a friend sending me ~51,000 points of data. He’d just bought an adapter that allowed him to start collecting the driving data his car’s computer was producing. Car’s have had computers built into them for quite a while, but only recently has their data become more thorough. The third-party market for accessories for accessing this information has also exploded.&lt;/p&gt;
+
+&lt;p&gt;There are also a growing number of products, like Eric Evenchick’s &lt;a href=&quot;http://linklayer.github.io/cantact/&quot;&gt;CANtact&lt;/a&gt;, that give car owner’s more control over their car’s internal computers.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/pippinlee&quot;&gt;@pippinlee&lt;/a&gt; &lt;a href=&quot;https://twitter.com/zmanji&quot;&gt;@zmanji&lt;/a&gt; &lt;a href=&quot;http://t.co/Nh0IQYd0px&quot;&gt;http://t.co/Nh0IQYd0px&lt;/a&gt; bluetooth OBDII port adapter -&amp;gt; Android Torque app -&amp;gt; MySQL in real time (local logs are in .csv)&lt;/p&gt;&amp;mdash; Stephen Vescio (@stephenvescio) &lt;a href=&quot;https://twitter.com/stephenvescio/status/539557867372965889&quot;&gt;December 1, 2014&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Most of the work of making data useful is asking the right questions, which leads to being able to build a helpful interface. Along with avoiding &lt;a href=&quot;https://en.wikipedia.org/wiki/Chartjunk&quot;&gt;chartjunk&lt;/a&gt;, filtering out many of the data points was helpful while building this dashboard.&lt;/p&gt;
+
+&lt;p&gt;Finally, it was a good excuse to work with d3.js and leaflet.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cldup.com/59wNcZfYyo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Zoomed out view of of the .csv&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Dec 2014 00:00:00 -0500</pubDate>
+      </item>
+    
+      <item>
+        <title>Joining educreations</title>
+        <link>/2012/10/09/Joining-Educreations.html</link>
+        <guid isPermaLink="true">/2012/10/09/Joining-Educreations.html</guid>
+        <description>&lt;h2 id=&quot;one-to-many&quot;&gt;One, to many&lt;/h2&gt;
+&lt;p&gt;“You know I never finished university. I’d even tell you, you don’t need university.”&lt;/p&gt;
+
+&lt;p&gt;These are the few words I remember from a chance encounter with the critically-minded &lt;a href=&quot;https://twitter.com/doctorow&quot;&gt;Cory Doctorow&lt;/a&gt; last year while attending a discussion on media at UofT. I don’t remember the actual discussion too much but those words seem to have stuck in my head. It’s been over a year since the event but as the humour in fate would have it, I have decided to take a year off. Not as Cory suggested, leave, but take a year off.&lt;/p&gt;
+
+&lt;h2 id=&quot;why&quot;&gt;Why&lt;/h2&gt;
+&lt;p&gt;Let’s pause for a second to mention my honest excitement towards academia. This statement isn’t a play to my brave parents or the faculty I’ve had the chance to work with. I honestly believe there’s huge value placed in the research and findings done at the academic level. In fact the small outside of school research project I co-founded, Open Journalism, hinted to me the power of understanding complex problems that meet at the intersection of social, and technological change. We need these places of discussion and research, greatly.&lt;/p&gt;
+
+&lt;p&gt;With that said, I’m really excited to working with the &lt;a href=&quot;https://www.educreations.com/&quot;&gt;Educreations&lt;/a&gt; team in Palo Alto, California for the next 9 months. I will miss Canada.&lt;/p&gt;
+
+&lt;p&gt;It’s likely not a coincidence that I chose to work with a team of people that care deeply about democratizing the tools to teach.&lt;/p&gt;
+
+&lt;p&gt;Imagine for a second if Newton, Feynman, or Einstein had the ability to share their knowledge to anyone with a computer. It’s with that hope, knowing that the next Newtons are being born and giving them the right tools to share what they know. That excites me.&lt;/p&gt;
+
+&lt;p&gt;The Educreations iPad app and website take a step forward from the giant whose shoulders many of us stand on, Sal Khan, to give anyone who wants to teach the tools to do so.&lt;/p&gt;
+
+&lt;p&gt;It’s apparent that as our ability to reach everyone around the world increases, it’s important to build things that allow distribution of knowledge in really easy to use ways. Tim O’Reilly has done a really good job with this idea in his creation of O’Reilly publishing, with the ethos that it was important to build things that allowed the sharing of information from one to many.&lt;/p&gt;
+
+&lt;h2 id=&quot;tool-maker&quot;&gt;Tool Maker&lt;/h2&gt;
+&lt;p&gt;I’ll be spending the next 10 months better understanding how to make tools that are joy to use. That means a focus on building a tool that both understands and experiments with the future of technology and the classroom.&lt;/p&gt;
+
+&lt;p&gt;If you know me well, you know that I spend most nights working on small code/design projects. I’m excited to see what my full focus and working closely with some brilliant engineers can do to help build a really important technology.&lt;/p&gt;
+
+&lt;p&gt;We have big expectations to fill if the next Newton is just being born and grabbing for that iPad, after all.&lt;/p&gt;
+
+&lt;p&gt;If dots are minds, and minds are full of knowledge, surely connecting the dots will make humankind a bit more humble, and a lot more educated.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I can’t take all the credit for making working in education cool again. Apparently GZA was &lt;a href=&quot;http://www.cbc.ca/news/yourcommunity/2012/11/wu-tang-clans-gza-to-help-teach-science-with-hip-hop.html&quot;&gt;on board&lt;/a&gt; before me.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Oct 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Globe and Mail: whiteboard alternative</title>
+        <link>/2012/10/05/Globe-and-Mail-whiteboard.html</link>
+        <guid isPermaLink="true">/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;../../img/whiteboard.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Was interviewed by Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
+
+&lt;p&gt;I was originally inspired to start looking for cheaper versions of whiteboards after spending a weekend at Stanford’s &lt;a href=&quot;http://dschool.stanford.edu/&quot;&gt;D.School&lt;/a&gt; working on Ben Huh’s &lt;a href=&quot;http://benhuh.com/2011/05/23/why-are-we-still-consuming-the-news-like-its-1899/&quot;&gt;Moby Dick project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The space is opinionated only in the sense of allowing space to be extemely flexible. Everything object within the building can be moved around to accomadate to “space” a team needs. If you’re curious, the below video explains it well.&lt;/p&gt;
+
+&lt;iframe width=&quot;800&quot; height=&quot;400&quot; src=&quot;https://www.youtube.com/embed/HLQvxH40a-E&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;I got mine from &lt;a href=&quot;https://maps.google.ca/maps?q=home+depot+woodbridge&amp;amp;hl=en&amp;amp;sll=43.70536,-79.378967&amp;amp;sspn=0.085997,0.154324&amp;amp;hq=home+depot&amp;amp;hnear=Woodbridge,+Vaughan,+York+Regional+Municipality,+Ontario&amp;amp;t=m&amp;amp;z=13&quot;&gt;this Toronto home depot.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lexan is the company that makes the highest quality boards. It is important to note that as the price goes down the grade (quality) of plastic goes down slightly.&lt;/p&gt;
+
+&lt;p&gt;If you’re interested here are a few other resources I found helpful along the way:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rumkin.com/reference/whiteboard/surfaces.php&quot;&gt;Cheap whiteboard material can also be found online here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dschool.stanford.edu/wp-content/uploads/2011/03/BootcampBootleg2010v2SLIM.pdf&quot;&gt;Stanford’s D.School very thorough design handbook&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.instructables.com/id/A-glass-whiteboard/&quot;&gt;Creating a glass whiteboard - instructables&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Someone also just sent me their (much bigger than mine) DIY whiteboard:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://f.cl.ly/items/370s3K3d1d0o06073J1n/20120324_013248.jpg&quot; alt=&quot;big&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let me know if you have any other questions or if you try anything different I’d love to know if it works better?&lt;/p&gt;
+</description>
+        <pubDate>Fri, 05 Oct 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Gifpost.me: building a GIF site for Martha</title>
+        <link>/2012/05/28/building-gifpost.html</link>
+        <guid isPermaLink="true">/2012/05/28/building-gifpost.html</guid>
+        <description>&lt;blockquote id=&quot;tweet&quot; class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Christmas is coming! &lt;a href=&quot;http://t.co/tbmRuV4gbD&quot;&gt;http://t.co/tbmRuV4gbD&lt;/a&gt; &lt;a href=&quot;http://t.co/6tyiTdxAGK&quot;&gt;pic.twitter.com/6tyiTdxAGK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Martha Stewart (@MarthaStewart) &lt;a href=&quot;https://twitter.com/MarthaStewart/status/413044190331678720&quot;&gt;December 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A few months ago just before heading to bed I got a text from Stephen with a “stupid idea”.&lt;/p&gt;
+
+&lt;p&gt;The idea centered around being able to save any GIF to Gifpost that catches your eye online. This would save you from having to download the GIF to be able to find it next time you want to use it.&lt;/p&gt;
+
+&lt;p&gt;A couple weeks later and &lt;a href=&quot;http://www.gifpost.me/&quot;&gt;gifpost.me&lt;/a&gt; was born. Full credit again to Stephen for doing all the heavy lifting when we build the site.&lt;/p&gt;
+
+&lt;p&gt;A few months after releasing the site online, it started getting used by people that weren’t just our friends.&lt;/p&gt;
+
+&lt;p&gt;Rapper Mac Miller used it to announce his new album:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;30 minutes til &lt;a href=&quot;https://twitter.com/hashtag/SDS?src=hash&quot;&gt;#SDS&lt;/a&gt; &lt;a href=&quot;http://t.co/EfMsXnJODs&quot;&gt;http://t.co/EfMsXnJODs&lt;/a&gt;&lt;/p&gt;&amp;mdash; Mac (@MacMiller) &lt;a href=&quot;https://twitter.com/MacMiller/status/326538408933617664&quot;&gt;April 23, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;So, it turns out building a tool with a very specific focus–however trivial–can be helpful to the right people. Maybe everyone that needs your tool won’t find it right away. Patience.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;July 2015 update: site should still be working, though is unattended so needs a poke every month or so&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 May 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Where are the Lee&#39;s?</title>
+        <link>/2012/05/13/where-are-the-lees.html</link>
+        <guid isPermaLink="true">/2012/05/13/where-are-the-lees.html</guid>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
+
+&lt;p&gt;Harry Potter, of course. The weasley’s had a clock.&lt;/p&gt;
+
+&lt;p&gt;Short of being magicla, we created this because my mom doesn’t yet own a cell phone.&lt;/p&gt;
+
+&lt;p&gt;
+
+
+                Harry Potter, of course. The Weasley&#39;s had a clock (&lt;a href=&quot;http://en.wikipedia.org/wiki/Magical_objects_in_Harry_Potter#Weasley_family_clock&quot; target=&quot;_blank&quot;&gt;Whereabouts Clock&lt;/a&gt;) that told them where everyone in the family was at all times. &lt;br /&gt;&lt;br /&gt;
+
+                Short of being magical, we created this because my Mom doesn&#39;t yet own a cell phone. &lt;br /&gt;&lt;br /&gt;
+
+                Right now it&#39;s a mash-up of &lt;a href=&quot;https://developers.google.com/maps/&quot; target=&quot;_blank&quot;&gt;Google&#39;s Map API&lt;/a&gt; and &lt;a href=&quot;https://dev.twitter.com/&quot; target=&quot;_blank&quot;&gt;Twitter&#39;s API&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;
+
+                A &quot;DINNER!&quot; button that allows my Mom to press a button that sends a text to all our phones may be in the pipes for the near future.
+
+                &lt;img src=&quot;/img/wherearethelees.jpg&quot; /&gt;
+
+
+&lt;/p&gt;
+</description>
+        <pubDate>Sun, 13 May 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Importance of travel</title>
+        <link>/2012/04/12/importance-of-travel.html</link>
+        <guid isPermaLink="true">/2012/04/12/importance-of-travel.html</guid>
+        <description>&lt;h3 id=&quot;culture&quot;&gt;Culture&lt;/h3&gt;
+
+&lt;p&gt;One of the biggest values you get from traveling the world is interacting with different cultures. I’ll admit that technology has made it a lot easier to learn, and having video calls with people halfway around the world is impressive, but it’s not perfect.&lt;/p&gt;
+
+&lt;p&gt;When you first step outside your country, you immediately see the varying ways of life and cultures. Why is this important? Let’s think of cultures like computer languages for a second. Variance in computer languages allow us to view problems from slightly different perspectives. We have certain variables that make up this culture. We have certain norms, certain policies, certain liberties, and certain restrictions. Visiting countries with entirely different cultures introduces us to new meanings for these variables and the ability to see problems slightly differently. We gain a new set of eyes.&lt;/p&gt;
+
+&lt;h3 id=&quot;city-view&quot;&gt;City View&lt;/h3&gt;
+
+&lt;p&gt;Most people I meet have lived in the same city for 20+ years. When you start living in a new city you explore the hell out of it, but after a few months we just get comfortable with the same routes. We become complacent with our surroundings. One thing I’ve learned as a photographer is seeing things with fresh eyes. What’s this ‘fresh eyes’ business? Take for instance the route you take to your local coffee shop. You might make that walk once a day - but it’s likely you don’t look around too often on your walk. Experiencing your city as though you’re exploring it for the first time is a humbling experience, and really makes you appreciate wherever you live.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-humbled-traveler&quot;&gt;The Humbled Traveler&lt;/h3&gt;
+
+&lt;p&gt;Traveling gives you a sense of scale, importance, and magnitude. It’s hard to quantify a world’s worldliness in books and on screens. Many have tried, and failed. The people you meet, the stories you hear, and the places you experience, all exist as things you can’t understanding till you’re standing in the middle of them. In a cross-country road trip across the US last summer, I remember we pulled off to the side of the road and got out. We just stood there, in the middle of Nevada. No technology can yet quantify that emptiness, that middle-of-nowhere-ness. I believe there are adjectives in the English language that can’t be understood till you experience them first hand. Till you’re knee deep in them. When we visit other countries and experience vastly different ways of life, we begin to understand the world, from a truly worldly perspective.&lt;/p&gt;
+
+&lt;h3 id=&quot;wisdom&quot;&gt;Wisdom&lt;/h3&gt;
+&lt;p&gt;One project I would tackle if I had a year to do anything: I’d start a project that aims to document and share the wisdom of older generations. Specifically those who are 60+ years old. Why? My generation doesn’t seek the wisdom of those older than us often enough. We have huge wells of knowledge that people my age don’t attempt to ask about, at all. Gathering and documenting these small pieces of knowledge from around the world would mean their experience and understanding of the world could live on, and be accessible throughout the world.&lt;/p&gt;
+
+&lt;h3 id=&quot;teachers-as-translators&quot;&gt;Teachers as Translators&lt;/h3&gt;
+
+&lt;p&gt;Richard Feynman (pictured below) is well known for describing the differences in how an individuals thought process occurs. For example, you and I use different imagery to describe the same thought or idea. Much of the work of a teacher then become the translation of thoughts and concepts. With the understanding that each of us needs a slightly different and unique translation of a concept, we become better translators. The more practiced we become as translators, the easier and more accessible our ideas become to others. This simple understanding goes for both the teacher and the student and will ultimately help us when taking on something new.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cldup.com/OwI7b_flZc.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;teaching-and-mastery&quot;&gt;Teaching and Mastery&lt;/h3&gt;
+
+&lt;p&gt;What does it mean to master a concept? Let’s look at this through the lens of teaching. You have to teach the person across from you a concept. They are totally new to said concept. Mastery in the context of teaching is really the ability to break down obscure principles that make up the greater concept. The principles need to be understood by the teacher at an extremely deep and rudimentary level. This includes the ability to dig beneath even the basics and understand the mechanics of how each of the variables that make up different principles rely on each other. This thoroughness and deep level of understanding of a concept is what defines mastery.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 12 Apr 2012 00:00:00 -0400</pubDate>
+      </item>
+    
+  </channel>
+</rss>

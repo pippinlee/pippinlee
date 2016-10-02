@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<div class="home">
+  {% if site.theme.header_text %}
+  <img class="build" src="https://cldup.com/WLCXp-T4uJ.png" />
+  <div class="call-out">
+    {{ site.theme.header_text }}
+  </div>
+  {% endif %}
+
+  <div class="index">
+  <h3>All articles</h2>
+    <ul>
+      {% for post in site.posts %}
+        <li>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+              {{ post.title }}
+            </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+
+
+
+  <div class="posts">
+    {% for post in paginator.posts %}
+    <div class="post-teaser">
+      <header>
+        <h1 class="post-info">
+          <p class="meta">
+            {{ post.date | date: "%B %-d, %Y" }}
+          </p>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+            {{ post.title }}
+          </a>
+        </h1>
+      </header>
+      <div class="excerpt">
+
+        {% if post.content contains "highlight" %}
+          {{ post.content }}
+        {% elsif post.content != contain "<!-- /.navbar-collapse -->" %}
+          {{ post.content  | truncatewords:180 }}
+        {% endif %}
+
+        <a href="{{ post.url | prepend: site.baseurl }}">
+          <img class="button" src="http://pippinlee.github.io/pippinlee/img/read.png">
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | replace: '//', '/' }}" class="button" >
+      <i class="fa fa-chevron-left"></i>
+      {{ site.theme.str_prev }}
+    </a>
+    {% endif %}
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | replace: '//', '/' }}" class="button" >
+      {{ site.theme.str_next }}
+      <i class="fa fa-chevron-right"></i>
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

@@ -1,0 +1,60 @@
+# SITE CONFIGURATION
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
+
+# THEME-SPECIFIC CONFIGURATION
+theme:
+  # Meta
+  title:
+  avatar: avatar.png
+  gravatar: # Email MD5 hash
+  description: "Pippin Lee: javascript, open source, and humans"
+
+  # Header and footer text
+  header_text: >
+     <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.</p>
+
+  # Icons
+  rss: false
+  email_address: pippinblee@gmail.com
+  github: "pippinlee"
+  instagram:
+  linkedin:  # Full URL
+  stack_exchange: http://stackoverflow.com/users/1234279/pippin
+  tumblr:
+  twitter: "pippinlee"
+  wordpress:
+  youtube:
+
+  # Scripts
+  google_analytics: "UA-30411108-1"
+  disqus_shortname:
+  katex: false # Enable if using math markup
+
+  # Localization strings
+  str_follow_on: "Follow on"
+  str_rss_follow: "Follow RSS feed"
+  str_email: "Email"
+  str_next: "Next"
+  str_prev: "Prev"
+  img_read_more: read.png
+
+  # Colours, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
+  google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
+
+  # Post navigation
+  post_navigation: false
+
+gems: [jekyll-paginate]
+
+# PAGINATION
+paginate: 4
+paginate_path: "blog/page:num"
+
+# BUILD SETTINGS
+markdown: kramdown
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: :compressed

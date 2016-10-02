@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="95px" height="83px" viewBox="0 0 95 83" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="desktop-y">
+            <g id="Page-1">
+                <g id="desktop" fill="#322E2E">
+                    <g id="Page-1">
+                        <g id="noun_6034_cc">
+                            <g id="Group">
+                                <path d="M0.047,57.597 L0.047,63.063 C0.047,64.637 1.323,65.913 2.896,65.913 L91.792,65.913 C93.365,65.913 94.64,64.638 94.64,63.063 L94.64,57.597 L0.047,57.597 L0.047,57.597 L0.047,57.597 L0.047,57.597 Z" id="Shape"></path>
+                                <path d="M91.793,0.17 L2.896,0.17 C1.323,0.17 0.047,1.446 0.047,3.019 L0.047,56.776 L94.64,56.776 L94.64,3.019 C94.641,1.446 93.366,0.17 91.793,0.17 L91.793,0.17 L91.793,0.17 L91.793,0.17 Z" id="Shape"></path>
+                                <path d="M60.269,74.279 C58.535,73.004 58.352,71.089 58.352,71.089 L57.702,66.935 L36.988,66.935 L36.336,71.089 C36.336,71.089 36.155,73.004 34.422,74.279 C32.69,75.555 31.323,76.649 32.69,76.832 C34.007,77.009 46.43,76.847 47.346,76.833 C48.263,76.847 60.684,77.009 62.001,76.832 C63.367,76.649 62,75.556 60.269,74.279 L60.269,74.279 L60.269,74.279 L60.269,74.279 Z" id="Shape"></path>
+                                <polygon id="Shape" points="73.279 81.061 20.101 81.061 22.95 77.505 70.43 77.505"></polygon>
+                                <rect id="Rectangle-path" x="20.101" y="81.061" width="53.179" height="0.77"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <polygon id="Shape-path" fill="#FDEA8C" points="90.707 53.311 3.825 53.311 3.825 3.808 90.707 3.808"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

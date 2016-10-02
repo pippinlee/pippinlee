@@ -1,0 +1,304 @@
+.home {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+// Header text feature
+img.build {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width: 373px;
+  display: -webkit-box;
+  display: grid;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  padding-top: 11px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-bottom: 1px solid #FC3;
+}
+
+.call-out {
+  @extend %padding-regular;
+  width: 63%;
+  background-color:$background-color;
+  color: $header-desc-text-color;
+  font-family: $font-family-title;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.34);
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: block;
+  p {
+    margin-bottom: 0;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    width: 38%;
+    @media screen and (max-width: 670px) {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 670px) {
+    margin: 0 auto;
+    padding: 0;
+    padding: 20px;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.index {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width: 500px;
+  border: 1px solid #DDD;
+  padding: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  h3 {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 22px;
+    @media screen and (max-width: 670px) {
+      font-size: 18px;
+      padding-left: 15px;
+    }
+  }
+  ul {
+    margin-left: 60px;
+    li {
+      list-style-position: outside;
+    }
+  }
+  a {
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 670px) {
+    width: 100%;
+    ul {
+      margin-left: 30px;
+    }
+    a {
+      font-weight: 100;
+      padding-left: 0;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      font-weight: 10px;
+    }
+  }
+}
+
+// Post listing
+.posts {
+  .post-teaser {
+    @extend %padding-regular;
+    width: 100%;
+    margin-bottom: 100px;
+    display: inline-block;
+    background-size: $feature-image-size;
+    p a:hover {
+      @extend %link-hover;
+    }
+    @media screen and (max-width: 670px) {
+      margin: 0 auto;
+      padding: 0;
+      margin-bottom: 100px;
+    }
+  }
+  header {
+    h1.post-info {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      .meta {
+        background-color: #fc3;
+        font-size: 0.3em;
+        width: 31%;
+        color: #fff;
+        text-align: center;
+        height: 41px;
+        padding-top: 10px;
+        margin-bottom: -9px;
+        @media screen and (max-width: 670px) {
+          width: 100%;
+          margin-bottom: -7px;
+          font-size: 18px;
+        }
+      }
+      a.post-link {
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        display: inline-block;
+        font-style: italic;
+        font-size: 0.5em;
+        color: rgba(51, 51, 51, 0.78);
+        text-align: center;
+        height: 60px;
+        padding-top: 16px;
+        font-weight: 100;
+        border: 1px solid rgba(102, 102, 102, 0.19);
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        font-weight: 900;
+        &:hover {
+          color: #fc3;
+        }
+        @media screen and (max-width: 670px) {
+          font-size: 20px;
+          padding: 20px;
+          height: 100%;
+          border: none;
+        }
+      }
+      img, iframe {
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .excerpt {
+    @media screen and (max-width: 670px) {
+      margin: 0 auto;
+      padding: 20px;
+    }
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(204, 204, 204, 0.35);
+    border-bottom: 5px solid $brand-color;
+    font-family: 'PT Serif', Verdana, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #808080;
+    padding-left: 60px;
+    p {
+      margin: 0 auto;
+      padding: 0 40px 0 40px;
+      text-align: left;
+      margin-bottom: 40px;
+      line-height: 30px;
+      @media screen and (max-width: 670px) {
+        padding: 0 20px 0 20px;
+      }
+      img {
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+        @media screen and (max-width: 670px) {
+          width: 200%;
+        }
+      }
+    }
+    iframe {
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      display: inline-block;
+      margin-bottom: 100px;
+    }
+    #tweet {
+      margin-bottom: 100px;
+    }
+    h1, h2, h3 {
+      text-align: left;
+      padding: 0;
+      padding-left: 40px;
+      @media screen and (max-width: 670px) {
+        padding: 0;
+      }
+    }
+    a {
+      height: 200px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      width: 100%;
+      img {
+        display: block;
+        border: none;
+        width: 70px;
+        margin: 0 auto;
+        padding: 0;
+        margin-top: 35px;
+      }
+    }
+    ul {
+      text-align: left;
+      padding: 0 40px 0 40px;
+    }
+    @media screen and (max-width: 670px) {
+      width: 100%;
+      p {
+        padding: 0;
+      }
+      h1,h2,h3 {
+        font-size: 22px;
+      }
+    }
+  }
+  .highlight {
+      background-color: #F0F0FF;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 3px;
+      border: 1px solid rgba(153, 153, 153, 0.24);
+      text-align: left;
+      margin: 40px;
+      font-size: 15px;
+      .hll {
+        padding: 2px;
+        padding-right: 10px;
+      }
+  }
+}
+
+// Pagination
+.pagination .button {
+  background-color: #FFCC31;
+  margin-bottom: 40px;
+  color: #fff;
+  i {
+    vertical-align: middle;
+  }
+  &:hover {
+    background-color: #666;
+    border: 1px solid #FFCC31;
+  }
+}
+
+
+.pagination {
+  padding: $padding-small $padding-large 0 $padding-large;
+  text-align: center;
+  @media screen and (max-width: 670px) {
+    margin-bottom: 0 auto;
+    padding: 0;
+  }
+}
+
