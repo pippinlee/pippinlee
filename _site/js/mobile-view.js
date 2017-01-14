@@ -18,8 +18,8 @@ window.onload = function() {
     nav.classList.toggle('openMenu');
     var navHeight = parseInt(  $('.intro').css('margin-top').split('px')[0] );
     if (navHeight === 58) {
-      $('.intro').css('margin-top', '130px')
-      $('.site-header').css('margin-top', '-130px')
+      $('.intro').css('margin-top', '110px')
+      $('.site-header').css('margin-top', '-110px')
       console.log('working')
     } else {
       $('.intro').css('margin-top', '58px')

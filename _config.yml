@@ -11,7 +11,12 @@ thetheme:
   description: "Pippin Lee: javascript, open source, and humans"
 
   # Header and footer text
-  header_text: <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.</p>
+  header_text: >
+     <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.
+     </br></br>
+     <a href="./work">Work</a> ∞ <a href="./work">About</a>
+     </p>
+
 
   # Icons
   rss: false
