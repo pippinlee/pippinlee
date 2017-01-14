@@ -246,7 +246,7 @@ a  {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 5px;
     background-color: #F3F3F3;
-    font-size: 44px;
+    font-size: 30px;
     text-decoration: underline;
     font-family: monospace;
     font-weight: 100;
@@ -295,6 +295,7 @@ a  {
   .item-title {
     font-size: 30px!important;
     text-align: left;
+    padding-right: 0;
   }
   .tech {
     padding-left: 0!important;
@@ -464,8 +465,8 @@ a  {
 }
 .item-anchor {
   height: 50px;
-  padding-top: 8px;
-  font-size: 17px;
+  padding-top: 15px!important;
+  font-size: 15px;
   margin-left: 0;
   margin-top: 0;
   margin: 0;
