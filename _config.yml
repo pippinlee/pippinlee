@@ -1,18 +1,17 @@
 # SITE CONFIGURATION
-baseurl: "https://pippinlee.github.io/test-work" # the subpath of your site, e.g. /blog/
-url: "https://pippinlee.github.io/test-work" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 thetheme:
   # Meta
-  title:
-  avatar: avatar.png
+  title: PIPPIN
+  avatar: 
   gravatar: # Email MD5 hash
   description: "Pippin Lee: javascript, open source, and humans"
 
   # Header and footer text
-  header_text: >
-     <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.</p>
+  header_text: <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.</p>
 
   # Icons
   rss: false

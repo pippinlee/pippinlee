@@ -3,10 +3,10 @@ layout: default
 ---
 
 <div class="home">
-  {% if site.theme.header_text %}
+  {% if site.thetheme.header_text %}
   <img class="build" src="https://cldup.com/WLCXp-T4uJ.png" />
   <div class="call-out">
-    {{ site.theme.header_text }}
+    {{ site.thetheme.header_text }}
   </div>
   {% endif %}
 
@@ -57,12 +57,12 @@ layout: default
     {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | replace: '//', '/' }}" class="button" >
       <i class="fa fa-chevron-left"></i>
-      {{ site.theme.str_prev }}
+      {{ site.thetheme.str_prev }}
     </a>
     {% endif %}
     {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | replace: '//', '/' }}" class="button" >
-      {{ site.theme.str_next }}
+      {{ site.thetheme.str_next }}
       <i class="fa fa-chevron-right"></i>
     </a>
     {% endif %}

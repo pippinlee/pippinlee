@@ -11,8 +11,19 @@ body {
   width: 100%!important;
 }
 
-.intro {
-  margin-top: 115px;
+.site-header {
+  margin: 0;
+  font-size: 22px;
+}
+.site-nav:hover {
+  color: white!important;
+}
+
+.site-title a {
+  font-size: 28px!important;
+  font-weight: 900!important;
+  color: #fff!important;
+  font-family: 'Montserrat', sans-serif!important;
 }
 
 .intro-text {
@@ -191,12 +202,37 @@ a  {
     width: 100%;
   }
 
+  .intro {
+    margin-top: 58px;
+  }
+
+  .intro-text {
+    margin: 0px!important;
+    padding: 30px!important;
+    font-size: 20px!important;
+    line-height: 30px!important;
+    height: inherit!important;
+    text-align: left;
+  }
+
+  .site-header {
+    margin-top: -58px;
+  }
+
+  .item {
+    text-align: center;
+  }
+
   .item-link {
     height: 114px;
     border: none;
-    margin-top: 10px;
     border-right: 3px solid #D8D8D8;
-    min-width: 128px;
+  }
+
+  .item-description-title {
+    margin: 0 auto!important;
+    padding: 0!important;
+    text-align: left;
   }
 
   .item-anchor {
@@ -220,34 +256,60 @@ a  {
     padding: 0;
     margin-top: 26px;
     padding-left: 40px;
+    text-align: center;
   }
   .permalink {
+    width: 100%!important;
     padding-top: 0;
-    border: 1px solid #999;
-    padding: 0;
-    margin: 0;
+    border: 1px solid #dedede;
+    padding: 0!important;
+    margin: 0!important;
     background-color: #F3F3F3;
     margin-left: 5%;
-    width: 90%;
+    margin-bottom: 30px!important;
   }
   .share-icon {
     max-width: 50px;
     padding-top: 28px;
   }
   .details-heading, .item-description-title, .item-highlight-title, .item-description, .tech {
-    padding-left: 38px;
+    padding-left: 0px;
+  }
+  .details-heading {
+    padding-right: 0;
   }
   .item-description {
-    margin-top: 30px;
+    margin-top: 15px!important;
+    text-align: left;
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+  .item-description-title, .item-highlight-title {
+    font-size: 30px!important;
   }
   .item-title {
-    font-size: 85px;
+    font-size: 30px!important;
+    text-align: left;
+  }
+  .tech {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    text-align: left;
+  }
+  .tech-items {
+    margin-left: 27px;
   }
   .item-highlight-title {
     margin-bottom: 40px;
+    text-align: left;
+    padding-left: 0!important;
   }
   .link-icon {
-    padding-left: 0;
+    padding-left: 0!important;
+    width: 100%!important;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
   }
 }
 
@@ -304,105 +366,104 @@ a  {
   margin-top: 10px;
 }
 
-@media (min-width: 992px) {
-  .item {
-    max-width: 1110px;
-    border-radius: 3px;
-    box-shadow: 0 0 1px 0 rgba(152, 148, 26, 0.5),0 1px 10px 0 rgba(234, 228, 32, 0.15);
-    max-width: 1040px;
-    border-bottom: 30px solid #42718d;
-  }
-  .intro {
-    width: 100%;
-  }
-  .intro-text {
-    line-height: 45px;
-    letter-spacing: 1px;
-    font-size: 24px;
-    width: 100%;
-    padding: 25%;
-    padding-top: 14%;
-    padding-bottom: 14%;
-  }
-  .view-btn {
-    height: 60px;
-    padding-top: 8px;
-  }
-  .view-btn:first-child {
-    padding-top: 5px;
-  }
-  .icons {
-    max-height: 30px;
-  }
-  .item-link {
-    padding-top: 0px;
-    height: 50px;
-    width: 50px;
-  }
-  .share-icon {
-    width: 22px;
-    padding-top: 14px;
-    margin: 0 auto;
-  }
-  .item-title {
-    margin-top: 60px;
-    margin-bottom: 20px;
-    font-size: 45px;
-  }
-  .item-link {
+.item {
+  max-width: 1110px;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 0 rgba(152, 148, 26, 0.5),0 1px 10px 0 rgba(234, 228, 32, 0.15);
+  max-width: 1040px;
+  border-bottom: 30px solid #42718d;
+}
+.intro {
+  width: 100%;
+}
+.intro-text {
+  line-height: 45px;
+  letter-spacing: 1px;
+  font-size: 24px;
+  width: 100%;
+  padding: 25%;
+  padding-top: 14%;
+  padding-bottom: 14%;
+}
+.view-btn {
+  height: 60px;
+  padding-top: 8px;
+}
+.view-btn:first-child {
+  padding-top: 5px;
+}
+.icons {
+  max-height: 30px;
+}
+.item-link {
+  padding-top: 0px;
+  height: 50px;
+  width: 50px;
+}
+.share-icon {
+  width: 22px;
+  padding-top: 14px;
+  margin: 0 auto;
+}
+.item-title {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 45px;
+}
+.item-link {
 
-  }
-  .link-icon {
-    width: 100%;
-    height: auto;
-    display: table;
-    padding: 0;
-  }
-  .item-url {
-    font-size: 20px;
-    padding-left: 20px;
-  }
-  .permalink {
-    padding-left: 50px;
-    padding-top: 45px;
-    display: inline-flex;
-    margin-left: 0;
-    margin-top: 18px;
-    margin-bottom: -16px;
+}
+.link-icon {
+  width: 100%;
+  height: auto;
+  display: table;
+  padding: 0;
+}
+.item-url {
+  font-size: 20px;
+  padding-left: 20px;
+}
+.permalink {
+  padding-left: 50px;
+  padding-top: 45px;
+  display: inline-flex;
+  margin-left: 0;
+  margin-top: 18px;
+  margin-bottom: -16px;
 
-  }
-  .item-description {
-    font-size: 18px;
-    margin-top: 0;
-    letter-spacing: 1px;
-  }
-  .tech-items {
-    font-size: 18px;
-  }
-  .item-description-title {
-    padding-left: 50px;
-    padding-right: 0;
-    margin-top: 0;
-    font-size: 30px;
-    background-color: transparent!important;
-    letter-spacing: 1px;
-  }
-  .item-highlight-title {
-    padding-left: 10px;
-    margin-top: 0;
-    font-size: 30px;
-    background-color: transparent!important;
-    margin-bottom: 10px;
-    letter-spacing: 0;
-  }
-  .item-anchor {
-    height: 50px;
-    padding-top: 8px;
-    font-size: 17px;
-    margin-left: 0;
-    margin-top: 0;
-    margin: 0;
-    padding: 20px;
-    padding-top: 10px;
-  }
+}
+.item-description {
+  font-size: 18px;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+.tech-items {
+  font-size: 18px;
+  list-style-position: initial;
+}
+.item-description-title {
+  padding-left: 50px;
+  padding-right: 0;
+  margin-top: 0;
+  font-size: 30px;
+  background-color: transparent!important;
+  letter-spacing: 1px;
+}
+.item-highlight-title {
+  padding-left: 10px;
+  margin-top: 0;
+  font-size: 30px;
+  background-color: transparent!important;
+  margin-bottom: 10px;
+  letter-spacing: 0;
+}
+.item-anchor {
+  height: 50px;
+  padding-top: 8px;
+  font-size: 17px;
+  margin-left: 0;
+  margin-top: 0;
+  margin: 0;
+  padding: 20px;
+  padding-top: 10px;
 }

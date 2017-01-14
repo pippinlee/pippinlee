@@ -10,10 +10,17 @@ window.onload = function() {
   button = document.getElementsByTagName('button')[0];
   if( width < 640 ) {
     nav.classList.add('mobile');
+
   } else {
     button.style.display = "none";
   }
   button.onclick = function openNav() {
     nav.classList.toggle('openMenu');
+    if $('.intro').css('margin-top') === '58px' {
+      console.log('hello')
+    } else {
+      $('.intro').css('margin-top', '58px')
+      $('.site-header').css('margin-top', '-58px')
+    }
   };
 };

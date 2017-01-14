@@ -56,7 +56,7 @@ var work = {
   },
   'get-headlines': {
     'item-title': 'Get Headlines',
-    'item-anchor': 'http://www.github.com/pippinlee/get-headlines',
+    'item-anchor': 'http://www.github.com/pippinlee/news-cli',
     'item-link': 'get-headlines',
     'item-description': 'I started by asking what would change about our relationship to different regions if we could know what is happening. I made this small command line tool that given a city, goes to the different news websites of that region and outputs the latests headlines.',
     'tech': ['Using Node.js to scrape data from different news sites', 'Distributed on npm', 'Used as part of simple local news API'],

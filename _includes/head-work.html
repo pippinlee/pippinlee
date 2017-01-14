@@ -4,9 +4,9 @@
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.thetheme.description }}{% endif %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
 	<!-- CSS -->
 	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+	
 
 	<!--Favicon-->
 	<link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
@@ -26,6 +26,17 @@
   <link href='//fonts.googleapis.com/css?family=Gentium+Book+Basic:400italic' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic' rel='stylesheet' type='text/css'>
 	{% endif %}
+
+
+	<!-- Work assets -->
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/work/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/work/normalize.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/work/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<!-- End assets -->
+
 
   <script type="text/javascript" src="{{ "/js/mobile-view.js" | prepend: site.baseurl  }}"></script>
 

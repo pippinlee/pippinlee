@@ -30,16 +30,13 @@ $('content').html(
         </h2>
       </div>
 
-      <div class="permalink col-sm-12 hidden-md hidden-lg">
-        <div class="col-sm-2 item-link">
-          <img class="share-icon" src="../img/work/share-b.svg" />
-        </div>
-        <div class="link-icon col-sm-10">
+      <div class="permalink hidden-md hidden-lg">
+        <div class="link-icon col-sm-1">
           <a class="item-anchor" href=${work[item]["item-anchor"]}>${work[item]["item-link"]}</a>
         </div>
       </div>
 
-      <div class="permalink hidden-sm pull-right">
+      <div class="permalink hidden-sm hidden-xs pull-right">
         <div class="col-md-2 item-link">
           <img class="share-icon" src="../img/work/share-b.svg" />
         </div>
@@ -55,7 +52,7 @@ $('content').html(
       </div>
 
       <div class="">
-        <h2 class="col-md-6 hidden-sm item-highlight-title">
+        <h2 class="col-md-6 hidden-sm hidden-xs item-highlight-title">
           Technology
         </h2>
       </div>
