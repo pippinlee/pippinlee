@@ -222,6 +222,11 @@ a  {
 
   .site-header {
     margin-top: -58px;
+    -webkit-transition: height 0.5s ease;
+    -moz-transition: height 0.5s ease;
+    -ms-transition: height 0.5s ease;
+    -o-transition: height 0.5s ease;
+    transition: height 0.5s ease;
   }
 
   .item {
@@ -296,6 +301,7 @@ a  {
     font-size: 30px!important;
     text-align: left;
     padding-right: 0;
+    margin-top: 20px!important;
   }
   .tech {
     padding-left: 0!important;

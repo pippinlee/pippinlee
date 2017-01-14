@@ -16,11 +16,15 @@ window.onload = function() {
   }
   button.onclick = function openNav() {
     nav.classList.toggle('openMenu');
-    if $('.intro').css('margin-top') === '58px' {
-      console.log('hello')
+    var navHeight = parseInt(  $('.intro').css('margin-top').split('px')[0] );
+    if (navHeight === 58) {
+      $('.intro').css('margin-top', '130px')
+      $('.site-header').css('margin-top', '-130px')
+      console.log('working')
     } else {
       $('.intro').css('margin-top', '58px')
       $('.site-header').css('margin-top', '-58px')
     }
+    
   };
 };
