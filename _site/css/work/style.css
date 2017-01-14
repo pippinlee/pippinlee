@@ -202,6 +202,11 @@ a  {
     width: 100%;
   }
 
+  .item-image {
+    height: 260px;
+  }
+
+
   .intro {
     margin-top: 58px;
   }
