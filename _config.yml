@@ -12,10 +12,31 @@ thetheme:
 
   # Header and footer text
   header_text: >
-     <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.
+     <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.</p>
      </br></br>
-     <a href="./work">Work</a> ∞ <a href="./about">About</a> ∞ <a href="./photo">Photos</a>
-     </p>
+     <div class="social">
+
+       <a href="https://github.com/pippinlee" title="Follow on Github">
+         <i class="fa fa-fw fa-github"></i>
+       </a>
+
+       <a href="https://twitter.com/pippinlee" title="Follow on Twitter">
+         <i class="fa fa-fw fa-twitter"></i>
+       </a>
+
+       <a href="https://instagram.com/pippinlee" title="Follow on Instagram">
+         <i class="fa fa-fw fa-instagram"></i>
+       </a>
+
+       <a href="http://stackoverflow.com/users/1234279/pippin" title="Find on Stack Overflow">
+        <i class="fa fa-fw fa-stack-exchange"></i>
+       </a>
+
+       <a href="mailto:pippinblee@gmail.com" title="Email">
+        <i class="fa fa-fw fa-envelope"></i>
+       </a>
+
+      </div>
 
 
   # Icons

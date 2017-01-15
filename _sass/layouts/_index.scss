@@ -39,6 +39,11 @@ img.build {
   display: -webkit-box;
   display: -moz-box;
   display: block;
+  .social {
+    a {
+      font-size: 28px;
+    }
+  }
   p {
     margin-bottom: 0;
     text-align: center;

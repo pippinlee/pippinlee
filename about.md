@@ -5,7 +5,7 @@ permalink: /about
 published: true
 ---
 
-![](../img/bio-pic.jpg)
+![](img/bio-pic.jpg)
 
 
 Influenced by an early life of journalism and photography, the software I enjoy building is a mixture of interfaces that experiment, and interfaces that teach. I’m most interested in work that allows me to ask questions of the overlap between art and science. I’ll always be a child of the open web.
