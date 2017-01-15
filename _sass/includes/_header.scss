@@ -29,7 +29,7 @@
   .site-title {
     float: left;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 28px!important;
     line-height: 1.5;
     a {
       color: #fff;
@@ -37,7 +37,7 @@
     }
   }
 
-  .site-nav {
+  .site-nav {.
     -webkit-transition: height 0.3s ease;
     -moz-transition: height 0.3s ease;
     -ms-transition: height 0.3s ease;
@@ -53,6 +53,7 @@
       line-height: 1.5;
       float: right;
       text-align: right;
+      padding-top: 11px;
     }
     .rightButton {
       margin-left: 100px;
@@ -81,9 +82,9 @@
       display: inline;
       opacity: 0.8;
       border: 3px solid #fff;
-      background-color: $brand-color;
+      
       padding: 7px;
-      border-radius: 32px;
+      
       width: 80px;
       font-size: 16px;
       font-family: $font-family-headings;
@@ -91,7 +92,8 @@
       padding-top: 1px;
       margin-top: 6px;
       &:hover {
-        background-color: #9C802C;
+        background-color: #999;
+        color: #fff;
       }
     }
   }
@@ -105,7 +107,7 @@
     transition: height 0.5s ease;
     height: 60px;
     width: 100%;
-    background-color: $brand-color;
+    
     ul {
       margin: 0 auto;
       padding: 0;

@@ -14,16 +14,18 @@ body {
 .site-header {
   margin: 0;
   font-size: 22px;
+  background-color: #ffa141;
 }
 .site-nav:hover {
   color: white!important;
 }
 
 .site-title a {
-  font-size: 28px!important;
+  font-size: 32px!important;
+  letter-spacing: 1px;
   font-weight: 900!important;
   color: #fff!important;
-  font-family: 'Montserrat', sans-serif!important;
+  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif!important;
 }
 
 .intro-text {
@@ -205,8 +207,6 @@ a  {
   .item-image {
     height: 260px;
   }
-
-
   .intro {
     margin-top: 58px;
   }
@@ -323,6 +323,18 @@ a  {
     margin: 0 auto;
     padding: 0;
   }
+  .mobile {
+    display: inline-block;
+  }
+  .branding {
+    display: inline-block;
+  }
+  .site-title {
+    display: inline-block;
+  }
+  .site-title a {
+    float: left;
+  }
 }
 
 .item-description-title {
@@ -414,7 +426,7 @@ a  {
 }
 .share-icon {
   width: 22px;
-  padding-top: 14px;
+  padding-top: 18px;
   margin: 0 auto;
 }
 .item-title {

@@ -14,7 +14,7 @@ thetheme:
   header_text: >
      <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.
      </br></br>
-     <a href="./work">Work</a> ∞ <a href="./work">About</a>
+     <a href="./work">Work</a> ∞ <a href="./about">About</a> ∞ <a href="./photo">Photos</a>
      </p>
 
 
@@ -48,7 +48,7 @@ thetheme:
   google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
 
   # Post navigation
-  post_navigation: false
+  post_navigation: true
 
 # PAGINATION
 paginate: 4
