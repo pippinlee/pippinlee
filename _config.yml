@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
-baseurl: "/test-work/" # the subpath of your site, e.g. /blog/
-url: "/test-work/" # the base hostname & protocol for your site
+baseurl: "http://pippinlee.com" # the subpath of your site, e.g. /blog/
+url: "http://pippinlee.com" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 thetheme:
