@@ -3,20 +3,20 @@ layout: post
 title: "Globe and Mail: whiteboard alternative"
 
 ---
-![](../../img/whiteboard.jpg)
+![]({{ site.baseurl }}/img/whiteboard.jpg)
 
-Was interviewed by Globe and Mail about "hacks" for student living. In this case I've done a bunch of work to find out cheaper alternatives to whiteboards.
+I was [interviewed](http://www.theglobeandmail.com/life/parenting/back-to-school/5-must-have-back-to-school-items-for-postsecondary-students/article4465414/) by the Globe and Mail about "hacks" for student living. In this case I've done a bunch of work to find out cheaper alternatives to whiteboards.
 
 I was originally inspired to start looking for cheaper versions of whiteboards after spending a weekend at Stanford's [D.School](http://dschool.stanford.edu/) working on Ben Huh's [Moby Dick project](http://benhuh.com/2011/05/23/why-are-we-still-consuming-the-news-like-its-1899/).
 
-The space is opinionated only in the sense of allowing space to be extemely flexible. Everything object within the building can be moved around to accomadate to "space" a team needs. If you're curious, the below video explains it well.
+The space is opinionated only in the sense of allowing space to be extemely flexible. Everything object within the building can be moved around to accomadate to the "space" a team needs. If you're curious, the below video explains it well.
 
 <iframe width="800" height="400" src="https://www.youtube.com/embed/HLQvxH40a-E" frameborder="0" allowfullscreen></iframe>
 
 
 I got mine from [this Toronto home depot.](https://maps.google.ca/maps?q=home+depot+woodbridge&hl=en&sll=43.70536,-79.378967&sspn=0.085997,0.154324&hq=home+depot&hnear=Woodbridge,+Vaughan,+York+Regional+Municipality,+Ontario&t=m&z=13)
 
-Lexan is the company that makes the highest quality boards. It is important to note that as the price goes down the grade (quality) of plastic goes down slightly.
+Lexan is the company that makes the highest quality boards. It is important to note that as the price goes down, so does the grade (quality) of plastic.
 
 If you're interested here are a few other resources I found helpful along the way:
 

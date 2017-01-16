@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Releasing Open Journalism Project
+title: Open Journalism Project
 ---
 
 ![](https://d262ilb51hltx0.cloudfront.net/max/2000/1*oBWUXtszDsiv_-Qq2bFLTQ.png)
@@ -42,15 +42,10 @@ In other words, we knew that we should be building a newer pair of shoes, but we
 Our questioning of other student journalists in 15 student newsrooms brought up a few repeating issues.
 
 * Lack of mentorship
-
 * A news process that lacked consideration of the web
-
 * No editor/position specific to the web
-
 * Little exposure to many of the cool projects being put together by professional newsrooms
-
 * Lack of diverse skills within the newsroom. Writers made up 95% of the personnel. Students with other skills were not sought because journalism was seen as “a career with words.” The other 5% were designers, designing words on computers, for print.
-
 * Not enough discussion between the business side and web efforts
 
 ![data](https://d262ilb51hltx0.cloudfront.net/max/800/1*_9KYIFrk_PqWFgptsMDeww.png)
@@ -60,19 +55,12 @@ Common problems in student newsrooms (2013)
 Two years later, we went back and looked at what had changed. We talked to a dozen more newsrooms and weren’t surprised by our findings.
 
 * Still no mentorship or link to professional newsrooms building stories for the web
-
 * Very little control of website and technology
-
 * The lack of exposure that student journalists have to interactive storytelling. While some newsrooms are in touch with what’s happening with the web and journalism, there still exists a huge gap between the student newsroom and its professional counterpart
-
 * No time in the current news development cycle for student newsrooms to experiment with the web
-
 * Lack of skill diversity (specifically coding, interaction design, and statistics)
-
 * Overly restricted access to student website technology. Changes are primarily visual rather than functional.
-
 * Significantly reduced print production of many papers
-
 * Computers aren’t set up for experimenting with software and code, and often locked down
 
 Newsrooms have traditionally been covered in copies of The New York Times or Globe and Mail. Instead newsrooms should try spend at 20 minutes each week going over the coolest/weirdest online storytelling in an effort to expose each other to what is possible. “[Hey, what has the New York Times R&D lab been up to this week?](http://nytlabs.com/)”
@@ -120,29 +108,29 @@ The current Open Journalism site was a few years in the making. This was an orig
 ![old oj](https://d262ilb51hltx0.cloudfront.net/max/800/1*2Ln_DmC95Xpz6LzgywkcFQ.png)
 
 ### What we know
-* New process
+**New process**
 
 Our rough research has told us newsrooms need to be reorganized. This includes every part of the newsroom’s workflow: from where a story and its information comes from, to thinking of every word, pixel, and interaction the reader will have with your stories. If I was a photo editor that wanted to re-think my process with digital tools in mind, I’d start by asking “how are photo assignments processed and sent out?”, “how do we receive images?”, “what formats do images need to be exported in?”, “what type of screens will the images be viewed on?”, and “how are the designers getting these images?” Making a student newsroom digital isn’t about producing “digital manifestos”, it’s about being curious enough that you’ll want to to continue experimenting with your process until you’ve found one that fits your newsroom’s needs.
 
-* More (remote) mentorship
+**More (remote) mentorship**
 
 Lack of mentorship is still a big problem. [Google’s fellowship program](http://www.google.com/get/journalismfellowship/) is great. The fact that it only caters to United States students isn’t. There are only a handful of internships in Canada where students interested in journalism can get experience writing code and building interactive stories. We’re OK with this for now, as we expect internships and mentorship over the next 5 years between professional newsrooms and student newsrooms will only increase. It’s worth noting that some of that mentorship will likely be done remotely.
 
-* Changing a newsroom culture
+**Changing a newsroom culture**
 
 Skill diversity needs to change. We encourage every student newsroom we talk to, to start building a partnership with their school’s Computer Science department. It will take some work, but you’ll find there are many CS undergrads that love playing with web technologies, and using data to tell stories. Changing who is in the newsroom should be one of the first steps newsrooms take to changing how they tell stories. The same goes with getting designers who understand the wonderful interactive elements of the web and students who love statistics and exploring data. Getting students who are amazing at design, data, code, words, and images into one room is one of the coolest experience I’ve had. Everyone benefits from a more diverse newsroom.
 
 ### What we don’t know
 
-* Sharing curiosity for the web
+**Sharing curiosity for the web*
 
 We don’t know how to best teach students about the web. It’s not efficient for us to teach coding classes. We do go into newsrooms and get them running their first code exercises, but if someone wants to learn to program, we can only provide the initial push and curiosity. We will be trying out “labs” with a few schools next school year to hopefully get a better idea of how to teach students about the web.
 
-* Business
+**Business**
 
 We don’t know how to convince the business side of student papers that they should invest in the web. At the very least we’re able to explain that having students graduate with their current skill set is painful in the current job market.
 
-* The future
+**The future**
 
 We don’t know what journalism or the web will be like in 10 years, but we can start encouraging students to keep an open mind about the skills they’ll need. We’re less interested in preparing students for the current newsroom climate, than we are in teaching students to have the ability to learn new tools quickly as they come and go.
 
@@ -150,9 +138,9 @@ We don’t know what journalism or the web will be like in 10 years, but we can 
 _Another slide from 2012 website_
 
 ### What we’re trying to share with others
-* A concise guide to building stories for the web
+**A concise guide to building stories for the web
 There are too many options to get started. We hope to provide an opinionated guide that follows both our experiences, research, and observations from trying to teach our peers.
-Student newsrooms don’t have investors to please. Student newsrooms can change their website every week if they want to try a new design or interaction. As long as students start treating the web as a different medium, and start building stories around that idea, then we’ll know we’re moving forward.
+Student newsrooms don’t have investors to please. Student newsrooms can change their website every week if they want to try a new design or interaction. As long as students start treating the web as a different medium, and start building stories around that idea, then we’ll know we’re moving forward.**
 
 ### A note to professional news orgs
 We’re also asking professional newsrooms to be more open about their process of developing stories for the web. You play a big part in this. This means writing about it, and sharing code. We need to start building a bridge between student journalism and professional newsrooms.

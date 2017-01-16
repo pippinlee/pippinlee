@@ -92,7 +92,7 @@ var work = {
     'item-anchor': 'http://pippinlee.github.io/yorku-sunshine-list',
     'item-link': 'yorku-sunshine',
     'item-description': 'Every year the Canadian government must disclose the university staff that earn more than $100,000. This was made for an article in the student paper to show the trends and gender breakdown.',
-    'tech': ['Data was scraped using a small module called scraperJS that makes querying the DOM simple.', 'jQuery and Dynatable were used to display the data.'],
+    'tech': ['Data was scraped using a small module called scraperJS that makes querying the DOM simple', 'jQuery and Dynatable were used to display the data'],
     'images': ['../img/work/yorku-sunshine.png'],
     'color': '#ec143d',
     'shadow1': 'rgba(214, 36, 36, 0.5)',

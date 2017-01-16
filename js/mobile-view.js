@@ -20,11 +20,9 @@ window.onload = function() {
     if (navHeight === 58) {
       $('.intro').css('margin-top', '110px')
       $('.site-header').css('margin-top', '-110px')
-      console.log('working')
     } else {
       $('.intro').css('margin-top', '58px')
       $('.site-header').css('margin-top', '-58px')
     }
-    
   };
 };

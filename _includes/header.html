@@ -1,16 +1,16 @@
 <header class="site-header">
 	<div class="branding">
 		{% if site.thetheme.gravatar %}
-		<a href="{{ site.baseurl }}/">
+		<a href="{{ site.baseurl }}">
 			<img class="avatar" src="https://secure.gravatar.com/avatar/{{ site.thetheme.gravatar }}?s=100" alt=""/>
 		</a>
 		{% elsif site.thetheme.avatar %}
-		<a href="{{ site.baseurl }}/">
+		<a href="{{ site.baseurl }}">
 			<img class="avatar" src="{{ site.baseurl }}/img/{{ site.thetheme.avatar }}" alt=""/>
 		</a>
 		{% endif %}
 		<h1 class="site-title">
-			<a href="{{ site.baseurl }}/">{{ site.thetheme.title }}</a>
+			<a href="{{ site.baseurl }}">{{ site.thetheme.title }}</a>
 		</h1>
 	</div>
 	<nav class="site-nav">

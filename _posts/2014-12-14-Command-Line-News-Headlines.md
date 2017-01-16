@@ -7,13 +7,13 @@ title: Command line news headlines
 ![cli](https://camo.githubusercontent.com/4f4886778578cabc1d52a45cc3ffb7a5f2032d57/687474703a2f2f6769616e742e6766796361742e636f6d2f506c656173696e67496c6c66617465644879646174696474617065776f726d2e676966)
 _[github.com/pippinlee/news-cli](https://github.com/pippinlee/news-cli)_
 
-Try it: `npm install get-healines -g` (or without -g flag)
+Try it: `npm install get-headlines -g` (or without -g global flag)
 
-Most projects I start come from a question, or a few. While part of the excuse of doing this project was to get more familiar with working with node and scraping data, I also wanted to help answer these questions:
+Most projects I build come from a question, or a few. While part of the excuse of doing this project was to get more familiar with working with node and scraping data, I also wanted to help answer these questions:
 
-* what tools can we build to make people more aware of the world around them?
-* what information would be helpful to give a reader to fill in their gaps of awareness?
-* what information exists already that we can use?
+* What tools can we build to make people more aware of the world around them?
+* What info would be helpful to give a reader to fill in their gaps of awareness?
+* What info exists already that we can use?
 
 ### Ask, then build
 
@@ -35,11 +35,11 @@ Anecdotally, there's a wide range of ways we could get headlines outside of scra
 
 You can download the `get-headlines` command line tool with `npm install get-headlines -g`, or without `-g` if you don't want it installed globally.
 
-Right now there are 25 different local news sites that can be queried via command line. One difficulty going forward will be monitoring for when websites change their URL paths or site design, so the current scraper paths I have will no longer work. Adding a testing system would be a good way to get my attention that I need to update a site's URL path or query path.
+Right now there are 25 different local news sites that can be queried via command line. One difficulty going forward will be monitoring for when websites change their URL paths or site design, so the current scraper paths I have will no longer work. Adding a testing system would be a good way to get my attention that I need to update a site's URL path or query path. [Since this post has been written Firefox has a much better built-in DOM path selector built into its developer tools. This saves a lot of time when updating broken DOM paths.]
 
 ### What will the information be good for?
 
 With all this local data you could...
 
-* overlay it on an interactive map to help people get a sense of what's happening elsewhere
-* use it as a starting point for headline archival
+* Interactive map to help people get a sense of what's happening elsewhere
+* Use it as a starting point for headline archival

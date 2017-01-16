@@ -82,6 +82,7 @@ article {
       font-family: 'PT Serif', Verdana, Helvetica, sans-serif;
       font-size: 18px;
       padding-left: 25px;
+      list-style-position: initial;
       @media screen and (max-width: 670px) {
         font-size: 16px;
         padding-left: 10px;

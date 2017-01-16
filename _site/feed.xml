@@ -5,7 +5,320 @@
     <atom:link href="/test-work//feed.xml" rel="self" type="application/rss+xml"/>
     <link>/test-work//</link>
     <description></description>
-    <pubDate>Mon, 16 Jan 2017 00:11:37 -0500</pubDate>
+    <pubDate>Mon, 16 Jan 2017 11:04:41 -0500</pubDate>
+    
+      <item>
+        <title>Will the future of books be more like Git?</title>
+        <link>/test-work//2016/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
+        <guid isPermaLink="true">/test-work//2016/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*5moklcdrPhG6WmN-KC3sLw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
+
+&lt;p&gt;Software, on the other hand, has overhead and accessibility issues. Sure, it also allows you to invent new meanings, and even create new languages — but currently it only evolves when you tell the machine to do something specific, and with correct details. This makes it tough for most to get involved and interested in seeing how the web, and computers will shape publishing going forward.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/maxbittker&quot;&gt;Max Bittker&lt;/a&gt; and I were lucky enough to spend the last weekend in June on the West Coast working along side folks who also care about a number of these issues at &lt;a href=&quot;http://codexhackathon.com/&quot;&gt;CODEX Hackathon&lt;/a&gt;. CODEX billed itself as an event to play with the future of publishing, but was really just a good excuse for smart designers, developers, and publishers to come together to build things that asked an important question of the direction of reading.&lt;/p&gt;
+
+&lt;p&gt;So over that very frenetic weekend, we built &lt;a href=&quot;http://forkpad.me/&quot;&gt;forkpad.me&lt;/a&gt; — a service that allows the remixing of stories on the popular writing site &lt;a href=&quot;https://www.wattpad.com/home&quot;&gt;Wattpad&lt;/a&gt; — to help their community become better writers, and keep the web weird. Along the way we realized that the process of writing could take inspiration from the open source software development process. This idea lead us to asking these three questions, which helped shape the tool we wanted to build:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;What happens when writers are able to remix and reuse each others work?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;What happens when a story is never “finished”?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;What happens when a story can have multiple authors?&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Intrigued by this, Max and I asked ourselves how we could make a tool that could bring key aspects of Open Source Software (OSS) development to the writing and publishing process.&lt;/p&gt;
+
+&lt;h2 id=&quot;informality-will-rule-publishing&quot;&gt;Informality Will Rule Publishing&lt;/h2&gt;
+
+&lt;p&gt;One of the things Max and I love about the web is its ability to share information easily. Thanks to all the underlying technical protocols, we’re now able to build tools to reach many. When we showed up to &lt;a href=&quot;http://www.codeforamerica.org/&quot;&gt;Code for America’s&lt;/a&gt; San Francisco office Saturday morning, we knew the community on Wattpad was something we could have a lot of fun with.&lt;/p&gt;
+
+&lt;p&gt;We were given early access to the API for Wattpad, a massive serial writing community with over &lt;a href=&quot;https://www.wattpad.com/about&quot;&gt;40 million users&lt;/a&gt; who collectively spend more than 900 million years on the Wattpad site each month (85% of it on mobile).&lt;/p&gt;
+
+&lt;p&gt;In the time you’ll spend reading this article, Wattpad will receive enough werewolf fan fiction to last the rest of your life, in addition to other fan fiction of all niches and all personalities. I personally recommend checking out the entire &lt;a href=&quot;https://www.wattpad.com/story/30644165-50-shades-of-drake-drake-fanfic-series&quot;&gt;50 Shades of Drake&lt;/a&gt; volume, fan fiction about the rapper, if you’re curious.&lt;/p&gt;
+
+&lt;p&gt;As we explored the number of story categories and forums within Wattpad we found prolific communities sharing the wildest parts of their minds through stories. By far the biggest success within fan fiction (and informal publishing) is 50 Shades of Grey, which &lt;a href=&quot;https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey#Background&quot;&gt;started as Twilight&lt;/a&gt; fan fiction.&lt;/p&gt;
+
+&lt;p&gt;So we began thinking about the web and its impact on publishing. Traditionally, the final product would be a book in the local store, but what is the “final product” when the process to publishing is just a &lt;code class=&quot;highlighter-rouge&quot;&gt;≤button/&amp;gt;&lt;/code&gt; on a page?&lt;/p&gt;
+
+&lt;h2 id=&quot;the-end-of-a-story-is-no-longer-static&quot;&gt;The End of a Story is No Longer Static&lt;/h2&gt;
+
+&lt;p&gt;Traditionally a book would go through a publisher’s Book Product™ machine — but the web now allows the final product to be something different. The final product for an online book is no longer a function of traditional publishing’s Book Product™ formula, but something much less refined. A novella can be quickly written and published, and then evolve with reader interest to spawn a whole series of stories.&lt;/p&gt;
+
+&lt;p&gt;As we began to work with Wattpad’s API, we took a closer look at the niches that existed within the story comments and forums on Wattpad. We saw authors discussing ideas, and adding thoughts in hopes of pushing each other to create new narratives. This public process means that the end product isn’t static thing — and because the web allows a story to be edited and rewritten, every story has the ability to be dynamic and changing. Stories may end, but the process for many books is always evolving — which is especially true on Wattpad.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Ambient lighting. Gives &lt;a href=&quot;https://twitter.com/pippinlee&quot;&gt;@pippinlee&lt;/a&gt; a nice glow. He worked on Forkpad with Max. &lt;a href=&quot;http://t.co/ODK8B9ntdo&quot;&gt;pic.twitter.com/ODK8B9ntdo&lt;/a&gt;&lt;/p&gt;&amp;mdash; CODEX Hackathon (@codexhackathon) &lt;a href=&quot;https://twitter.com/codexhackathon/status/616069391357075457&quot;&gt;July 1, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;em&gt;Hard at work at the CODEX Hackathon with a Canadian contingent.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;can-remixing-help-the-writing-process&quot;&gt;Can Remixing Help the Writing Process?&lt;/h2&gt;
+
+&lt;p&gt;From our quick study of Wattpad, Max and I realized that this community could likely use a tool to help create a better feedback loop for authors working through story ideas. The idea of the “remix loop”, where creators spin off each others work can be incredible powerful tools within the writing process. Forkpad allows writers to take a part (“chapter”) from a Wattpad story and adapt it to their own liking.&lt;/p&gt;
+
+&lt;p&gt;When developing Forkpad, we found the concept of being able to change an ending or adapt characters to follow our own ideas a fun and important tool in the writing process. The ability to “fork” a Wattpad story means that others can post a link to their Forkpad version back on Wattpad to better share their thoughts on a story, as well as build off of each others’ work.&lt;/p&gt;
+
+&lt;p&gt;This idea of “forking” code is now common in software development. When computers were giant room-sized machines, the people who operated them (usually academics) would use tape as a medium to “write” their programs on. They would then feed these lengths of tape into a reader which would interpret their programs and run them on the computer. The programs were usually relatively small because computers could only process small bits of information. The idea of open source can be traced back to these early computer users, who stored their tapes in a drawer so that anyone using the computer could use their completed code. This saved colleagues from having to write a similar program from scratch, because they could share their completed tape programs.&lt;/p&gt;
+
+&lt;p&gt;Despite a period of highly commercialized and proprietary software during the 1980s and 1990s (a shift catalyzed, in part, by &lt;a href=&quot;https://en.wikipedia.org/wiki/Open_Letter_to_Hobbyists&quot;&gt;Microsoft&lt;/a&gt;), developers’ natural desire to share their code has roared back to life in the last twenty years (embodied by &lt;a href=&quot;https://en.wikipedia.org/wiki/Linus_Torvalds&quot;&gt;Linus Torvalds&lt;/a&gt; and his software versioning system &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_%28software%29&quot;&gt;Git&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/1200/1*YFy69Cx6aidKv8BrMit7VA.png&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Early computers would run programs that were created by punching holes in tape. Photo: wikimedia&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Building off each other’s work is common in the open source world of software, where a team may spend a year solving a specific problem, and then they’ll share the code with other developers so that others don’t have to waste their time solving a problem that’s already been solved. Starting with an empty text box is a barrier to writing — so we wanted Forkpad to help get writers writing more. The process of consuming other’s work, and building off of it is one way that we can learn to be better writers, and Forkpad aims to make that easier.&lt;/p&gt;
+
+&lt;p&gt;As Saturday ended and Sunday began, we’d already built the main functionality of the Forkpad app — so we spent the last few hours before demo time getting our app up and running with a database so that writers could get a link that they could share. The ability to easily share their remixes means writers will hopefully be encouraged to build off each others work.&lt;/p&gt;
+
+&lt;p&gt;The process for using and publishing with Forkpad is much less formal than a traditional publishing process, but we think giving writers the ability to get writing will always trump a process that start with big end goals in mind. Writing is a process, so hopefully Forkpad can ask how that process can evolve for writers with the help of the machine. Much like the atmosphere at CODEX, it’s not a zero-sum game between the machine and publisher, but finding situations that allow both to be part of the creative process.&lt;/p&gt;
+
+&lt;p&gt;We’re not sure what writers will make, and we definitely don’t know what the end products will be, but we think it will be something fun.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://forkpad.me/&quot;&gt;Forkpad.me&lt;/a&gt; is live. Send us some Drake fanfic?&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a class=&quot;m-story&quot; data-collapsed=&quot;true&quot; href=&quot;https://medium.com/codex-hack/will-the-future-of-writing-be-more-like-software-49f2a6900ca9&quot;&gt;Thoughts from making tools for literature&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jul 2016 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>The Elements of Programming Style (1978)</title>
+        <link>/test-work//2016/02/16/The-Elements-of-Programming-Style.html</link>
+        <guid isPermaLink="true">/test-work//2016/02/16/The-Elements-of-Programming-Style.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://cldup.com/3NY1WV6NAH.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;How do principles become timeless?&lt;/p&gt;
+
+&lt;p&gt;When I discovered Strunk and White’s (1920) famous &lt;a href=&quot;http://www.amazon.com/The-Elements-Style-Fourth-Edition/dp/020530902X&quot;&gt;The Element of Style&lt;/a&gt; in school, it provided one of the best lessons in brevity I’ve experienced. I still keep it in mind whenever I’m asked to write, because its concise points are timeless––timeless in the sense that while it is about style, it is not binded to style. Strunk and White’s style guide is still incredibly in-touch with writers almost 100 years later.&lt;/p&gt;
+
+&lt;p&gt;So I was happy to find this book, a derivative of the famous Strunk and White book, &lt;a href=&quot;http://www.amazon.com/The-Elements-Programming-Style-Edition/dp/0070342075&quot;&gt;The Elements of Programming Style&lt;/a&gt; by Kernighan and Plauger, written in 1978, close to 40 years ago.&lt;/p&gt;
+
+&lt;p&gt;TEPS uses Fortran as its example language, but much like the book that inspired it, the lessons it teaches are timeless and still hold up today. When you can distill rule and opinion to good practice, you can advice that lasts a longtime.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I don’t think it’s quite right to call either the English, or programming style guide timeless, but it’s still evidence that core principles can last many decades, even if the software world feels like it’s evolving every hour.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I took some time to summarize each chapter’s points, and as you can see most still apply to modern software development.&lt;/p&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Write clearly- don’t be too clever.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;expression&quot;&gt;Expression&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Say what you mean, simply and directly.&lt;/li&gt;
+  &lt;li&gt;Use library functions.&lt;/li&gt;
+  &lt;li&gt;Avoid temporary variable&lt;/li&gt;
+  &lt;li&gt;Write clearly – don’t sacrifice clarity for “efficiency”&lt;/li&gt;
+  &lt;li&gt;Let the machine do the directly work&lt;/li&gt;
+  &lt;li&gt;Replace repetitive expressions by calls to ca common function&lt;/li&gt;
+  &lt;li&gt;Parenthesize to avoid ambiguity&lt;/li&gt;
+  &lt;li&gt;Choose variable names that won’t be confused&lt;/li&gt;
+  &lt;li&gt;Avoid the Fortran arithmetic IF&lt;/li&gt;
+  &lt;li&gt;Use the good features of a language; avoid the bad ones&lt;/li&gt;
+  &lt;li&gt;Use the “telephone test” for readability&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;control-structure&quot;&gt;Control Structure&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Follow each decision as closely as possible with its associated action&lt;/li&gt;
+  &lt;li&gt;Don’t stop with your first draft&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;program-structure&quot;&gt;Program Structure&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Modularize&lt;/li&gt;
+  &lt;li&gt;Make the coupling between modules visible&lt;/li&gt;
+  &lt;li&gt;Each module should do one thing well&lt;/li&gt;
+  &lt;li&gt;Make sure every module hides something&lt;/li&gt;
+  &lt;li&gt;Let the data structure the program&lt;/li&gt;
+  &lt;li&gt;Don’t patch bad code – rewrite it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;input-and-output&quot;&gt;Input and Output&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Test input for validity and plausibility&lt;/li&gt;
+  &lt;li&gt;Make sure input cannot violate the limits of the program&lt;/li&gt;
+  &lt;li&gt;Identify bad input; recover if possible&lt;/li&gt;
+  &lt;li&gt;Make input easy to prepare and output self-explanatory&lt;/li&gt;
+  &lt;li&gt;Make input easy to proofread&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;common-blunders&quot;&gt;Common Blunders&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Don’t stop at one bug&lt;/li&gt;
+  &lt;li&gt;Watch out for off-by-one errors&lt;/li&gt;
+  &lt;li&gt;Avoid multiple exits from loops&lt;/li&gt;
+  &lt;li&gt;Make sure your code “does nothing” gracefully&lt;/li&gt;
+  &lt;li&gt;Test programs at their boundary values&lt;/li&gt;
+  &lt;li&gt;Program defensively&lt;/li&gt;
+  &lt;li&gt;10.0 times 0.1 is hardly ever 1.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;efficiency-and-instrumentation&quot;&gt;Efficiency and Instrumentation&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Make it right before you make it faster&lt;/li&gt;
+  &lt;li&gt;Keep it right when you make it faster&lt;/li&gt;
+  &lt;li&gt;Make it clear before you make it faster&lt;/li&gt;
+  &lt;li&gt;Don’t sacrifice clarity for small gains in “efficiency”&lt;/li&gt;
+  &lt;li&gt;Let your compiler do the simple optimizations&lt;/li&gt;
+  &lt;li&gt;Don’t strain to re-use code; reorganize instead&lt;/li&gt;
+  &lt;li&gt;Keep it simple to make it faster&lt;/li&gt;
+  &lt;li&gt;Don’t diddle code to make it faster – find a better algorithm&lt;/li&gt;
+  &lt;li&gt;Instrument your programs. Measure before making “efficiency” changes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;documentation-and-readability&quot;&gt;Documentation and readability&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Make sure comments and code agree&lt;/li&gt;
+  &lt;li&gt;Don’t just echo the code with comments – make every comment count&lt;/li&gt;
+  &lt;li&gt;Don’t comment bad code – rewrite it&lt;/li&gt;
+  &lt;li&gt;Use variable names that mean something&lt;/li&gt;
+  &lt;li&gt;Format a program to help the reader understand it&lt;/li&gt;
+  &lt;li&gt;Document your data layouts&lt;/li&gt;
+  &lt;li&gt;Don’t over-comment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;additional-reading&quot;&gt;Additional reading&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&quot;&gt;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_tarpit&quot;&gt;https://en.wikipedia.org/wiki/Turing_tarpit&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Feb 2016 00:00:00 -0500</pubDate>
+      </item>
+    
+      <item>
+        <title>Harmonographs</title>
+        <link>/test-work//2016/02/10/harmonographs.html</link>
+        <guid isPermaLink="true">/test-work//2016/02/10/harmonographs.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;http://68.media.tumblr.com/364533e661eac80316e540033f358400/tumblr_neov5rgBHz1tzs5dao2_500.gif&quot; alt=&quot;harmonograph&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;One of wonderful things about the Internet is the deep dives you can do on things you didn’t know existed only a few minutes earlier.&lt;/p&gt;
+
+&lt;p&gt;I found the below video when researching the overlapping worlds of math, art, and computers. I was looking into motorized pen draings when I found the world of the harmonograph. Traditionally haramonographs are mechanical devices that power a drawing tool. Using a repetitive drawing motion on a surface that changes position creates some incredible results.&lt;/p&gt;
+
+&lt;p&gt;Tools that allow anyone to create, and get results that spark intrigue are my favourite type. They’re accessible, but bring people into both the art and math world.&lt;/p&gt;
+
+&lt;p&gt;It reminded me of Turtle Programming (Logo), where the user is given immediate visual feedback to their input. I recommend reading &lt;a href=&quot;http://a.co/fEH7udw&quot;&gt;Turtle Geometry&lt;/a&gt; by Abelson, and Papert’s &lt;a href=&quot;http://a.co/bDYy4Yn&quot;&gt;Mindstorms&lt;/a&gt; to understand the care put into Logo that allows for sufficently complex drawings and logic, while balancing accessibility.&lt;/p&gt;
+
+&lt;p&gt;As I dived further into the world of harmonographs I found that motors aren’t completely necessary. As slow, and methodic motion of the platform is the key to outputing good drawings, I found it possible to build a platform that moves with its four corners being the pivot points.&lt;/p&gt;
+
+&lt;p&gt;My setup was rough, but simple.&lt;/p&gt;
+
+&lt;p&gt;1) Find a sturdy platform and attach all four corners to the ceiling.&lt;/p&gt;
+
+&lt;p&gt;2) Create a “boom-like” arm that will hold the drawing tool. It’s important that this boom be strong as it will need to hold decent pressure and contact as the platform below it moves.&lt;/p&gt;
+
+&lt;p&gt;3) Adding some weights to the platform allows the motion to be smoother.&lt;/p&gt;
+
+&lt;p&gt;4) Once you’ve got everything setup you can start playing with different degrees of twist and sway when rocking the platform. This ultimately defines the output, the drawing design. I used a rectangular platform, but if you used a square platform it would also change the motion output in the drawings.&lt;/p&gt;
+
+&lt;p&gt;Here’s a video of my harmonograph in motion:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/wfoWUe6IoBY&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;And a photo of one of the designs I was able to acheive:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/test-work/img/harmonograph.jpg&quot; alt=&quot;harmonograph&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
+      </item>
+    
+      <item>
+        <title>Announcing the Open Journalism fellowship</title>
+        <link>/test-work//2015/11/01/Announcing-Open-Journalism-fellowships.html</link>
+        <guid isPermaLink="true">/test-work//2015/11/01/Announcing-Open-Journalism-fellowships.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;shipping-a-fellow&quot;&gt;Shipping a Fellow&lt;/h1&gt;
+
+&lt;p&gt;Good news — today the &lt;a href=&quot;http://openjournalismproject.com/&quot;&gt;Open Journalism Project&lt;/a&gt; is announcing the start of a Fellowship program.&lt;/p&gt;
+
+&lt;p&gt;A few months ago when Asad and I &lt;a href=&quot;https://medium.com/@pippinlee/the-open-journalism-project-better-student-journalism-fb39f4f701bb&quot;&gt;wrote about the experience and research&lt;/a&gt; we’d done in understanding problems that student newsrooms are facing — we got many thoughtful responses. We were able to talk to students quite literally scattered across the globe, from Pakistan and India, to small-town USA, and big cities in Europe. These were students that shared our frustration with the lack of opportunities at their universities to tinker at the intersection of code and journalism.&lt;/p&gt;
+
+&lt;p&gt;While we’ve written, talked, and advised students newsrooms — &lt;strong&gt;we’ve been lacking in our methodology&lt;/strong&gt;. At best we’re able to recommend similar setups we’ve seen at professional newsrooms. We haven’t been able to clearly point to what has (and hasn’t) worked. We can’t share how we got a student newsroom curious about programming or obsessing over data. In part this is because nothing like this exists in Canada — we’re carving out a new and important path in journalism education. Today we’re announcing our fellowship program, something that is very much an experiment — but we believe if we do it in an open way, it will help show us and everyone what student newsrooms can be.&lt;/p&gt;
+
+&lt;p&gt;From our research:&lt;/p&gt;
+
+&lt;h3 id=&quot;we-dont-know-what-we-dont-know&quot;&gt;&lt;em&gt;We don’t know what we don’t know&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;“We spent much of the rest of the school year asking “what should we be doing in the newsroom?”, which mainly led us to ask “how do we use digital platforms to tell stories?” It was a straightforward question that led to many more questions. Out in the real world, traditional journalists were struggling to keep their jobs in a dying print world. They wore the same design of shoes that we were supposed to fill. Being pushed to repeat old, failing strategies and blocked from trying something new scared us.”&lt;/p&gt;
+
+&lt;h3 id=&quot;why&quot;&gt;Why?&lt;/h3&gt;
+
+&lt;p&gt;We’re kickstarting the process of getting Canadian student newsrooms thinking about the web. The Open Journalism Fellowships will seek students with strong computer science, web, data, or interactive skills by funding them as fellows to work at their campus student newsroom. We’re asking fellows to play a critical role as a colleague, mentor, and coder — but we know they’re up to the challenge. Our model is heavily inspired by our friends at the &lt;a href=&quot;http://knightlab.northwestern.edu/&quot;&gt;Knight Lab&lt;/a&gt; at Northwestern University, as well as the &lt;a href=&quot;https://opennews.org/what/fellowships/&quot;&gt;Knight Mozilla OpenNews Fellowship&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We’re focused on student newsrooms because that’s the part of the ecosystem we know best, and also the part where we can have the most influence. We believe student newsrooms are the perfect place to experiment because of how much flexibility and control over the process students have. That said, for this project to be successful we realized we’d also need to have the perspective of the professional newsroom, so we’ve brought on &lt;a href=&quot;https://twitter.com/juruwolfe&quot;&gt;Julia Wolfe&lt;/a&gt;, news developer and designer for the Globe and Mail, and &lt;a href=&quot;https://twitter.com/timalamenciak&quot;&gt;Tim Alamenciak&lt;/a&gt;, from TVO, to keep fellowships in line with what professional newsrooms are doing.&lt;/p&gt;
+
+&lt;p&gt;Who’s involved
+For this first year we’ve partnered with the &lt;a href=&quot;http://queensjournal.ca/&quot;&gt;Queen’s Journal&lt;/a&gt;, at Queen’s University, which is being helmed by editors-in-chief Anisa Rawhani and Sebastian Leck. Our first Open Journalism fellow will be Max Bittker.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/400/1*szZIQn9jdAq43umHzPnaNg.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Max Bittker (photo: Megan Gamble)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Max is a developer interested in digital empowerment and delight, Twitter bots, generative worlds, roasted vegetables, and neural networks. He’s a fourth-year computer engineering student at Queen’s University hailing from Rochester, New York. He looks forward to being the first Open Journalism Fellow and building skills, bridges, and weird stuff with the Queen’s Journal. You can find him here: &lt;a href=&quot;http://maxbittker.github.io/&quot;&gt;maxbittker.github.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In addition to The Journal, we’ve brought together UBC’s &lt;a href=&quot;http://ubyssey.ca/&quot;&gt;Ubyssey&lt;/a&gt;, the &lt;a href=&quot;http://mcgilltribune.com/&quot;&gt;McGill Tribune&lt;/a&gt;, uOttawa’s &lt;a href=&quot;http://thefulcrum.ca/&quot;&gt;The Fulcrum&lt;/a&gt;, and UofT’s &lt;a href=&quot;http://thevarsity.ca/&quot;&gt;The Varsity&lt;/a&gt; to help build a strong community of students experimenting with telling stories on the web.&lt;/p&gt;
+
+&lt;p&gt;Our decision to make our first year of the fellowship program small is with the understanding that if we can work towards a model that fits student newsrooms, we’d be happy to expand in future years to more Canadian campuses.&lt;/p&gt;
+
+&lt;h2 id=&quot;collaborators&quot;&gt;Collaborators&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/400/1*CwoYV9JXgobrjV4smGQRrA.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Aniqah Mair (photo: Khalil Mair)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;We’re also fortunate to have &lt;a href=&quot;https://github.com/aniqah&quot;&gt;Aniqah Mair&lt;/a&gt; and &lt;a href=&quot;https://github.com/jpittis&quot;&gt;Jake Pittis&lt;/a&gt;, both second year Computer Science students who will be collaborators with the project at Queen’s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/400/1*g6ix2lWw7vqZMo8UZX2E7Q.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Jake Pittis (photo: Hack Western)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Both Aniqah and Jake have backgrounds in creating friendly environments for learning and programming — key pieces to the workshops, events, and mentorship we’re planning for the Queen’s Journal for the upcoming school year.&lt;/p&gt;
+
+&lt;h3 id=&quot;goals-and-requirements&quot;&gt;Goals and requirements&lt;/h3&gt;
+
+&lt;p&gt;We understand that as the Fellowships progress we’ll learn how to make the experience for both the student newsrooms and fellows better, so there may be adjustments to our requirements.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Requirements for the fellow:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;10 hours per week in the newsroom&lt;/li&gt;
+  &lt;li&gt;Plan in collaboration with the newsroom + community for media week&lt;/li&gt;
+  &lt;li&gt;Stipend + additional support around hardware, software, and mentoring&lt;/li&gt;
+  &lt;li&gt;Running workshops locally to increase computer literacy&lt;/li&gt;
+  &lt;li&gt;Helping us design and build curriculum as open-sourced manuals, which includes documenting process of “going-digital” in blog posts&lt;/li&gt;
+  &lt;li&gt;Run for a full year with the last month budgeted for transition and reflection&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;What daily life looks like for fellows:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Treated as journalists&lt;/li&gt;
+  &lt;li&gt;Have access to meetings involving story planning&lt;/li&gt;
+  &lt;li&gt;Work with section heads/digital-editor to develop and showcase web-worthy stories&lt;/li&gt;
+  &lt;li&gt;Commit/publish/document code to Github weekly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ll have frequent updates here at The Open Journalism Project publication &lt;a href=&quot;https://medium.com/the-open-journalism-project&quot;&gt;https://medium.com/the-open-journalism-project&lt;/a&gt; to publicly discuss what works and doesn’t.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to be part of the conversation, or talk, drop me a note at &lt;a href=&quot;mailto:pippin@pippinlee.com&quot;&gt;pippin@pippinlee.com&lt;/a&gt; or ping us on Twitter &lt;a href=&quot;https://twitter.com/
+openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a class=&quot;m-story&quot; data-collapsed=&quot;true&quot; href=&quot;https://medium.com/the-open-journalism-project/shipping-a-fellow-47fb10fa83de&quot;&gt;Shipping a Fellow&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 01 Nov 2015 00:00:00 -0400</pubDate>
+      </item>
     
       <item>
         <title>How to convert your Gruntfile to npm scripts</title>
@@ -436,46 +749,25 @@ For this first year we’ve partnered with the &lt;a href=&quot;http://queensjou
 &lt;p&gt;&lt;strong&gt;Requirements for the fellow:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;10 hours per week in the newsroom&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Plan in collaboration with the newsroom + community for media week&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Stipend + additional support around hardware, software, and mentoring&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Running workshops locally to increase computer literacy&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Helping us design and build curriculum as open-sourced manuals, which includes documenting process of “going-digital” in blog posts&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Run for a full year with the last month budgeted for transition and reflection&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;10 hours per week in the newsroom&lt;/li&gt;
+  &lt;li&gt;Plan in collaboration with the newsroom + community for media week&lt;/li&gt;
+  &lt;li&gt;Stipend + additional support around hardware, software, and mentoring&lt;/li&gt;
+  &lt;li&gt;Running workshops locally to increase computer literacy&lt;/li&gt;
+  &lt;li&gt;Helping us design and build curriculum as open-sourced manuals, which includes documenting process of “going-digital” in blog posts&lt;/li&gt;
+  &lt;li&gt;Run for a full year with the last month budgeted for transition and reflection&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;What daily life looks like for fellows:&lt;/strong&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Treated as journalists&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Have access to meetings involving story planning&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Work with section heads/digital-editor to develop and showcase web-worthy stories&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Commit/publish/document code to Github weekly&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Treated as journalists&lt;/li&gt;
+  &lt;li&gt;Have access to meetings involving story planning&lt;/li&gt;
+  &lt;li&gt;Work with section heads/digital-editor to develop and showcase web-worthy stories&lt;/li&gt;
+  &lt;li&gt;Commit/publish/document code to Github weekly&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;We’ll have frequent updates here at The Open Journalism Project publication &lt;a href=&quot;https://medium.com/the-open-journalism-project&quot;&gt;https://medium.com/the-open-journalism-project&lt;/a&gt; to publicly discuss what works and doesn’t.&lt;/p&gt;
 
-&lt;p&gt;If you’d like to be part of the conversation, or talk, drop me a note at pippin@pippinlee.com or ping us on Twitter &lt;a href=&quot;https://twitter.com/
+&lt;p&gt;If you’d like to be part of the conversation, or talk, drop me a note at &lt;a href=&quot;mailto:pippin@pippinlee.com&quot;&gt;pippin@pippinlee.com&lt;/a&gt; or ping us on Twitter &lt;a href=&quot;https://twitter.com/
 openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 
 &lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
@@ -485,196 +777,7 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
       </item>
     
       <item>
-        <title>Will the future of books be more like Git?</title>
-        <link>/test-work//2015/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
-        <guid isPermaLink="true">/test-work//2015/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
-        <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*5moklcdrPhG6WmN-KC3sLw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
-
-&lt;p&gt;Software, on the other hand, has overhead and accessibility issues. Sure, it also allows you to invent new meanings, and even create new languages — but currently it only evolves when you tell the machine to do something specific, and with correct details. This makes it tough for most to get involved and interested in seeing how the web, and computers will shape publishing going forward.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/maxbittker&quot;&gt;Max Bittker&lt;/a&gt; and I were lucky enough to spend the last weekend in June on the West Coast working along side folks who also care about a number of these issues at &lt;a href=&quot;http://codexhackathon.com/&quot;&gt;CODEX Hackathon&lt;/a&gt;. CODEX billed itself as an event to play with the future of publishing, but was really just a good excuse for smart designers, developers, and publishers to come together to build things that asked an important question of the direction of reading.&lt;/p&gt;
-
-&lt;p&gt;So over that very frenetic weekend, we built &lt;a href=&quot;http://forkpad.me/&quot;&gt;forkpad.me&lt;/a&gt; — a service that allows the remixing of stories on the popular writing site &lt;a href=&quot;https://www.wattpad.com/home&quot;&gt;Wattpad&lt;/a&gt; — to help their community become better writers, and keep the web weird. Along the way we realized that the process of writing could take inspiration from the open source software development process. This idea lead us to asking these three questions, which helped shape the tool we wanted to build:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;What happens when writers are able to remix and reuse each others work?&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;What happens when a story is never “finished”?&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;What happens when a story can have multiple authors?&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Intrigued by this, Max and I asked ourselves how we could make a tool that could bring key aspects of Open Source Software (OSS) development to the writing and publishing process.&lt;/p&gt;
-
-&lt;h2 id=&quot;informality-will-rule-publishing&quot;&gt;Informality Will Rule Publishing&lt;/h2&gt;
-
-&lt;p&gt;One of the things Max and I love about the web is its ability to share information easily. Thanks to all the underlying technical protocols, we’re now able to build tools to reach many. When we showed up to &lt;a href=&quot;http://www.codeforamerica.org/&quot;&gt;Code for America’s&lt;/a&gt; San Francisco office Saturday morning, we knew the community on Wattpad was something we could have a lot of fun with.&lt;/p&gt;
-
-&lt;p&gt;We were given early access to the API for Wattpad, a massive serial writing community with over &lt;a href=&quot;https://www.wattpad.com/about&quot;&gt;40 million users&lt;/a&gt; who collectively spend more than 900 million years on the Wattpad site each month (85% of it on mobile).&lt;/p&gt;
-
-&lt;p&gt;In the time you’ll spend reading this article, Wattpad will receive enough werewolf fan fiction to last the rest of your life, in addition to other fan fiction of all niches and all personalities. I personally recommend checking out the entire &lt;a href=&quot;https://www.wattpad.com/story/30644165-50-shades-of-drake-drake-fanfic-series&quot;&gt;50 Shades of Drake&lt;/a&gt; volume, fan fiction about the rapper, if you’re curious.&lt;/p&gt;
-
-&lt;p&gt;As we explored the number of story categories and forums within Wattpad we found prolific communities sharing the wildest parts of their minds through stories. By far the biggest success within fan fiction (and informal publishing) is 50 Shades of Grey, which &lt;a href=&quot;https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey#Background&quot;&gt;started as Twilight&lt;/a&gt; fan fiction.&lt;/p&gt;
-
-&lt;p&gt;So we began thinking about the web and its impact on publishing. Traditionally, the final product would be a book in the local store, but what is the “final product” when the process to publishing is just a &lt;code class=&quot;highlighter-rouge&quot;&gt;≤button/&amp;gt;&lt;/code&gt; on a page?&lt;/p&gt;
-
-&lt;h2 id=&quot;the-end-of-a-story-is-no-longer-static&quot;&gt;The End of a Story is No Longer Static&lt;/h2&gt;
-
-&lt;p&gt;Traditionally a book would go through a publisher’s Book Product™ machine — but the web now allows the final product to be something different. The final product for an online book is no longer a function of traditional publishing’s Book Product™ formula, but something much less refined. A novella can be quickly written and published, and then evolve with reader interest to spawn a whole series of stories.&lt;/p&gt;
-
-&lt;p&gt;As we began to work with Wattpad’s API, we took a closer look at the niches that existed within the story comments and forums on Wattpad. We saw authors discussing ideas, and adding thoughts in hopes of pushing each other to create new narratives. This public process means that the end product isn’t static thing — and because the web allows a story to be edited and rewritten, every story has the ability to be dynamic and changing. Stories may end, but the process for many books is always evolving — which is especially true on Wattpad.&lt;/p&gt;
-
-&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Ambient lighting. Gives &lt;a href=&quot;https://twitter.com/pippinlee&quot;&gt;@pippinlee&lt;/a&gt; a nice glow. He worked on Forkpad with Max. &lt;a href=&quot;http://t.co/ODK8B9ntdo&quot;&gt;pic.twitter.com/ODK8B9ntdo&lt;/a&gt;&lt;/p&gt;&amp;mdash; CODEX Hackathon (@codexhackathon) &lt;a href=&quot;https://twitter.com/codexhackathon/status/616069391357075457&quot;&gt;July 1, 2015&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;em&gt;Hard at work at the CODEX Hackathon with a Canadian contingent.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;can-remixing-help-the-writing-process&quot;&gt;Can Remixing Help the Writing Process?&lt;/h2&gt;
-
-&lt;p&gt;From our quick study of Wattpad, Max and I realized that this community could likely use a tool to help create a better feedback loop for authors working through story ideas. The idea of the “remix loop”, where creators spin off each others work can be incredible powerful tools within the writing process. Forkpad allows writers to take a part (“chapter”) from a Wattpad story and adapt it to their own liking.&lt;/p&gt;
-
-&lt;p&gt;When developing Forkpad, we found the concept of being able to change an ending or adapt characters to follow our own ideas a fun and important tool in the writing process. The ability to “fork” a Wattpad story means that others can post a link to their Forkpad version back on Wattpad to better share their thoughts on a story, as well as build off of each others’ work.&lt;/p&gt;
-
-&lt;p&gt;This idea of “forking” code is now common in software development. When computers were giant room-sized machines, the people who operated them (usually academics) would use tape as a medium to “write” their programs on. They would then feed these lengths of tape into a reader which would interpret their programs and run them on the computer. The programs were usually relatively small because computers could only process small bits of information. The idea of open source can be traced back to these early computer users, who stored their tapes in a drawer so that anyone using the computer could use their completed code. This saved colleagues from having to write a similar program from scratch, because they could share their completed tape programs.&lt;/p&gt;
-
-&lt;p&gt;Despite a period of highly commercialized and proprietary software during the 1980s and 1990s (a shift catalyzed, in part, by &lt;a href=&quot;https://en.wikipedia.org/wiki/Open_Letter_to_Hobbyists&quot;&gt;Microsoft&lt;/a&gt;), developers’ natural desire to share their code has roared back to life in the last twenty years (embodied by &lt;a href=&quot;https://en.wikipedia.org/wiki/Linus_Torvalds&quot;&gt;Linus Torvalds&lt;/a&gt; and his software versioning system &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_%28software%29&quot;&gt;Git&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/1200/1*YFy69Cx6aidKv8BrMit7VA.png&quot; alt=&quot;&quot; /&gt;
-&lt;em&gt;Early computers would run programs that were created by punching holes in tape. Photo: wikimedia&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Building off each other’s work is common in the open source world of software, where a team may spend a year solving a specific problem, and then they’ll share the code with other developers so that others don’t have to waste their time solving a problem that’s already been solved. Starting with an empty text box is a barrier to writing — so we wanted Forkpad to help get writers writing more. The process of consuming other’s work, and building off of it is one way that we can learn to be better writers, and Forkpad aims to make that easier.&lt;/p&gt;
-
-&lt;p&gt;As Saturday ended and Sunday began, we’d already built the main functionality of the Forkpad app — so we spent the last few hours before demo time getting our app up and running with a database so that writers could get a link that they could share. The ability to easily share their remixes means writers will hopefully be encouraged to build off each others work.&lt;/p&gt;
-
-&lt;p&gt;The process for using and publishing with Forkpad is much less formal than a traditional publishing process, but we think giving writers the ability to get writing will always trump a process that start with big end goals in mind. Writing is a process, so hopefully Forkpad can ask how that process can evolve for writers with the help of the machine. Much like the atmosphere at CODEX, it’s not a zero-sum game between the machine and publisher, but finding situations that allow both to be part of the creative process.&lt;/p&gt;
-
-&lt;p&gt;We’re not sure what writers will make, and we definitely don’t know what the end products will be, but we think it will be something fun.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://forkpad.me/&quot;&gt;Forkpad.me&lt;/a&gt; is live. Send us some Drake fanfic?&lt;/p&gt;
-
-&lt;script async=&quot;&quot; src=&quot;https://static.medium.com/embed.js&quot;&gt;&lt;/script&gt;
-&lt;p&gt;&lt;a class=&quot;m-story&quot; data-collapsed=&quot;true&quot; href=&quot;https://medium.com/codex-hack/will-the-future-of-writing-be-more-like-software-49f2a6900ca9&quot;&gt;Thoughts from making tools for literature&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 05 Jul 2015 00:00:00 -0400</pubDate>
-      </item>
-    
-      <item>
-        <title>The Elements of Programming Style (1978)</title>
-        <link>/test-work//2015/06/16/The-Elements-of-Programming-Style.html</link>
-        <guid isPermaLink="true">/test-work//2015/06/16/The-Elements-of-Programming-Style.html</guid>
-        <description>&lt;p&gt;&lt;img src=&quot;https://cldup.com/3NY1WV6NAH.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;How do principles become timeless?&lt;/p&gt;
-
-&lt;p&gt;When I discovered Strunk and White’s (1920) famous &lt;a href=&quot;http://www.amazon.com/The-Elements-Style-Fourth-Edition/dp/020530902X&quot;&gt;The Element of Style&lt;/a&gt; in school, it provided one of the best lessons in brevity I’ve experienced. I still keep it in mind whenever I’m asked to write, because its concise points are timeless––timeless in the sense that while it is about style, it is not binded to style. Strunk and White’s style guide is still incredibly in-touch with writers almost 100 years later.&lt;/p&gt;
-
-&lt;p&gt;So I was happy to find this book, a derivative of the famous Strunk and White book, &lt;a href=&quot;http://www.amazon.com/The-Elements-Programming-Style-Edition/dp/0070342075&quot;&gt;The Elements of Programming Style&lt;/a&gt; by Kernighan and Plauger, written in 1978, close to 40 years ago.&lt;/p&gt;
-
-&lt;p&gt;TEPS uses Fortran as its example language, but much like the book that inspired it, the lessons it teaches are timeless and still hold up today. When you can distill rule and opinion to good practice, you can advice that lasts a longtime.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;I don’t think it’s quite right to call either the English, or programming style guide timeless, but it’s still evidence that core principles can last many decades, even if the software world feels like it’s evolving every hour.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I took some time to summarize each chapter’s points, and as you can see most still apply to modern software development.&lt;/p&gt;
-
-&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Write clearly- don’t be too clever.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;expression&quot;&gt;Expression&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Say what you mean, simply and directly.&lt;/li&gt;
-  &lt;li&gt;Use library functions.&lt;/li&gt;
-  &lt;li&gt;Avoid temporary variable&lt;/li&gt;
-  &lt;li&gt;Write clearly – don’t sacrifice clarity for “efficiency”&lt;/li&gt;
-  &lt;li&gt;Let the machine do the directly work&lt;/li&gt;
-  &lt;li&gt;Replace repetitive expressions by calls to ca common function&lt;/li&gt;
-  &lt;li&gt;Parenthesize to avoid ambiguity&lt;/li&gt;
-  &lt;li&gt;Choose variable names that won’t be confused&lt;/li&gt;
-  &lt;li&gt;Avoid the Fortran arithmetic IF&lt;/li&gt;
-  &lt;li&gt;Use the good features of a language; avoid the bad ones&lt;/li&gt;
-  &lt;li&gt;Use the “telephone test” for readability&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;control-structure&quot;&gt;Control Structure&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Follow each decision as closely as possible with its associated action&lt;/li&gt;
-  &lt;li&gt;Don’t stop with your first draft&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;program-structure&quot;&gt;Program Structure&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Modularize&lt;/li&gt;
-  &lt;li&gt;Make the coupling between modules visible&lt;/li&gt;
-  &lt;li&gt;Each module should do one thing well&lt;/li&gt;
-  &lt;li&gt;Make sure every module hides something&lt;/li&gt;
-  &lt;li&gt;Let the data structure the program&lt;/li&gt;
-  &lt;li&gt;Don’t patch bad code – rewrite it&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;input-and-output&quot;&gt;Input and Output&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Test input for validity and plausibility&lt;/li&gt;
-  &lt;li&gt;Make sure input cannot violate the limits of the program&lt;/li&gt;
-  &lt;li&gt;Identify bad input; recover if possible&lt;/li&gt;
-  &lt;li&gt;Make input easy to prepare and output self-explanatory&lt;/li&gt;
-  &lt;li&gt;Make input easy to proofread&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;common-blunders&quot;&gt;Common Blunders&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Don’t stop at one bug&lt;/li&gt;
-  &lt;li&gt;Watch out for off-by-one errors&lt;/li&gt;
-  &lt;li&gt;Avoid multiple exits from loops&lt;/li&gt;
-  &lt;li&gt;Make sure your code “does nothing” gracefully&lt;/li&gt;
-  &lt;li&gt;Test programs at their boundary values&lt;/li&gt;
-  &lt;li&gt;Program defensively&lt;/li&gt;
-  &lt;li&gt;10.0 times 0.1 is hardly ever 1.0&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;efficiency-and-instrumentation&quot;&gt;Efficiency and Instrumentation&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Make it right before you make it faster&lt;/li&gt;
-  &lt;li&gt;Keep it right when you make it faster&lt;/li&gt;
-  &lt;li&gt;Make it clear before you make it faster&lt;/li&gt;
-  &lt;li&gt;Don’t sacrifice clarity for small gains in “efficiency”&lt;/li&gt;
-  &lt;li&gt;Let your compiler do the simple optimizations&lt;/li&gt;
-  &lt;li&gt;Don’t strain to re-use code; reorganize instead&lt;/li&gt;
-  &lt;li&gt;Keep it simple to make it faster&lt;/li&gt;
-  &lt;li&gt;Don’t diddle code to make it faster – find a better algorithm&lt;/li&gt;
-  &lt;li&gt;Instrument your programs. Measure before making “efficiency” changes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;documentation-and-readability&quot;&gt;Documentation and readability&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Make sure comments and code agree&lt;/li&gt;
-  &lt;li&gt;Don’t just echo the code with comments – make every comment count&lt;/li&gt;
-  &lt;li&gt;Don’t comment bad code – rewrite it&lt;/li&gt;
-  &lt;li&gt;Use variable names that mean something&lt;/li&gt;
-  &lt;li&gt;Format a program to help the reader understand it&lt;/li&gt;
-  &lt;li&gt;Document your data layouts&lt;/li&gt;
-  &lt;li&gt;Don’t over-comment&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;additional-reading&quot;&gt;Additional reading&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&quot;&gt;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_tarpit&quot;&gt;https://en.wikipedia.org/wiki/Turing_tarpit&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 16 Jun 2015 00:00:00 -0400</pubDate>
-      </item>
-    
-      <item>
-        <title>Releasing Open Journalism Project</title>
+        <title>Open Journalism Project</title>
         <link>/test-work//2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
         <guid isPermaLink="true">/test-work//2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*oBWUXtszDsiv_-Qq2bFLTQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -714,24 +817,12 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Our questioning of other student journalists in 15 student newsrooms brought up a few repeating issues.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lack of mentorship&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A news process that lacked consideration of the web&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;No editor/position specific to the web&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Little exposure to many of the cool projects being put together by professional newsrooms&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lack of diverse skills within the newsroom. Writers made up 95% of the personnel. Students with other skills were not sought because journalism was seen as “a career with words.” The other 5% were designers, designing words on computers, for print.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Not enough discussion between the business side and web efforts&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Lack of mentorship&lt;/li&gt;
+  &lt;li&gt;A news process that lacked consideration of the web&lt;/li&gt;
+  &lt;li&gt;No editor/position specific to the web&lt;/li&gt;
+  &lt;li&gt;Little exposure to many of the cool projects being put together by professional newsrooms&lt;/li&gt;
+  &lt;li&gt;Lack of diverse skills within the newsroom. Writers made up 95% of the personnel. Students with other skills were not sought because journalism was seen as “a career with words.” The other 5% were designers, designing words on computers, for print.&lt;/li&gt;
+  &lt;li&gt;Not enough discussion between the business side and web efforts&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*_9KYIFrk_PqWFgptsMDeww.png&quot; alt=&quot;data&quot; /&gt;
@@ -741,30 +832,14 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 Two years later, we went back and looked at what had changed. We talked to a dozen more newsrooms and weren’t surprised by our findings.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Still no mentorship or link to professional newsrooms building stories for the web&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Very little control of website and technology&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The lack of exposure that student journalists have to interactive storytelling. While some newsrooms are in touch with what’s happening with the web and journalism, there still exists a huge gap between the student newsroom and its professional counterpart&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;No time in the current news development cycle for student newsrooms to experiment with the web&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lack of skill diversity (specifically coding, interaction design, and statistics)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Overly restricted access to student website technology. Changes are primarily visual rather than functional.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Significantly reduced print production of many papers&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Computers aren’t set up for experimenting with software and code, and often locked down&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Still no mentorship or link to professional newsrooms building stories for the web&lt;/li&gt;
+  &lt;li&gt;Very little control of website and technology&lt;/li&gt;
+  &lt;li&gt;The lack of exposure that student journalists have to interactive storytelling. While some newsrooms are in touch with what’s happening with the web and journalism, there still exists a huge gap between the student newsroom and its professional counterpart&lt;/li&gt;
+  &lt;li&gt;No time in the current news development cycle for student newsrooms to experiment with the web&lt;/li&gt;
+  &lt;li&gt;Lack of skill diversity (specifically coding, interaction design, and statistics)&lt;/li&gt;
+  &lt;li&gt;Overly restricted access to student website technology. Changes are primarily visual rather than functional.&lt;/li&gt;
+  &lt;li&gt;Significantly reduced print production of many papers&lt;/li&gt;
+  &lt;li&gt;Computers aren’t set up for experimenting with software and code, and often locked down&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Newsrooms have traditionally been covered in copies of The New York Times or Globe and Mail. Instead newsrooms should try spend at 20 minutes each week going over the coolest/weirdest online storytelling in an effort to expose each other to what is possible. “&lt;a href=&quot;http://nytlabs.com/&quot;&gt;Hey, what has the New York Times R&amp;amp;D lab been up to this week?&lt;/a&gt;”&lt;/p&gt;
@@ -809,41 +884,29 @@ When a newsroom decides to create a position for the web, it’s often with the 
 &lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*2Ln_DmC95Xpz6LzgywkcFQ.png&quot; alt=&quot;old oj&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;what-we-know&quot;&gt;What we know&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;New process&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New process&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Our rough research has told us newsrooms need to be reorganized. This includes every part of the newsroom’s workflow: from where a story and its information comes from, to thinking of every word, pixel, and interaction the reader will have with your stories. If I was a photo editor that wanted to re-think my process with digital tools in mind, I’d start by asking “how are photo assignments processed and sent out?”, “how do we receive images?”, “what formats do images need to be exported in?”, “what type of screens will the images be viewed on?”, and “how are the designers getting these images?” Making a student newsroom digital isn’t about producing “digital manifestos”, it’s about being curious enough that you’ll want to to continue experimenting with your process until you’ve found one that fits your newsroom’s needs.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;More (remote) mentorship&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;More (remote) mentorship&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Lack of mentorship is still a big problem. &lt;a href=&quot;http://www.google.com/get/journalismfellowship/&quot;&gt;Google’s fellowship program&lt;/a&gt; is great. The fact that it only caters to United States students isn’t. There are only a handful of internships in Canada where students interested in journalism can get experience writing code and building interactive stories. We’re OK with this for now, as we expect internships and mentorship over the next 5 years between professional newsrooms and student newsrooms will only increase. It’s worth noting that some of that mentorship will likely be done remotely.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Changing a newsroom culture&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Changing a newsroom culture&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Skill diversity needs to change. We encourage every student newsroom we talk to, to start building a partnership with their school’s Computer Science department. It will take some work, but you’ll find there are many CS undergrads that love playing with web technologies, and using data to tell stories. Changing who is in the newsroom should be one of the first steps newsrooms take to changing how they tell stories. The same goes with getting designers who understand the wonderful interactive elements of the web and students who love statistics and exploring data. Getting students who are amazing at design, data, code, words, and images into one room is one of the coolest experience I’ve had. Everyone benefits from a more diverse newsroom.&lt;/p&gt;
 
 &lt;h3 id=&quot;what-we-dont-know&quot;&gt;What we don’t know&lt;/h3&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Sharing curiosity for the web&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;*Sharing curiosity for the web&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;We don’t know how to best teach students about the web. It’s not efficient for us to teach coding classes. We do go into newsrooms and get them running their first code exercises, but if someone wants to learn to program, we can only provide the initial push and curiosity. We will be trying out “labs” with a few schools next school year to hopefully get a better idea of how to teach students about the web.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Business&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Business&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;We don’t know how to convince the business side of student papers that they should invest in the web. At the very least we’re able to explain that having students graduate with their current skill set is painful in the current job market.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;The future&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;The future&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;We don’t know what journalism or the web will be like in 10 years, but we can start encouraging students to keep an open mind about the skills they’ll need. We’re less interested in preparing students for the current newsroom climate, than we are in teaching students to have the ability to learn new tools quickly as they come and go.&lt;/p&gt;
 
@@ -851,11 +914,9 @@ When a newsroom decides to create a position for the web, it’s often with the 
 &lt;em&gt;Another slide from 2012 website&lt;/em&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;what-were-trying-to-share-with-others&quot;&gt;What we’re trying to share with others&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;A concise guide to building stories for the web
+&lt;p&gt;&lt;strong&gt;A concise guide to building stories for the web
 There are too many options to get started. We hope to provide an opinionated guide that follows both our experiences, research, and observations from trying to teach our peers.
-Student newsrooms don’t have investors to please. Student newsrooms can change their website every week if they want to try a new design or interaction. As long as students start treating the web as a different medium, and start building stories around that idea, then we’ll know we’re moving forward.&lt;/li&gt;
-&lt;/ul&gt;
+Student newsrooms don’t have investors to please. Student newsrooms can change their website every week if they want to try a new design or interaction. As long as students start treating the web as a different medium, and start building stories around that idea, then we’ll know we’re moving forward.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;a-note-to-professional-news-orgs&quot;&gt;A note to professional news orgs&lt;/h3&gt;
 &lt;p&gt;We’re also asking professional newsrooms to be more open about their process of developing stories for the web. You play a big part in this. This means writing about it, and sharing code. We need to start building a bridge between student journalism and professional newsrooms.&lt;/p&gt;
@@ -893,14 +954,14 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
         <description>&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/4f4886778578cabc1d52a45cc3ffb7a5f2032d57/687474703a2f2f6769616e742e6766796361742e636f6d2f506c656173696e67496c6c66617465644879646174696474617065776f726d2e676966&quot; alt=&quot;cli&quot; /&gt;
 &lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/news-cli&quot;&gt;github.com/pippinlee/news-cli&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Try it: &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install get-healines -g&lt;/code&gt; (or without -g flag)&lt;/p&gt;
+&lt;p&gt;Try it: &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install get-headlines -g&lt;/code&gt; (or without -g global flag)&lt;/p&gt;
 
-&lt;p&gt;Most projects I start come from a question, or a few. While part of the excuse of doing this project was to get more familiar with working with node and scraping data, I also wanted to help answer these questions:&lt;/p&gt;
+&lt;p&gt;Most projects I build come from a question, or a few. While part of the excuse of doing this project was to get more familiar with working with node and scraping data, I also wanted to help answer these questions:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;what tools can we build to make people more aware of the world around them?&lt;/li&gt;
-  &lt;li&gt;what information would be helpful to give a reader to fill in their gaps of awareness?&lt;/li&gt;
-  &lt;li&gt;what information exists already that we can use?&lt;/li&gt;
+  &lt;li&gt;What tools can we build to make people more aware of the world around them?&lt;/li&gt;
+  &lt;li&gt;What info would be helpful to give a reader to fill in their gaps of awareness?&lt;/li&gt;
+  &lt;li&gt;What info exists already that we can use?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ask-then-build&quot;&gt;Ask, then build&lt;/h3&gt;
@@ -923,15 +984,15 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
 
 &lt;p&gt;You can download the &lt;code class=&quot;highlighter-rouge&quot;&gt;get-headlines&lt;/code&gt; command line tool with &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install get-headlines -g&lt;/code&gt;, or without &lt;code class=&quot;highlighter-rouge&quot;&gt;-g&lt;/code&gt; if you don’t want it installed globally.&lt;/p&gt;
 
-&lt;p&gt;Right now there are 25 different local news sites that can be queried via command line. One difficulty going forward will be monitoring for when websites change their URL paths or site design, so the current scraper paths I have will no longer work. Adding a testing system would be a good way to get my attention that I need to update a site’s URL path or query path.&lt;/p&gt;
+&lt;p&gt;Right now there are 25 different local news sites that can be queried via command line. One difficulty going forward will be monitoring for when websites change their URL paths or site design, so the current scraper paths I have will no longer work. Adding a testing system would be a good way to get my attention that I need to update a site’s URL path or query path. [Since this post has been written Firefox has a much better built-in DOM path selector built into its developer tools. This saves a lot of time when updating broken DOM paths.]&lt;/p&gt;
 
 &lt;h3 id=&quot;what-will-the-information-be-good-for&quot;&gt;What will the information be good for?&lt;/h3&gt;
 
 &lt;p&gt;With all this local data you could…&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;overlay it on an interactive map to help people get a sense of what’s happening elsewhere&lt;/li&gt;
-  &lt;li&gt;use it as a starting point for headline archival&lt;/li&gt;
+  &lt;li&gt;Interactive map to help people get a sense of what’s happening elsewhere&lt;/li&gt;
+  &lt;li&gt;Use it as a starting point for headline archival&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 14 Dec 2014 00:00:00 -0500</pubDate>
@@ -1004,19 +1065,19 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
         <title>Globe and Mail: whiteboard alternative</title>
         <link>/test-work//2012/10/05/Globe-and-Mail-whiteboard.html</link>
         <guid isPermaLink="true">/test-work//2012/10/05/Globe-and-Mail-whiteboard.html</guid>
-        <description>&lt;p&gt;&lt;img src=&quot;../../img/whiteboard.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;/test-work//img/whiteboard.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Was interviewed by Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
+&lt;p&gt;I was &lt;a href=&quot;http://www.theglobeandmail.com/life/parenting/back-to-school/5-must-have-back-to-school-items-for-postsecondary-students/article4465414/&quot;&gt;interviewed&lt;/a&gt; by the Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
 
 &lt;p&gt;I was originally inspired to start looking for cheaper versions of whiteboards after spending a weekend at Stanford’s &lt;a href=&quot;http://dschool.stanford.edu/&quot;&gt;D.School&lt;/a&gt; working on Ben Huh’s &lt;a href=&quot;http://benhuh.com/2011/05/23/why-are-we-still-consuming-the-news-like-its-1899/&quot;&gt;Moby Dick project&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The space is opinionated only in the sense of allowing space to be extemely flexible. Everything object within the building can be moved around to accomadate to “space” a team needs. If you’re curious, the below video explains it well.&lt;/p&gt;
+&lt;p&gt;The space is opinionated only in the sense of allowing space to be extemely flexible. Everything object within the building can be moved around to accomadate to the “space” a team needs. If you’re curious, the below video explains it well.&lt;/p&gt;
 
 &lt;iframe width=&quot;800&quot; height=&quot;400&quot; src=&quot;https://www.youtube.com/embed/HLQvxH40a-E&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;I got mine from &lt;a href=&quot;https://maps.google.ca/maps?q=home+depot+woodbridge&amp;amp;hl=en&amp;amp;sll=43.70536,-79.378967&amp;amp;sspn=0.085997,0.154324&amp;amp;hq=home+depot&amp;amp;hnear=Woodbridge,+Vaughan,+York+Regional+Municipality,+Ontario&amp;amp;t=m&amp;amp;z=13&quot;&gt;this Toronto home depot.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Lexan is the company that makes the highest quality boards. It is important to note that as the price goes down the grade (quality) of plastic goes down slightly.&lt;/p&gt;
+&lt;p&gt;Lexan is the company that makes the highest quality boards. It is important to note that as the price goes down, so does the grade (quality) of plastic.&lt;/p&gt;
 
 &lt;p&gt;If you’re interested here are a few other resources I found helpful along the way:&lt;/p&gt;
 
@@ -1036,7 +1097,7 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
       </item>
     
       <item>
-        <title>Gifpost.me: building a GIF site for Martha</title>
+        <title>Building a GIF site for Martha</title>
         <link>/test-work//2012/05/28/building-gifpost.html</link>
         <guid isPermaLink="true">/test-work//2012/05/28/building-gifpost.html</guid>
         <description>&lt;blockquote id=&quot;tweet&quot; class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Christmas is coming! &lt;a href=&quot;http://t.co/tbmRuV4gbD&quot;&gt;http://t.co/tbmRuV4gbD&lt;/a&gt; &lt;a href=&quot;http://t.co/6tyiTdxAGK&quot;&gt;pic.twitter.com/6tyiTdxAGK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Martha Stewart (@MarthaStewart) &lt;a href=&quot;https://twitter.com/MarthaStewart/status/413044190331678720&quot;&gt;December 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
@@ -1046,7 +1107,7 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
 
 &lt;p&gt;The idea centered around being able to save any GIF to Gifpost that catches your eye online. This would save you from having to download the GIF to be able to find it next time you want to use it.&lt;/p&gt;
 
-&lt;p&gt;A couple weeks later and &lt;a href=&quot;http://www.gifpost.me/&quot;&gt;gifpost.me&lt;/a&gt; was born. Full credit again to Stephen for doing all the heavy lifting when we build the site.&lt;/p&gt;
+&lt;p&gt;A couple weeks later and &lt;a href=&quot;http://www.gifpost.me/&quot;&gt;gifpost.me&lt;/a&gt; was born. Full credit to Stephen for doing all the heavy lifting on the backend.&lt;/p&gt;
 
 &lt;p&gt;A few months after releasing the site online, it started getting used by people that weren’t just our friends.&lt;/p&gt;
 
@@ -1055,9 +1116,9 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
 &lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;30 minutes til &lt;a href=&quot;https://twitter.com/hashtag/SDS?src=hash&quot;&gt;#SDS&lt;/a&gt; &lt;a href=&quot;http://t.co/EfMsXnJODs&quot;&gt;http://t.co/EfMsXnJODs&lt;/a&gt;&lt;/p&gt;&amp;mdash; Mac (@MacMiller) &lt;a href=&quot;https://twitter.com/MacMiller/status/326538408933617664&quot;&gt;April 23, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;So, it turns out building a tool with a very specific focus–however trivial–can be helpful to the right people. Maybe everyone that needs your tool won’t find it right away. Patience.&lt;/p&gt;
+&lt;p&gt;So, it turns out building a tool with a very specific focus–however trivial–can be helpful to a certain audience. Maybe everyone that needs your tool won’t find it right away.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;July 2015 update: site should still be working, though is unattended so needs a poke every month or so&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;July 2015 update: site was shut down as traffic had slowed and finding time to do maintenance was tricky.&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 28 May 2012 00:00:00 -0400</pubDate>
       </item>
@@ -1066,27 +1127,19 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
         <title>Where are the Lee's?</title>
         <link>/test-work//2012/05/13/where-are-the-lees.html</link>
         <guid isPermaLink="true">/test-work//2012/05/13/where-are-the-lees.html</guid>
-        <description>&lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
+        <description>&lt;p&gt;&lt;em&gt;[Google killed this API feature in 2013 so the site no longer exists]&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Harry Potter, of course. The weasley’s had a clock.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
 
-&lt;p&gt;Short of being magicla, we created this because my mom doesn’t yet own a cell phone.&lt;/p&gt;
+&lt;p&gt;Harry Potter, of course. The Weasley’s had a clock (&lt;a href=&quot;http://en.wikipedia.org/wiki/Magical_objects_in_Harry_Potter#Weasley_family_clock&quot;&gt;Whereabouts Clock&lt;/a&gt;) that told them where everyone in the family was at all times.&lt;/p&gt;
 
-&lt;p&gt;
+&lt;p&gt;Short of being magical, we created this because my Mom doesn’t yet own a cell phone.&lt;/p&gt;
 
+&lt;p&gt;Right now it’s a mash-up of &lt;a href=&quot;https://developers.google.com/maps/&quot;&gt;Google’s Map API&lt;/a&gt; and &lt;a href=&quot;https://dev.twitter.com&quot;&gt;Twitter’s API&lt;/a&gt;.&lt;/p&gt;
 
-                Harry Potter, of course. The Weasley's had a clock (&lt;a href=&quot;http://en.wikipedia.org/wiki/Magical_objects_in_Harry_Potter#Weasley_family_clock&quot; target=&quot;_blank&quot;&gt;Whereabouts Clock&lt;/a&gt;) that told them where everyone in the family was at all times. &lt;br /&gt;&lt;br /&gt;
+&lt;p&gt;A “DINNER!” button that allows my Mom to press a button that sends a text to all our phones may be in the pipes for the near future.&lt;/p&gt;
 
-                Short of being magical, we created this because my Mom doesn't yet own a cell phone. &lt;br /&gt;&lt;br /&gt;
-
-                Right now it's a mash-up of &lt;a href=&quot;https://developers.google.com/maps/&quot; target=&quot;_blank&quot;&gt;Google's Map API&lt;/a&gt; and &lt;a href=&quot;https://dev.twitter.com/&quot; target=&quot;_blank&quot;&gt;Twitter's API&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;
-
-                A &quot;DINNER!&quot; button that allows my Mom to press a button that sends a text to all our phones may be in the pipes for the near future.
-
-                &lt;img src=&quot;/img/wherearethelees.jpg&quot; /&gt;
-
-
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/test-work//img/wherearethelees.jpg&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 13 May 2012 00:00:00 -0400</pubDate>
       </item>
