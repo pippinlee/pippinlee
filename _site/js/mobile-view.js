@@ -18,11 +18,14 @@ window.onload = function() {
     nav.classList.toggle('openMenu');
     var navHeight = parseInt(  $('.intro').css('margin-top').split('px')[0] );
     if (navHeight === 58) {
-      $('.intro').css('margin-top', '110px')
-      $('.site-header').css('margin-top', '-110px')
+      document.getElementsByTagName('button')[0].style.marginTop = "-46px"
+      document.getElementsByClassName("intro")[0].style.marginTop = "110px";
+      document.getElementsByClassName("site-header")[0].style.marginTop = "-110px";
+      console.log('working')
     } else {
-      $('.intro').css('margin-top', '58px')
-      $('.site-header').css('margin-top', '-58px')
+      document.getElementsByTagName('button')[0].style.marginTop = "10px"
+      document.getElementsByClassName("intro")[0].style.marginTop = "58px";
+      document.getElementsByClassName("site-header")[0].style.marginTop = "-58px";
     }
   };
 };

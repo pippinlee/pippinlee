@@ -95,9 +95,11 @@
       font-weight: 900;
       padding-top: 1px;
       margin-top: 6px;
+      @media screen and (max-width: 670px) {
+        margin-top: 10px;
+      }
       &:hover {
-        background-color: #999;
-        color: #fff;
+        
       }
     }
   }
@@ -138,6 +140,9 @@
       float: right;
       margin-top: -36px;
       margin-right: 20px;
+      @media screen and (max-width: 670px) {
+        margin-top: -41px;
+      }
     }
   }
 }
