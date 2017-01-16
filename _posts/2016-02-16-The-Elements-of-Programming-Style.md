@@ -4,7 +4,7 @@ title: "The Elements of Programming Style (1978)"
 
 ---
 
-![](https://cldup.com/3NY1WV6NAH.png)
+![]({{ site.baseurl }}/img/elements-of-style-op.png)
 
 How do principles become timeless?
 

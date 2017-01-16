@@ -5,7 +5,7 @@ var work = {
     'item-link': 'parade-sf.com',
     'item-description': "I led development alongside the designers at Parade to help build a new website for their design firm. Craft CMS gives a powerful architecture, while allowing us to build all UI's from scratch. Optimizing animations on the homepage allowed us to really bring the site alive.",
     'tech': ['Craft CMS, MAMP stack', 'CSS and jQuery for animation', 'SASS and boostrap grid system that allowed us to build 3 customized styles for different screen sizes', 'Asset optimization: SVG, device, specific load'],
-    'images': ['../img/work/parade-2.png'],
+    'images': ['../img/work/parade-2-op.png'],
     'color': '#4b3fb5',
     'shadow1': 'rgba(36, 58, 214, 0.5)',
     'shadow2': 'rgba(44, 32, 234, 0.22)'
@@ -16,7 +16,7 @@ var work = {
     'item-link': 'riverdaleathletics.ca',
     'item-description': 'Built and designed Riverdale Athletics, with the goal of having a simplified one-page landing with clean info and actions. Specifically built with the understanding that the vast majority of users will come from mobile viewports.',
     'tech': ['Uses the lightweight Jekyll generator to serve up static pages', 'For a quick and easy grid system Bootstrap was used'],
-    'images': ['../img/work/rac-promo.png'],
+    'images': ['../img/work/rac-promo-op.png'],
     'color': '#ffd509',
     'shadow1': '../rgba(152, 148, 26, 0.5)',
     'shadow2': 'rgba(234, 228, 32, 0.15)'
@@ -60,7 +60,7 @@ var work = {
     'item-link': 'react-formation',
     'item-description': 'A friend and I wanted to make building forms with React simpler, so we a made small React library to do just that. The library makes implementating forms easy, and with just a few dozen lines of code includes validation and A/B testing.',
     'tech': ['React for component based views', 'npm scripts for optimized development', 'Mocha.js for unit testing'],
-    'images': ['../img/work/react-formation.png'],
+    'images': ['../img/work/react-formation-op.png'],
     'color': '#00c596',
     'shadow1': 'rgba(36, 214, 156, 0.5)',
     'shadow2': 'rgba(32, 234, 159, 0.22)'
@@ -71,7 +71,7 @@ var work = {
     'item-link': 'drive-dashboard',
     'item-description': 'I wanted to explore some car data a friend had given me as a quick interface to understand a route.',
     'tech': ['Uses d3.js for animating line charts', 'Uses Leaflet.js for mapping and driving animation'],
-    'images': ['../img/work/drive.png'],
+    'images': ['../img/work/drive-op.png'],
     'color': '#99da00',
     'shadow1': 'rgba(80, 214, 36, 0.5)',
     'shadow2': 'rgba(100, 234, 32, 0.22)'
@@ -82,7 +82,7 @@ var work = {
     'item-link': 'get-headlines',
     'item-description': 'I started by asking what would change about our relationship to different regions if we could know what is happening. I made this small command line tool that given a city, goes to the different news websites of that region and outputs the latests headlines.',
     'tech': ['Using Node.js to scrape data from different news sites', 'Distributed on npm', 'Used as part of simple local news API'],
-    'images': ['../img/work/get-headlines.png'],
+    'images': ['../img/work/get-headlines-op.png'],
     'color': '#ff5343',
     'shadow1': 'rgba(214, 36, 36, 0.5)',
     'shadow2': 'rgba(234, 32, 32, 0.22)'

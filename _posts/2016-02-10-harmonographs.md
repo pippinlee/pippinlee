@@ -4,7 +4,7 @@ title: Harmonographs
 
 ---
 
-![harmonograph](http://68.media.tumblr.com/364533e661eac80316e540033f358400/tumblr_neov5rgBHz1tzs5dao2_500.gif)
+![harmonograph]({{ site.baseurl}}/img/harmonograph.gif)
 
 One of wonderful things about the Internet is the deep dives you can do on things you didn't know existed only a few minutes earlier.
 
