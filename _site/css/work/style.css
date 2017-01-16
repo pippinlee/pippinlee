@@ -199,6 +199,13 @@ a  {
   background-color: #DEDEDE;
 }
 
+@media screen and (min-width: 670px) and (max-width: 991px) {
+  .site-nav ul {
+    margin-top: -55px!important;
+  }
+}
+
+
 @media (max-width: 991px) {
   .container {
     width: 100%;

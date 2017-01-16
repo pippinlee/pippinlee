@@ -14,23 +14,12 @@ var work = {
     'item-title': 'Riverdale Athletics',
     'item-anchor': 'http://www.riverdaleathletics.ca',
     'item-link': 'riverdaleathletics.ca',
-    'item-description': 'Built and designed Riverdale Athletics over a few days, with the goal of having a simplified one-page landing with clean info and actions. Specifically built with the understanding that the vast majority of use will come from mobile viewports.',
-    'tech': ['jekyll', 'jQuery', 'CSS', 'grid system: boostrap'],
+    'item-description': 'Built and designed Riverdale Athletics, with the goal of having a simplified one-page landing with clean info and actions. Specifically built with the understanding that the vast majority of users will come from mobile viewports.',
+    'tech': ['Uses the lightweight Jekyll generator to serve up static pages', 'For a quick and easy grid system Bootstrap was used'],
     'images': ['../img/work/rac-promo.png'],
     'color': '#ffd509',
     'shadow1': '../rgba(152, 148, 26, 0.5)',
     'shadow2': 'rgba(234, 228, 32, 0.15)'
-  },
-  'koala': {
-    'item-title': 'Koala Testers',
-    'item-anchor': 'http://www.koalatesters.com',
-    'item-link': 'koalatesters.com',
-    'item-description': 'Koala Testers was built alongside the Heist Design team to quickly prototype a product that would help both internal and external design firms with their design process. User feedback is critical to the design process, this tool aims to make the user feedback loop quick and easy.',
-    'tech': ['jQuery to keep interactions and animation simple accross browsers', 'SASS variables to build a consistant style for elements', 'Grid system: boostrap'],
-    'images': ['../img/work/koala.png'],
-    'color': '#f03c8f',
-    'shadow1': 'rgba(152, 26, 90, 0.5)',
-    'shadow2': 'rgba(152, 26, 90, 0.5)'
   },
   'get-issues': {
     'item-title': 'Get Issues',
@@ -43,6 +32,28 @@ var work = {
     'shadow1': 'rgba(36, 58, 214, 0.5)',
     'shadow2': 'rgba(44, 32, 234, 0.22)'
   },
+  'holymackinaw': {
+    'item-title': 'Holy Mackinaw',
+    'item-anchor': 'http://www.github.com/pippinlee',
+    'item-link': 'holy-mackinaw',
+    'item-description': 'I built a system to help describe scoring plays in hockey in hopes of understanding highly complex and random events. Interactive elements were used that allows a user to describe video, that includes both passes, player position, and goalie weaknesses. ',
+    'tech': ['Database to store scoring play data with MongoDB','Express.js was used to create a lightweight API for interacting with the database', 'Uses d3.js to build interactive system for describing plays'],
+    'images': ['../img/work/holymackinaw.png'],
+    'color': '#ff4d4d',
+    'shadow1': 'rgba(214, 36, 36, 0.5)',
+    'shadow2': 'rgba(234, 32, 32, 0.22)'
+  },
+  'koala': {
+    'item-title': 'Koala Testers',
+    'item-anchor': 'http://www.koalatesters.com',
+    'item-link': 'koalatesters.com',
+    'item-description': 'Koala Testers was built alongside the Heist Design team to quickly prototype a product that would help both internal and external design firms with their design process. User feedback is critical to the design process, this tool aims to make the user feedback loop quick and easy.',
+    'tech': ['jQuery to keep interactions and animation simple accross browsers', 'SASS variables to build a consistant style for elements', 'Grid system: boostrap'],
+    'images': ['../img/work/koala.png'],
+    'color': '#f03c8f',
+    'shadow1': 'rgba(152, 26, 90, 0.5)',
+    'shadow2': 'rgba(152, 26, 90, 0.5)'
+  },
   'react-formation': {
     'item-title': 'React Formation',
     'item-anchor': 'http://www.github.com/k88hudson/react-formation',
@@ -53,17 +64,6 @@ var work = {
     'color': '#00c596',
     'shadow1': 'rgba(36, 214, 156, 0.5)',
     'shadow2': 'rgba(32, 234, 159, 0.22)'
-  },
-  'get-headlines': {
-    'item-title': 'Get Headlines',
-    'item-anchor': 'http://www.github.com/pippinlee/news-cli',
-    'item-link': 'get-headlines',
-    'item-description': 'I started by asking what would change about our relationship to different regions if we could know what is happening. I made this small command line tool that given a city, goes to the different news websites of that region and outputs the latests headlines.',
-    'tech': ['Using Node.js to scrape data from different news sites', 'Distributed on npm', 'Used as part of simple local news API'],
-    'images': ['../img/work/get-headlines.png'],
-    'color': '#ff5343',
-    'shadow1': 'rgba(214, 36, 36, 0.5)',
-    'shadow2': 'rgba(234, 32, 32, 0.22)'
   },
   'driving-dashboard': {
     'item-title': 'Drive Dashboard',
@@ -76,15 +76,37 @@ var work = {
     'shadow1': 'rgba(80, 214, 36, 0.5)',
     'shadow2': 'rgba(100, 234, 32, 0.22)'
   },
+  'get-headlines': {
+    'item-title': 'Get Headlines',
+    'item-anchor': 'http://www.github.com/pippinlee/news-cli',
+    'item-link': 'get-headlines',
+    'item-description': 'I started by asking what would change about our relationship to different regions if we could know what is happening. I made this small command line tool that given a city, goes to the different news websites of that region and outputs the latests headlines.',
+    'tech': ['Using Node.js to scrape data from different news sites', 'Distributed on npm', 'Used as part of simple local news API'],
+    'images': ['../img/work/get-headlines.png'],
+    'color': '#ff5343',
+    'shadow1': 'rgba(214, 36, 36, 0.5)',
+    'shadow2': 'rgba(234, 32, 32, 0.22)'
+  },
+  'yorku-sunshine': {
+    'item-title': 'Sunshine List',
+    'item-anchor': 'http://pippinlee.github.io/yorku-sunshine-list',
+    'item-link': 'yorku-sunshine',
+    'item-description': 'Every year the Canadian government must disclose the university staff that earn more than $100,000. This was made for an article in the student paper to show the trends and gender breakdown.',
+    'tech': ['Data was scraped using a small module called scraperJS that makes querying the DOM simple.', 'jQuery and Dynatable were used to display the data.'],
+    'images': ['../img/work/yorku-sunshine.png'],
+    'color': '#ec143d',
+    'shadow1': 'rgba(214, 36, 36, 0.5)',
+    'shadow2': 'rgba(234, 32, 32, 0.22)'
+  },
   'ghana-world-cup': {
     'item-title': 'Ghana World Cup',
     'item-anchor': 'http://www.github.com/pippinlee/ghana-world-cup',
     'item-link': 'ghana-cup',
     'item-description': 'I had a collection of photos and audio from when I covered the world cup events in Toronto. Using popcorn.js I was able to create a unique story that captures the happy choas of the Ghanese community in Toronto during the World Cup.',
-    'tech': ['Used Popcorn.js to cue audio and images by frame'],
+    'tech': ['Uses Popcorn.js to cue audio and images by frame'],
     'images': ['../img/work/ghana.png'],
     'color': '#00bf60',
     'shadow1': 'rgba(57, 152, 26, 0.5)',
     'shadow2': 'rgba(100, 234, 32, 0.22)'
-  },
+  }
 };

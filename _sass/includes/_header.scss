@@ -68,6 +68,10 @@
         letter-spacing: 0.1em;
         color: #808080;
       }
+      @media screen and (max-width: 670px) {
+        padding-bottom: 0;
+        width: 100px!important;
+      }
     }
   }
   .mobile {
