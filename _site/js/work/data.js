@@ -54,6 +54,17 @@ var work = {
     'shadow1': 'rgba(152, 26, 90, 0.5)',
     'shadow2': 'rgba(152, 26, 90, 0.5)'
   },
+  'global-hockey': {
+    'item-title': 'Global Hockey',
+    'item-anchor': 'https://github.com/pippinlee/100-years-leafs',
+    'item-link': '100-years-leafs',
+    'item-description': 'Built as a personal project, I wanted to understand how hockey has grown globally over 100 years of the NHL. With 1000+ players I scraped and plotted all Leafs players birth cities over the franchise\' history.',
+    'tech': ['Node.js and MongoDB were used to scrape and store data', 'Google\'s reverse-geocode API was used to find lat/long of each player\'s birth city', 'Leaflet.js was then used to render lat/long on a map'],
+    'images': ['../img/work/100-years.png'],
+    'color': 'rgb(42,207,224)',
+    'shadow1': 'rgba(42,207,224,0.5)',
+    'shadow2': 'rgba(42,207,224,0.5)'
+  },
   'react-formation': {
     'item-title': 'React Formation',
     'item-anchor': 'http://www.github.com/k88hudson/react-formation',
