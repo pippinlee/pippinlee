@@ -14,10 +14,10 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Canonical -->
-	<link rel="canonical" href="/">
+	<link rel="canonical" href="http://localhost:4000/">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="PIPPIN" href="/feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="PIPPIN" href="http://localhost:4000/feed.xml" />
 
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -92,7 +92,7 @@
   
   <img class="build" src="/img/beaver-op.png" />
   <div class="call-out">
-    <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.</p> </br></br> <div class="social">
+    <p>Where Pippin Lee asks questions about running up hills, software and our interaction with it, and biking down hills. Currently building tools and systems for machine learning at <a href="https://www.dessa.com/">Dessa</a>, and looking for stars with <a href="https://space2vec.com">space2vec</a>.</p> </br></br> <div class="social">
 
   <a href="https://github.com/pippinlee" title="Follow on Github">
     <i class="fa fa-fw fa-github"></i>
@@ -122,6 +122,18 @@
   <div class="index">
   <h3>All articles</h2>
     <ul>
+      
+        <li>
+            <a class="post-link" href="/2019/09/25/fake-voice-detection.html">
+              Revenge of the deepfake detectives
+            </a>
+        </li>
+      
+        <li>
+            <a class="post-link" href="/2019/02/08/supernova-detection.html">
+              Detecting supernova with deep learning
+            </a>
+        </li>
       
         <li>
             <a class="post-link" href="/2016/07/05/Will-the-future-of-writing-be-more-like-github.html">
@@ -220,6 +232,72 @@
       <header>
         <h1 class="post-info">
           <p class="meta">
+            September 25, 2019
+          </p>
+          <a class="post-link" href="/2019/09/25/fake-voice-detection.html">
+            Revenge of the deepfake detectives
+          </a>
+        </h1>
+      </header>
+      <div class="excerpt">
+
+        <p><img src="/img/detector.jpeg" alt="" /></p>
+
+<p><a href="https://medium.com/dessa-news/detecting-audio-deepfakes-f2edfd8e2b35">Full post on medium</a> | 
+<a href="https://www.axios.com/deepfake-detectors-artificial-intelligence-bc86b182-0ca6-45fc-aecf-a1c9ce5563c9.html">Axios write up</a> | 
+<a href="https://github.com/dessa-public/fake-voice-detection">Code on github</a></p>
+
+<p>A few of my Dessa colleagues and I released a fake voice detection model. Kaveh wrote about it in this weekend’s Axios’ Future. One of the primary questions throughout this project was asking can <em>“can detectors keep up with new fake voice models?”</em></p>
+
+<p>The short answer is that it’s going to be an uphill battle. To help with this we’re sharing our code to encourage the ML community that this type of work is necessary.</p>
+
+<p>One optimistic idea from this experience: the effort needed to build detector models is much less than creating them. If we motivate developers of generators (good actors) to build detectors as well, the additional time cost is minimal!</p>
+
+<p>One pessimistic idea: any good detector model can be used to make an opposing generator model better. This cat and mouse game will continue.</p>
+
+
+        <a href="/2019/09/25/fake-voice-detection.html">
+          <img class="button" src="http://pippinlee.github.io/pippinlee/img/read.png">
+        </a>
+      </div>
+    </div>
+    
+    <div class="post-teaser">
+      <header>
+        <h1 class="post-info">
+          <p class="meta">
+            February 8, 2019
+          </p>
+          <a class="post-link" href="/2019/02/08/supernova-detection.html">
+            Detecting supernova with deep learning
+          </a>
+        </h1>
+      </header>
+      <div class="excerpt">
+
+        <p><img src="/img/space2vec.jpeg" alt="" /></p>
+
+<p>An overview of our supernova classification system that we built using data from the Dark Energy Survey.</p>
+
+<p><a href="https://betakit.com/dessa-engineers-build-machine-learning-supernova-identification-system/">Betakit write up</a> | 
+<a href="https://medium.com/dessa-news/space-2-vec-fd900f5566">Full post on medium</a> | 
+<a href="https://github.com/pippinlee/space2vec-ml-code">Code on github</a></p>
+
+<p>Combining their interest in space with an exploration of deep learning’s potential applications for astronomy, 3 of Dessa’s engineers have collaborated on a project called space2vec since summer 2017.</p>
+
+<p>Recently, the team built a deep learning system that identifies supernovas from telescope images with record-breaking speed: cutting the time it would take astronomers to identify supernovas almost in half! Here’s the team’s personal account of how they did it.</p>
+
+
+        <a href="/2019/02/08/supernova-detection.html">
+          <img class="button" src="http://pippinlee.github.io/pippinlee/img/read.png">
+        </a>
+      </div>
+    </div>
+    
+    <div class="post-teaser">
+      <header>
+        <h1 class="post-info">
+          <p class="meta">
             July 5, 2016
           </p>
           <a class="post-link" href="/2016/07/05/Will-the-future-of-writing-be-more-like-github.html">
@@ -253,48 +331,6 @@
         <p><img src="/img/elements-of-style-op.png" alt="" /></p> <p>How do principles become timeless?</p> <p>When I discovered Strunk and White’s (1920) famous <a href="http://www.amazon.com/The-Elements-Style-Fourth-Edition/dp/020530902X">The Element of Style</a> in school, it provided one of the best lessons in brevity I’ve experienced. I still keep it in mind whenever I’m asked to write, because its concise points are timeless––timeless in the sense that while it is about style, it is not binded to style. Strunk and White’s style guide is still incredibly in-touch with writers almost 100 years later.</p> <p>So I was happy to find this book, a derivative of the famous Strunk and White book, <a href="http://www.amazon.com/The-Elements-Programming-Style-Edition/dp/0070342075">The Elements of Programming Style</a> by Kernighan and Plauger, written in 1978, close to 40 years ago.</p> <p>TEPS uses Fortran as its example language, but much like the book that inspired it, the lessons it teaches are timeless and still hold up today. When you can distill rule and opinion to good practice, you can advice that lasts a longtime.</p> <p><strong>I don’t think it’s quite right to call either the English, or programming style guide timeless, but it’s still evidence...
 
         <a href="/2016/02/16/The-Elements-of-Programming-Style.html">
-          <img class="button" src="http://pippinlee.github.io/pippinlee/img/read.png">
-        </a>
-      </div>
-    </div>
-    
-    <div class="post-teaser">
-      <header>
-        <h1 class="post-info">
-          <p class="meta">
-            February 10, 2016
-          </p>
-          <a class="post-link" href="/2016/02/10/harmonographs.html">
-            Harmonographs
-          </a>
-        </h1>
-      </header>
-      <div class="excerpt">
-
-        <p><img src="/img/harmonograph.gif" alt="harmonograph" /></p> <p>One of wonderful things about the Internet is the deep dives you can do on things you didn’t know existed only a few minutes earlier.</p> <p>I found the below video when researching the overlapping worlds of math, art, and computers. I was looking into motorized pen draings when I found the world of the harmonograph. Traditionally haramonographs are mechanical devices that power a drawing tool. Using a repetitive drawing motion on a surface that changes position creates some incredible results.</p> <p>Tools that allow anyone to create, and get results that spark intrigue are my favourite type. They’re accessible, but bring people into both the art and math world.</p> <p>It reminded me of Turtle Programming (Logo), where the user is given immediate visual feedback to their input. I recommend reading <a href="http://a.co/fEH7udw">Turtle Geometry</a> by Abelson, and Papert’s <a href="http://a.co/bDYy4Yn">Mindstorms</a> to understand the care put into Logo that allows for sufficently complex drawings and logic, while balancing accessibility.</p> <p>As I dived further into the world of harmonographs I found that motors aren’t completely necessary. As slow, and methodic...
-
-        <a href="/2016/02/10/harmonographs.html">
-          <img class="button" src="http://pippinlee.github.io/pippinlee/img/read.png">
-        </a>
-      </div>
-    </div>
-    
-    <div class="post-teaser">
-      <header>
-        <h1 class="post-info">
-          <p class="meta">
-            November 1, 2015
-          </p>
-          <a class="post-link" href="/2015/11/01/Announcing-Open-Journalism-fellowships.html">
-            Announcing the Open Journalism fellowship
-          </a>
-        </h1>
-      </header>
-      <div class="excerpt">
-
-        <p><img src="https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png" alt="" /></p> <h1 id="shipping-a-fellow">Shipping a Fellow</h1> <p>Good news — today the <a href="http://openjournalismproject.com/">Open Journalism Project</a> is announcing the start of a Fellowship program.</p> <p>A few months ago when Asad and I <a href="https://medium.com/@pippinlee/the-open-journalism-project-better-student-journalism-fb39f4f701bb">wrote about the experience and research</a> we’d done in understanding problems that student newsrooms are facing — we got many thoughtful responses. We were able to talk to students quite literally scattered across the globe, from Pakistan and India, to small-town USA, and big cities in Europe. These were students that shared our frustration with the lack of opportunities at their universities to tinker at the intersection of code and journalism.</p> <p>While we’ve written, talked, and advised students newsrooms — <strong>we’ve been lacking in our methodology</strong>. At best we’re able to recommend similar setups we’ve seen at professional newsrooms. We haven’t been able to clearly point to what has (and hasn’t) worked. We can’t share how we got a student newsroom curious about programming or obsessing over data. In part this is because nothing like this exists in Canada — we’re carving out a new and important path in journalism education. Today we’re announcing...
-
-        <a href="/2015/11/01/Announcing-Open-Journalism-fellowships.html">
           <img class="button" src="http://pippinlee.github.io/pippinlee/img/read.png">
         </a>
       </div>

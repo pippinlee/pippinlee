@@ -14,10 +14,10 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Canonical -->
-	<link rel="canonical" href="/2015/10/05/npm-scripts.html">
+	<link rel="canonical" href="http://localhost:4000/2015/10/05/npm-scripts.html">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="PIPPIN" href="/feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="PIPPIN" href="http://localhost:4000/feed.xml" />
 
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -114,15 +114,15 @@
 
 <p>There are 3 main things you should know about npm script naming:</p>
 
-<h4 id="built-in-script-naming">1) built-in script naming</h4>
+<h4 id="1-built-in-script-naming">1) built-in script naming</h4>
 
 <p>npm has a list of ready-to-use npm script property names such as <code class="highlighter-rouge">start</code>, <code class="highlighter-rouge">run</code>, and <code class="highlighter-rouge">test</code>. In fact the command you likely use daily, <code class="highlighter-rouge">npm install</code>, is an npm script! You can run a script by running <code class="highlighter-rouge">$ npm &lt;name of script&gt;</code>.</p>
 
-<h4 id="pre-and-post-script-naming">2) pre and post script naming</h4>
+<h4 id="2-pre-and-post-script-naming">2) pre and post script naming</h4>
 
 <p>When naming your scripts, you can add <code class="highlighter-rouge">pre</code> or <code class="highlighter-rouge">post</code> to tell npm to run them before or after. So if you have a <code class="highlighter-rouge">start</code> script, you could also write a <code class="highlighter-rouge">prestart</code> script that will run something before the <code class="highlighter-rouge">start</code> script runs.</p>
 
-<h4 id="custom-script-naming">3) custom script naming</h4>
+<h4 id="3-custom-script-naming">3) custom script naming</h4>
 
 <p>If you’re like me, and want to be more 🐠expressive🐠, you can use your own script names. If for example we wanted to re-write that start command we could do so with <code class="highlighter-rouge">getTheFluxCapacitorFluxingDoc: node server.js</code>.</p>
 
@@ -244,7 +244,7 @@
 
 <p>We’ll use this structure for writing our npm scripts.</p>
 
-<h2 id="default-task">1) <code class="highlighter-rouge">default</code> task</h2>
+<h2 id="1-default-task">1) <code class="highlighter-rouge">default</code> task</h2>
 
 <p>These tasks would be typically run by running <code class="highlighter-rouge">grunt</code>, and were used as a way to get the necessary server and files going for development. The task is made up of three pieces that are wrapped together in a <code class="highlighter-rouge">registerTask</code> called <code class="highlighter-rouge">default</code>.</p>
 
@@ -315,7 +315,7 @@
 
 <p>Note: <code class="highlighter-rouge">server</code> is one of npm’s reserved properties.</p>
 
-<h2 id="stats-task">2) <code class="highlighter-rouge">stats</code> task</h2>
+<h2 id="2-stats-task">2) <code class="highlighter-rouge">stats</code> task</h2>
 
 <p>For the stats task we’ll need to write a script that checks the filesize. We already have the <code class="highlighter-rouge">less:dev</code> task completed above.</p>
 
@@ -360,7 +360,7 @@
 <p>which outputs something very similar to the grunt plug-in.
 <img src="https://cldup.com/BKWn1bE3wu.png" alt="" /></p>
 
-<h2 id="build-task">3) <code class="highlighter-rouge">build</code> task</h2>
+<h2 id="3-build-task">3) <code class="highlighter-rouge">build</code> task</h2>
 
 <p>We’ve already written a <code class="highlighter-rouge">filesize</code> script, so we’ll just focus on <code class="highlighter-rouge">less:build</code>.</p>
 
@@ -393,7 +393,7 @@
 
 <p><code class="highlighter-rouge">npm run less-dev &amp;&amp; autoless --source-map --no-watch less/build/ dist/</code></p>
 
-<h2 id="deploy">4) <code class="highlighter-rouge">deploy</code></h2>
+<h2 id="4-deploy">4) <code class="highlighter-rouge">deploy</code></h2>
 
 <p>Now, we can write the script for the final Grunt task:</p>
 

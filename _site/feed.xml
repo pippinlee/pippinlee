@@ -2,15 +2,55 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <link>/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://localhost:4000/</link>
     <description></description>
-    <pubDate>Wed, 25 Jan 2017 10:54:15 -0500</pubDate>
+    <pubDate>Sun, 29 Sep 2019 23:13:06 -0400</pubDate>
+    
+      <item>
+        <title>Revenge of the deepfake detectives</title>
+        <link>http://localhost:4000/2019/09/25/fake-voice-detection.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/09/25/fake-voice-detection.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/detector.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://medium.com/dessa-news/detecting-audio-deepfakes-f2edfd8e2b35&quot;&gt;Full post on medium&lt;/a&gt; | 
+&lt;a href=&quot;https://www.axios.com/deepfake-detectors-artificial-intelligence-bc86b182-0ca6-45fc-aecf-a1c9ce5563c9.html&quot;&gt;Axios write up&lt;/a&gt; | 
+&lt;a href=&quot;https://github.com/dessa-public/fake-voice-detection&quot;&gt;Code on github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A few of my Dessa colleagues and I released a fake voice detection model. Kaveh wrote about it in this weekend’s Axios’ Future. One of the primary questions throughout this project was asking can &lt;em&gt;“can detectors keep up with new fake voice models?”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The short answer is that it’s going to be an uphill battle. To help with this we’re sharing our code to encourage the ML community that this type of work is necessary.&lt;/p&gt;
+
+&lt;p&gt;One optimistic idea from this experience: the effort needed to build detector models is much less than creating them. If we motivate developers of generators (good actors) to build detectors as well, the additional time cost is minimal!&lt;/p&gt;
+
+&lt;p&gt;One pessimistic idea: any good detector model can be used to make an opposing generator model better. This cat and mouse game will continue.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 25 Sep 2019 00:00:00 -0400</pubDate>
+      </item>
+    
+      <item>
+        <title>Detecting supernova with deep learning</title>
+        <link>http://localhost:4000/2019/02/08/supernova-detection.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/02/08/supernova-detection.html</guid>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/space2vec.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;An overview of our supernova classification system that we built using data from the Dark Energy Survey.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://betakit.com/dessa-engineers-build-machine-learning-supernova-identification-system/&quot;&gt;Betakit write up&lt;/a&gt; | 
+&lt;a href=&quot;https://medium.com/dessa-news/space-2-vec-fd900f5566&quot;&gt;Full post on medium&lt;/a&gt; | 
+&lt;a href=&quot;https://github.com/pippinlee/space2vec-ml-code&quot;&gt;Code on github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Combining their interest in space with an exploration of deep learning’s potential applications for astronomy, 3 of Dessa’s engineers have collaborated on a project called space2vec since summer 2017.&lt;/p&gt;
+
+&lt;p&gt;Recently, the team built a deep learning system that identifies supernovas from telescope images with record-breaking speed: cutting the time it would take astronomers to identify supernovas almost in half! Here’s the team’s personal account of how they did it.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 08 Feb 2019 00:00:00 -0500</pubDate>
+      </item>
     
       <item>
         <title>Will the future of books be more like Git?</title>
-        <link>/2016/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
-        <guid isPermaLink="true">/2016/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
+        <link>http://localhost:4000/2016/07/05/Will-the-future-of-writing-be-more-like-github.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/07/05/Will-the-future-of-writing-be-more-like-github.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*5moklcdrPhG6WmN-KC3sLw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When we think about languages and how they evolve, it’s usually at the needs of the people that use them. If we want to share a bit of information, whether that be an emotion, or description — we can create a new collection of letters to form a new word. As long as another person has a common understanding of this combination of letters, we can now use our new word in &lt;a href=&quot;http://number27.org/wb-language&quot;&gt;sharing information from one mind to another&lt;/a&gt;. Languages can be pretty neat this way, and can get even more descriptive if we talk about emojis.&lt;/p&gt;
@@ -83,8 +123,8 @@
     
       <item>
         <title>The Elements of Programming Style (1978)</title>
-        <link>/2016/02/16/The-Elements-of-Programming-Style.html</link>
-        <guid isPermaLink="true">/2016/02/16/The-Elements-of-Programming-Style.html</guid>
+        <link>http://localhost:4000/2016/02/16/The-Elements-of-Programming-Style.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/02/16/The-Elements-of-Programming-Style.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;/img/elements-of-style-op.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;How do principles become timeless?&lt;/p&gt;
@@ -198,8 +238,8 @@
     
       <item>
         <title>Harmonographs</title>
-        <link>/2016/02/10/harmonographs.html</link>
-        <guid isPermaLink="true">/2016/02/10/harmonographs.html</guid>
+        <link>http://localhost:4000/2016/02/10/harmonographs.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/02/10/harmonographs.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;/img/harmonograph.gif&quot; alt=&quot;harmonograph&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One of wonderful things about the Internet is the deep dives you can do on things you didn’t know existed only a few minutes earlier.&lt;/p&gt;
@@ -235,8 +275,8 @@
     
       <item>
         <title>Announcing the Open Journalism fellowship</title>
-        <link>/2015/11/01/Announcing-Open-Journalism-fellowships.html</link>
-        <guid isPermaLink="true">/2015/11/01/Announcing-Open-Journalism-fellowships.html</guid>
+        <link>http://localhost:4000/2015/11/01/Announcing-Open-Journalism-fellowships.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/11/01/Announcing-Open-Journalism-fellowships.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;shipping-a-fellow&quot;&gt;Shipping a Fellow&lt;/h1&gt;
@@ -322,8 +362,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>How to convert your Gruntfile to npm scripts</title>
-        <link>/2015/10/05/npm-scripts.html</link>
-        <guid isPermaLink="true">/2015/10/05/npm-scripts.html</guid>
+        <link>http://localhost:4000/2015/10/05/npm-scripts.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/10/05/npm-scripts.html</guid>
         <description>&lt;p&gt;In this post we’re going to take a quick look at npm scripts, and the thought process behind writing them. We’ll do this by taking &lt;a href=&quot;https://github.com/mozilla/makerstrap&quot;&gt;Mozilla’s Makerstrap project&lt;/a&gt; and its &lt;a href=&quot;https://github.com/mozilla/makerstrap/blob/master/package.json&quot;&gt;Gruntfile&lt;/a&gt; and convert it to npm scripts to show us the benefits of npm scripts as a frontend build tool.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;I should note before starting that there are many use cases for Grunt or Gulp, and npm scripts may not cover all of them. While it’s likely npm scripts can reduce your Grunt or Gulp files greatly, this post’s goal isn’t to diminish the usefulness of those task running services.&lt;/strong&gt;&lt;/p&gt;
@@ -340,15 +380,15 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;There are 3 main things you should know about npm script naming:&lt;/p&gt;
 
-&lt;h4 id=&quot;built-in-script-naming&quot;&gt;1) built-in script naming&lt;/h4&gt;
+&lt;h4 id=&quot;1-built-in-script-naming&quot;&gt;1) built-in script naming&lt;/h4&gt;
 
 &lt;p&gt;npm has a list of ready-to-use npm script property names such as &lt;code class=&quot;highlighter-rouge&quot;&gt;start&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;run&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;. In fact the command you likely use daily, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install&lt;/code&gt;, is an npm script! You can run a script by running &lt;code class=&quot;highlighter-rouge&quot;&gt;$ npm &amp;lt;name of script&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h4 id=&quot;pre-and-post-script-naming&quot;&gt;2) pre and post script naming&lt;/h4&gt;
+&lt;h4 id=&quot;2-pre-and-post-script-naming&quot;&gt;2) pre and post script naming&lt;/h4&gt;
 
 &lt;p&gt;When naming your scripts, you can add &lt;code class=&quot;highlighter-rouge&quot;&gt;pre&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt; to tell npm to run them before or after. So if you have a &lt;code class=&quot;highlighter-rouge&quot;&gt;start&lt;/code&gt; script, you could also write a &lt;code class=&quot;highlighter-rouge&quot;&gt;prestart&lt;/code&gt; script that will run something before the &lt;code class=&quot;highlighter-rouge&quot;&gt;start&lt;/code&gt; script runs.&lt;/p&gt;
 
-&lt;h4 id=&quot;custom-script-naming&quot;&gt;3) custom script naming&lt;/h4&gt;
+&lt;h4 id=&quot;3-custom-script-naming&quot;&gt;3) custom script naming&lt;/h4&gt;
 
 &lt;p&gt;If you’re like me, and want to be more 🐠expressive🐠, you can use your own script names. If for example we wanted to re-write that start command we could do so with &lt;code class=&quot;highlighter-rouge&quot;&gt;getTheFluxCapacitorFluxingDoc: node server.js&lt;/code&gt;.&lt;/p&gt;
 
@@ -470,7 +510,7 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;We’ll use this structure for writing our npm scripts.&lt;/p&gt;
 
-&lt;h2 id=&quot;default-task&quot;&gt;1) &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; task&lt;/h2&gt;
+&lt;h2 id=&quot;1-default-task&quot;&gt;1) &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; task&lt;/h2&gt;
 
 &lt;p&gt;These tasks would be typically run by running &lt;code class=&quot;highlighter-rouge&quot;&gt;grunt&lt;/code&gt;, and were used as a way to get the necessary server and files going for development. The task is made up of three pieces that are wrapped together in a &lt;code class=&quot;highlighter-rouge&quot;&gt;registerTask&lt;/code&gt; called &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt;.&lt;/p&gt;
 
@@ -541,7 +581,7 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Note: &lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; is one of npm’s reserved properties.&lt;/p&gt;
 
-&lt;h2 id=&quot;stats-task&quot;&gt;2) &lt;code class=&quot;highlighter-rouge&quot;&gt;stats&lt;/code&gt; task&lt;/h2&gt;
+&lt;h2 id=&quot;2-stats-task&quot;&gt;2) &lt;code class=&quot;highlighter-rouge&quot;&gt;stats&lt;/code&gt; task&lt;/h2&gt;
 
 &lt;p&gt;For the stats task we’ll need to write a script that checks the filesize. We already have the &lt;code class=&quot;highlighter-rouge&quot;&gt;less:dev&lt;/code&gt; task completed above.&lt;/p&gt;
 
@@ -586,7 +626,7 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;which outputs something very similar to the grunt plug-in.
 &lt;img src=&quot;https://cldup.com/BKWn1bE3wu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;build-task&quot;&gt;3) &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; task&lt;/h2&gt;
+&lt;h2 id=&quot;3-build-task&quot;&gt;3) &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; task&lt;/h2&gt;
 
 &lt;p&gt;We’ve already written a &lt;code class=&quot;highlighter-rouge&quot;&gt;filesize&lt;/code&gt; script, so we’ll just focus on &lt;code class=&quot;highlighter-rouge&quot;&gt;less:build&lt;/code&gt;.&lt;/p&gt;
 
@@ -619,7 +659,7 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run less-dev &amp;amp;&amp;amp; autoless --source-map --no-watch less/build/ dist/&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;deploy&quot;&gt;4) &lt;code class=&quot;highlighter-rouge&quot;&gt;deploy&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;4-deploy&quot;&gt;4) &lt;code class=&quot;highlighter-rouge&quot;&gt;deploy&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;Now, we can write the script for the final Grunt task:&lt;/p&gt;
 
@@ -691,8 +731,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>Announcing the Open Journalism fellowship</title>
-        <link>/2015/08/25/Announcing-Open-Journalism-fellowships.html</link>
-        <guid isPermaLink="true">/2015/08/25/Announcing-Open-Journalism-fellowships.html</guid>
+        <link>http://localhost:4000/2015/08/25/Announcing-Open-Journalism-fellowships.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/08/25/Announcing-Open-Journalism-fellowships.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;shipping-a-fellow&quot;&gt;Shipping a Fellow&lt;/h1&gt;
@@ -778,8 +818,8 @@ openjo/&quot;&gt;@OpenJo&lt;/a&gt;&lt;/p&gt;
     
       <item>
         <title>Open Journalism Project</title>
-        <link>/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
-        <guid isPermaLink="true">/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
+        <link>http://localhost:4000/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://d262ilb51hltx0.cloudfront.net/max/2000/1*oBWUXtszDsiv_-Qq2bFLTQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We pushed out the first version of the &lt;a href=&quot;http://pippinlee.github.io/open-journalism-project/&quot;&gt;Open Journalism site&lt;/a&gt; in January. Our goal is for the site to be a place to teach students what they should know about journalism on the web. It should be fun too.&lt;/p&gt;
@@ -949,8 +989,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Command line news headlines</title>
-        <link>/2014/12/14/Command-Line-News-Headlines.html</link>
-        <guid isPermaLink="true">/2014/12/14/Command-Line-News-Headlines.html</guid>
+        <link>http://localhost:4000/2014/12/14/Command-Line-News-Headlines.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2014/12/14/Command-Line-News-Headlines.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/4f4886778578cabc1d52a45cc3ffb7a5f2032d57/687474703a2f2f6769616e742e6766796361742e636f6d2f506c656173696e67496c6c66617465644879646174696474617065776f726d2e676966&quot; alt=&quot;cli&quot; /&gt;
 &lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/news-cli&quot;&gt;github.com/pippinlee/news-cli&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
@@ -1000,8 +1040,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Driving dashboard</title>
-        <link>/2014/12/04/Driving-data-dashboard.html</link>
-        <guid isPermaLink="true">/2014/12/04/Driving-data-dashboard.html</guid>
+        <link>http://localhost:4000/2014/12/04/Driving-data-dashboard.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2014/12/04/Driving-data-dashboard.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;http://f.cl.ly/items/2j1W1w031w2Q432X1W0S/Screen%20Recording%202015-09-17%20at%2004.32%20PM.gif&quot; alt=&quot;drive&quot; /&gt;
 &lt;em&gt;&lt;a href=&quot;https://github.com/pippinlee/drive-dashboard&quot;&gt;https://github.com/pippinlee/drive-dashboard&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
@@ -1027,8 +1067,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Joining educreations</title>
-        <link>/2012/10/09/Joining-Educreations.html</link>
-        <guid isPermaLink="true">/2012/10/09/Joining-Educreations.html</guid>
+        <link>http://localhost:4000/2012/10/09/Joining-Educreations.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2012/10/09/Joining-Educreations.html</guid>
         <description>&lt;h2 id=&quot;one-to-many&quot;&gt;One, to many&lt;/h2&gt;
 &lt;p&gt;“You know I never finished university. I’d even tell you, you don’t need university.”&lt;/p&gt;
 
@@ -1063,8 +1103,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Globe and Mail: whiteboard alternative</title>
-        <link>/2012/10/05/Globe-and-Mail-whiteboard.html</link>
-        <guid isPermaLink="true">/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
+        <link>http://localhost:4000/2012/10/05/Globe-and-Mail-whiteboard.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2012/10/05/Globe-and-Mail-whiteboard.html</guid>
         <description>&lt;p&gt;&lt;img src=&quot;/img/whiteboard.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I was &lt;a href=&quot;http://www.theglobeandmail.com/life/parenting/back-to-school/5-must-have-back-to-school-items-for-postsecondary-students/article4465414/&quot;&gt;interviewed&lt;/a&gt; by the Globe and Mail about “hacks” for student living. In this case I’ve done a bunch of work to find out cheaper alternatives to whiteboards.&lt;/p&gt;
@@ -1098,8 +1138,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Building a GIF site for Martha</title>
-        <link>/2012/05/28/building-gifpost.html</link>
-        <guid isPermaLink="true">/2012/05/28/building-gifpost.html</guid>
+        <link>http://localhost:4000/2012/05/28/building-gifpost.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2012/05/28/building-gifpost.html</guid>
         <description>&lt;blockquote id=&quot;tweet&quot; class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Christmas is coming! &lt;a href=&quot;http://t.co/tbmRuV4gbD&quot;&gt;http://t.co/tbmRuV4gbD&lt;/a&gt; &lt;a href=&quot;http://t.co/6tyiTdxAGK&quot;&gt;pic.twitter.com/6tyiTdxAGK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Martha Stewart (@MarthaStewart) &lt;a href=&quot;https://twitter.com/MarthaStewart/status/413044190331678720&quot;&gt;December 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -1125,8 +1165,8 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
     
       <item>
         <title>Where are the Lee's?</title>
-        <link>/2012/05/13/where-are-the-lees.html</link>
-        <guid isPermaLink="true">/2012/05/13/where-are-the-lees.html</guid>
+        <link>http://localhost:4000/2012/05/13/where-are-the-lees.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2012/05/13/where-are-the-lees.html</guid>
         <description>&lt;p&gt;&lt;em&gt;[Google killed this API feature in 2013 so the site no longer exists]&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.wherearethelees.com/&quot;&gt;wherearethelees.com&lt;/a&gt; was a creation for Mother’s Day between &lt;a href=&quot;http://www.twitter.com/tedlee/&quot;&gt;Ted&lt;/a&gt; and I. So where did the idea come from?&lt;/p&gt;
@@ -1142,40 +1182,6 @@ Student newsrooms don’t have investors to please. Student newsrooms can change
 &lt;p&gt;&lt;img src=&quot;/img/wherearethelees.jpg&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 13 May 2012 00:00:00 -0400</pubDate>
-      </item>
-    
-      <item>
-        <title>Importance of travel</title>
-        <link>/2012/04/12/importance-of-travel.html</link>
-        <guid isPermaLink="true">/2012/04/12/importance-of-travel.html</guid>
-        <description>&lt;h3 id=&quot;culture&quot;&gt;Culture&lt;/h3&gt;
-
-&lt;p&gt;One of the biggest values you get from traveling the world is interacting with different cultures. I’ll admit that technology has made it a lot easier to learn, and having video calls with people halfway around the world is impressive, but it’s not perfect.&lt;/p&gt;
-
-&lt;p&gt;When you first step outside your country, you immediately see the varying ways of life and cultures. Why is this important? Let’s think of cultures like computer languages for a second. Variance in computer languages allow us to view problems from slightly different perspectives. We have certain variables that make up this culture. We have certain norms, certain policies, certain liberties, and certain restrictions. Visiting countries with entirely different cultures introduces us to new meanings for these variables and the ability to see problems slightly differently. We gain a new set of eyes.&lt;/p&gt;
-
-&lt;h3 id=&quot;city-view&quot;&gt;City View&lt;/h3&gt;
-
-&lt;p&gt;Most people I meet have lived in the same city for 20+ years. When you start living in a new city you explore the hell out of it, but after a few months we just get comfortable with the same routes. We become complacent with our surroundings. One thing I’ve learned as a photographer is seeing things with fresh eyes. What’s this ‘fresh eyes’ business? Take for instance the route you take to your local coffee shop. You might make that walk once a day - but it’s likely you don’t look around too often on your walk. Experiencing your city as though you’re exploring it for the first time is a humbling experience, and really makes you appreciate wherever you live.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-humbled-traveler&quot;&gt;The Humbled Traveler&lt;/h3&gt;
-
-&lt;p&gt;Traveling gives you a sense of scale, importance, and magnitude. It’s hard to quantify a world’s worldliness in books and on screens. Many have tried, and failed. The people you meet, the stories you hear, and the places you experience, all exist as things you can’t understanding till you’re standing in the middle of them. In a cross-country road trip across the US last summer, I remember we pulled off to the side of the road and got out. We just stood there, in the middle of Nevada. No technology can yet quantify that emptiness, that middle-of-nowhere-ness. I believe there are adjectives in the English language that can’t be understood till you experience them first hand. Till you’re knee deep in them. When we visit other countries and experience vastly different ways of life, we begin to understand the world, from a truly worldly perspective.&lt;/p&gt;
-
-&lt;h3 id=&quot;wisdom&quot;&gt;Wisdom&lt;/h3&gt;
-&lt;p&gt;One project I would tackle if I had a year to do anything: I’d start a project that aims to document and share the wisdom of older generations. Specifically those who are 60+ years old. Why? My generation doesn’t seek the wisdom of those older than us often enough. We have huge wells of knowledge that people my age don’t attempt to ask about, at all. Gathering and documenting these small pieces of knowledge from around the world would mean their experience and understanding of the world could live on, and be accessible throughout the world.&lt;/p&gt;
-
-&lt;h3 id=&quot;teachers-as-translators&quot;&gt;Teachers as Translators&lt;/h3&gt;
-
-&lt;p&gt;Richard Feynman (pictured below) is well known for describing the differences in how an individuals thought process occurs. For example, you and I use different imagery to describe the same thought or idea. Much of the work of a teacher then become the translation of thoughts and concepts. With the understanding that each of us needs a slightly different and unique translation of a concept, we become better translators. The more practiced we become as translators, the easier and more accessible our ideas become to others. This simple understanding goes for both the teacher and the student and will ultimately help us when taking on something new.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cldup.com/OwI7b_flZc.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;teaching-and-mastery&quot;&gt;Teaching and Mastery&lt;/h3&gt;
-
-&lt;p&gt;What does it mean to master a concept? Let’s look at this through the lens of teaching. You have to teach the person across from you a concept. They are totally new to said concept. Mastery in the context of teaching is really the ability to break down obscure principles that make up the greater concept. The principles need to be understood by the teacher at an extremely deep and rudimentary level. This includes the ability to dig beneath even the basics and understand the mechanics of how each of the variables that make up different principles rely on each other. This thoroughness and deep level of understanding of a concept is what defines mastery.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 12 Apr 2012 00:00:00 -0400</pubDate>
       </item>
     
   </channel>

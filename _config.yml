@@ -12,7 +12,7 @@ thetheme:
 
   # Header and footer text
   header_text: >
-     <p>Where Pippin Lee asks questions about running up hills, javascript, biking down hills, and humans.</p>
+     <p>Where Pippin Lee asks questions about running up hills, software and our interaction with it, and biking down hills. Currently building tools and systems for machine learning at <a href="https://www.dessa.com/">Dessa</a>, and looking for stars with <a href="https://space2vec.com">space2vec</a>.</p>
      </br></br>
      <div class="social">
 
