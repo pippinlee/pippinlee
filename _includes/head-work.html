@@ -5,17 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
 	
 
 	<!--Favicon-->
-	<link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
+	<link rel="shortcut icon" href="{{ "/favicon.ico" | relative_url }}" type="image/x-icon">
 
 	<!-- Canonical -->
-	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="{{ site.thetheme.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+	<link rel="alternate" type="application/rss+xml" title="{{ site.thetheme.title }}" href="{{ "/feed.xml" | absolute_url }}" />
 
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -29,16 +29,16 @@
 
 
 	<!-- Work assets -->
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/work/bootstrap.min.css">
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/work/normalize.css">
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/work/style.css">
+	<link rel="stylesheet" href="{{ '/css/work/bootstrap.min.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/css/work/normalize.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/css/work/style.css' | relative_url }}">
 
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<!-- End assets -->
 
 
-  <script type="text/javascript" src="{{ "/js/mobile-view.js" | prepend: site.baseurl  }}"></script>
+  <script type="text/javascript" src="{{ "/js/mobile-view.js" | relative_url  }}"></script>
 
 
 	<!-- KaTeX -->

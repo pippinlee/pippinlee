@@ -32,4 +32,4 @@ Here's a video of my harmonograph in motion:
 
 And a photo of one of the designs I was able to acheive:
 
-![harmonograph]({{ site.baseurl}}img/harmonograph.jpg)
+![harmonograph]({{ '/img/harmonograph.jpg' | relative_url }})

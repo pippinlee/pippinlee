@@ -1,22 +1,22 @@
-
 .site-header {
   padding: $padding-small;
-  background: $brand-color;
-  border-bottom: 1px solid $border-color;
-  display: inline-block;
-  float: left;
-  width: 100%;
   padding-top: 15px;
   padding-bottom: 12px;
-  margin-bottom: -11px;
-  @media screen and (max-width: 670px) {
-    padding-bottom: 0;
+  background: $brand-color;
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .branding {
+    display: flex;
+    align-items: center;
   }
 
   .avatar {
     height: 2em;
     width: 9em;
-    float: left;
     margin-top: -3px;
     border-radius: 0.2em;
     margin-left: 1em;
@@ -27,7 +27,7 @@
   }
 
   .site-title {
-    float: left;
+    margin: 0;
     font-weight: bold;
     font-size: 28px!important;
     line-height: 1.5;
@@ -37,111 +37,77 @@
     }
   }
 
-  .site-nav {.
-    -webkit-transition: height 0.3s ease;
-    -moz-transition: height 0.3s ease;
-    -ms-transition: height 0.3s ease;
-    -o-transition: height 0.3s ease;
-    transition: height 0.3s ease;
-    button {
-      display: none;
+  .menu-toggle {
+    display: none;
+    margin-left: auto;
+    min-height: 40px;
+    width: 80px;
+    padding: 1px 7px;
+    background: transparent;
+    color: inherit;
+    border: 3px solid #fff;
+    font-family: $font-family-headings;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+    &:focus {
+      outline: 2px solid $text-color;
+      outline-offset: 3px;
     }
+  }
+
+  .site-nav {
+    margin-left: auto;
     ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
       margin: 0;
       padding: 0;
       list-style: none;
       line-height: 1.5;
-      float: right;
       text-align: right;
-      padding-top: 11px;
-    }
-    .rightButton {
-      margin-left: 100px;
     }
     li {
-      display: inline;
-      float: left;
       margin-right: 3em;
       a {
-        color: $header-link-color;
+        color: #808080;
         font-weight: 900;
         letter-spacing: 0.1em;
-        color: #808080;
-      }
-      @media screen and (max-width: 670px) {
-        padding-bottom: 0;
-        width: 100px!important;
       }
     }
   }
-  .mobile {
-    height: 40px;
-    width: 100px;
-    float: right;
-    ul {
-      display: none;
-    }
-    button {
-      height: 30px;
-      display: inline;
-      opacity: 0.8;
-      border: 3px solid #fff;
-      
-      padding: 7px;
-      
-      width: 80px;
-      font-size: 16px;
-      font-family: $font-family-headings;
-      font-weight: 900;
-      padding-top: 1px;
-      margin-top: 6px;
-      @media screen and (max-width: 670px) {
-        margin-top: 10px;
-      }
-      &:hover {
-        
-      }
-    }
-  }
-  .openMenu {
-    margin: 0 auto;
-    padding: 0;
-    -webkit-transition: height 0.5s ease;
-    -moz-transition: height 0.5s ease;
-    -ms-transition: height 0.5s ease;
-    -o-transition: height 0.5s ease;
-    transition: height 0.5s ease;
-    height: 60px;
-    width: 100%;
-    
-    ul {
-      margin: 0 auto;
-      padding: 0;
-      display: inline-block;
+
+  @media screen and (max-width: 670px) {
+    .site-nav {
+      flex-basis: 100%;
       width: 100%;
-      text-align: center;
-      li {
-        margin: 0 auto;
-        padding: 0;
-        width: 25%;
-        text-decoration: none;
-        list-style: none;
-        padding: 10px;
+      margin: 0;
+      ul {
+        justify-content: center;
+        padding-top: 10px;
         text-align: center;
       }
+      li {
+        flex: 1 1 auto;
+        margin: 0;
+        a {
+          display: block;
+          padding: 10px;
+        }
+      }
     }
-    ul li.rightButton {
-      margin: 0 auto;
-      padding: 0;
-      padding: 10px;
-      text-align: center;
-    }
-    button {
-      float: right;
-      margin-top: -36px;
-      margin-right: 20px;
-      @media screen and (max-width: 670px) {
-        margin-top: -41px;
+
+    // Keep navigation usable when JavaScript is unavailable.
+    &.menu-ready {
+      .menu-toggle {
+        display: block;
+      }
+      .site-nav {
+        display: none;
+      }
+      &.menu-open .site-nav {
+        display: block;
       }
     }
   }
