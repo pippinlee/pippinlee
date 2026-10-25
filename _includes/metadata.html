@@ -1,0 +1,17 @@
+{% assign page_title = page.title | strip %}
+{% if page_title != empty %}
+<title>{{ page_title | escape }} | Pippin Lee</title>
+{% else %}
+<title>pippinlee.com | A child of the open web{% if paginator.page > 1 %} | Page {{ paginator.page }}{% endif %}</title>
+{% endif %}
+{% assign description = site.data.post_previews[page.url].description %}
+{% unless description %}
+  {% assign description = page.excerpt | strip_html | normalize_whitespace | strip %}
+  {% if description == empty %}
+    {% assign description = page.content | markdownify | strip_html | normalize_whitespace | strip %}
+  {% endif %}
+{% endunless %}
+{% if description == empty or page.layout == 'default' %}
+  {% assign description = site.thetheme.description %}
+{% endif %}
+<meta name="description" content="{{ description | truncate: 160 | escape_once }}">

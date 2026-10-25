@@ -114,3 +114,48 @@ img[align=left] {
 img[align=right] {
   margin-left: 3%;
 }
+
+// Keyboard navigation and text links stay visible on every page.
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  z-index: 100;
+  padding: .75rem 1rem;
+  background: #fff;
+  color: #383838;
+  transform: translateY(-150%);
+  &:focus { transform: translateY(0); }
+}
+a:focus, button:focus {
+  outline: 3px solid #383838;
+  outline-offset: 4px;
+}
+.post-content a, .call-out p a { text-decoration: underline; }
+img { height: auto; }
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  figure { flex: 0 1 auto; margin: 0; max-width: 675px; }
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgba(0,0,0,.5), 0 1px 10px rgba(0,0,0,.15);
+  }
+}

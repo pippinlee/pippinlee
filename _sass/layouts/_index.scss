@@ -75,7 +75,7 @@ img.build {
   padding: 10px;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  h3 {
+  h2 {
     text-align: left;
     padding-left: 20px;
     font-size: 22px;
@@ -133,41 +133,28 @@ img.build {
     }
   }
   header {
-    h1.post-info {
+    h2.post-info {
       width: 100%;
       margin: 0 auto;
       padding: 0;
-      .meta {
-        background-color: #fc3;
-        font-size: 0.3em;
-        width: 31%;
-        color: #fff;
-        text-align: center;
-        height: 41px;
-        padding-top: 10px;
-        margin-bottom: -9px;
-        @media screen and (max-width: 670px) {
-          width: 100%;
-          margin-bottom: -7px;
-          font-size: 18px;
-        }
-      }
       a.post-link {
         margin: 0 auto;
         padding: 0;
         width: 100%;
         display: inline-block;
-        font-size: 0.5em;
+        font-size: 25px;
         color: rgba(51, 51, 51, 0.78);
         text-align: center;
-        height: 60px;
-        padding-top: 16px;
+        height: auto;
+        min-height: 60px;
+        padding: 16px 12px;
         font-weight: 100;
         border: 1px solid rgba(102, 102, 102, 0.19);
         font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
         font-weight: 900;
         &:hover {
-          color: #fc3;
+          color: #383838;
+          text-decoration: underline;
         }
         @media screen and (max-width: 670px) {
           font-size: 20px;
@@ -197,7 +184,7 @@ img.build {
     border-bottom: 5px solid $brand-color;
     font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
     font-size: 18px;
-    color: #808080;
+    color: #666;
     padding-left: 60px;
     p {
       margin: 0 auto;
@@ -286,7 +273,7 @@ img.build {
 .pagination .button {
   background-color: #FFCC31;
   margin-bottom: 40px;
-  color: #fff;
+  color: #383838;
   i {
     vertical-align: middle;
   }
@@ -306,3 +293,40 @@ img.build {
   }
 }
 
+
+.posts header > .meta {
+  background: #ffcc33;
+  color: #383838;
+  width: 31%;
+  min-width: 210px;
+  min-height: 41px;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  @media screen and (max-width: 670px) { width: 100%; }
+}
+.posts .excerpt {
+  .preview-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 35px;
+  }
+  .read-more {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    min-height: 44px;
+    padding: .5em .75em;
+    margin-top: 10px;
+    background: #ffcc33;
+    color: #383838;
+    border-color: #383838;
+    text-decoration: underline;
+    &:hover { background: #ffe28a; }
+  }
+}
+.pagination .button {
+  min-height: 44px;
+  &:hover { color: #fff; }
+}

@@ -3,69 +3,56 @@ layout: default
 ---
 
 <div class="home">
+  <h1 class="visually-hidden">Pippin Lee’s articles</h1>
   {% if site.thetheme.header_text %}
-  <img class="build" src="{{ '/img/beaver-op.png' | relative_url }}" />
+  <img class="build" src="{{ '/img/beaver-op.png' | relative_url }}" alt="" />
   <div class="call-out">
     {{ site.thetheme.header_text }}
   </div>
   {% endif %}
 
-  <div class="index">
-  <h3>All articles</h2>
+  <section class="index" aria-labelledby="all-articles">
+    <h2 id="all-articles">All articles</h2>
     <ul>
       {% for post in site.posts %}
-        <li>
-            <a class="post-link" href="{{ post.url | relative_url }}">
-              {{ post.title }}
-            </a>
-        </li>
+      <li><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
       {% endfor %}
     </ul>
-  </div>
-
-
-
-
+  </section>
 
   <div class="posts">
     {% for post in paginator.posts %}
-    <div class="post-teaser">
+    <section class="post-teaser" aria-labelledby="post-{{ forloop.index }}">
       <header>
-        <h1 class="post-info">
-          <p class="meta">
-            {{ post.date | date: "%B %-d, %Y" }}
-          </p>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title }}
-          </a>
-        </h1>
+        <p class="meta"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+        <h2 class="post-info" id="post-{{ forloop.index }}">
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
       </header>
       <div class="excerpt">
-
-        {{ post.content  | truncatewords:180 }}
-
-        <a href="{{ post.url | relative_url }}">
-          <img class="button" src="{{ '/img/read.png' | relative_url }}">
-        </a>
+        {% assign preview = site.data.post_previews[post.url] %}
+        {% if preview.src %}
+        <img class="preview-image" src="{% if preview.src contains '://' %}{{ preview.src }}{% else %}{{ preview.src | relative_url }}{% endif %}" alt=""{% if preview.width %} width="{{ preview.width }}" height="{{ preview.height }}"{% endif %} loading="lazy" decoding="async">
+        {% endif %}
+        <p>{{ post.content | replace: '</p>', ' </p>' | replace: '</li>', ' </li>' | strip_html | normalize_whitespace | truncatewords: 180 | escape_once }}</p>
+        <a class="button read-more" href="{{ post.url | relative_url }}">Read more<span class="visually-hidden">: {{ post.title }}</span></a>
       </div>
-    </div>
+    </section>
     {% endfor %}
   </div>
 
   {% if paginator.total_pages > 1 %}
-  <div class="pagination">
+  <nav class="pagination" aria-label="Article pages">
     {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" class="button" >
-      <i class="fa fa-chevron-left"></i>
-      {{ site.thetheme.str_prev }}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="button">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i> {{ site.thetheme.str_prev }}
     </a>
     {% endif %}
     {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}" class="button" >
-      {{ site.thetheme.str_next }}
-      <i class="fa fa-chevron-right"></i>
+    <a href="{{ paginator.next_page_path | relative_url }}" class="button">
+      {{ site.thetheme.str_next }} <i class="fa fa-chevron-right" aria-hidden="true"></i>
     </a>
     {% endif %}
-  </div>
+  </nav>
   {% endif %}
 </div>

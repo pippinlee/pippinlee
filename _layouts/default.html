@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en" class="no-js">
   {% include head.html %}
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     {% include header.html %}
-    <div class="content">
+    <main class="content" id="main-content" tabindex="-1">
       {{ content }}
-    </div>
+    </main>
   </body>
 </html>

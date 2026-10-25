@@ -11,7 +11,7 @@ I was originally inspired to start looking for cheaper versions of whiteboards a
 
 The space is opinionated only in the sense of allowing space to be extemely flexible. Everything object within the building can be moved around to accomadate to the "space" a team needs. If you're curious, the below video explains it well.
 
-<iframe width="800" height="400" src="https://www.youtube.com/embed/HLQvxH40a-E" frameborder="0" allowfullscreen></iframe>
+<iframe title="A tour of Stanford’s flexible design-school workspace" class="responsive-video" style="aspect-ratio: 800 / 400" width="800" height="400" src="https://www.youtube.com/embed/HLQvxH40a-E" frameborder="0" allowfullscreen></iframe>
 
 
 I got mine from [this Toronto home depot.](https://maps.google.ca/maps?q=home+depot+woodbridge&hl=en&sll=43.70536,-79.378967&sspn=0.085997,0.154324&hq=home+depot&hnear=Woodbridge,+Vaughan,+York+Regional+Municipality,+Ontario&t=m&z=13)

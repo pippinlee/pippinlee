@@ -28,7 +28,7 @@ My setup was rough, but simple.
 
 Here's a video of my harmonograph in motion:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wfoWUe6IoBY" frameborder="0" allowfullscreen></iframe>
+<iframe title="My harmonograph in motion" class="responsive-video" style="aspect-ratio: 560 / 315" width="560" height="315" src="https://www.youtube.com/embed/wfoWUe6IoBY" frameborder="0" allowfullscreen></iframe>
 
 And a photo of one of the designs I was able to acheive:
 

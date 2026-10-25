@@ -1,0 +1,72 @@
+{
+  "/2019/09/25/fake-voice-detection.html": {
+    "src": "/img/detector.jpeg",
+    "width": 1600,
+    "height": 798,
+    "description": "A few of my Dessa colleagues and I released a fake voice detection model. Kaveh wrote about it in this weekend’s Axios’ Future."
+  },
+  "/2019/02/08/supernova-detection.html": {
+    "src": "/img/space2vec.jpeg",
+    "width": 1600,
+    "height": 1064,
+    "description": "An overview of our supernova classification system that we built using data from the Dark Energy Survey."
+  },
+  "/2016/07/05/Will-the-future-of-writing-be-more-like-github.html": {
+    "src": "https://d262ilb51hltx0.cloudfront.net/max/2000/1*5moklcdrPhG6WmN-KC3sLw.png",
+    "description": "When we think about languages and how they evolve, it’s usually at the needs of the people that use them."
+  },
+  "/2016/02/16/The-Elements-of-Programming-Style.html": {
+    "src": "/img/elements-of-style-op.png",
+    "width": 650,
+    "height": 650,
+    "description": "How do principles become timeless?"
+  },
+  "/2016/02/10/harmonographs.html": {
+    "src": "/img/harmonograph.gif",
+    "width": 500,
+    "height": 500,
+    "description": "One of wonderful things about the Internet is the deep dives you can do on things you didn't know existed only a few minutes earlier."
+  },
+  "/2015/11/01/Announcing-Open-Journalism-fellowships.html": {
+    "src": "https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png",
+    "description": "Good news — today the Open Journalism Project is announcing the start of a Fellowship program."
+  },
+  "/2015/08/25/Announcing-Open-Journalism-fellowships.html": {
+    "src": "https://d262ilb51hltx0.cloudfront.net/max/800/1*9WeZla87KROqYyIGElWV3A.png",
+    "description": "Good news — today the Open Journalism Project is announcing the start of a Fellowship program."
+  },
+  "/2015/03/17/Open-Journalism-Project-Better-Student-Journalism.html": {
+    "src": "https://d262ilb51hltx0.cloudfront.net/max/2000/1*oBWUXtszDsiv_-Qq2bFLTQ.png",
+    "description": "We pushed out the first version of the Open Journalism site in January. Our goal is for the site to be a place to teach students what they should know about journalism on the web."
+  },
+  "/2014/12/14/Command-Line-News-Headlines.html": {
+    "description": "Most projects I build come from a question, or a few."
+  },
+  "/2014/12/04/Driving-data-dashboard.html": {
+    "description": "This project started with a friend sending me ~51,000 points of data. He'd just bought an adapter that allowed him to start collecting the driving data his car's computer was producing."
+  },
+  "/2012/10/05/Globe-and-Mail-whiteboard.html": {
+    "src": "/img/whiteboard.jpg",
+    "width": 620,
+    "height": 350,
+    "description": "I was interviewed by the Globe and Mail about \"hacks\" for student living."
+  },
+  "/2012/05/13/where-are-the-lees.html": {
+    "src": "/img/wherearethelees.jpg",
+    "width": 650,
+    "height": 400,
+    "description": "wherearethelees.com was a creation for Mother's Day between Ted and I. So where did the idea come from?"
+  },
+  "/2012/04/12/importance-of-travel.html": {
+    "description": "One of the biggest values you get from traveling the world is interacting with different cultures."
+  },
+  "/2012/10/09/Joining-Educreations.html": {
+    "description": "\"You know I never finished university. I'd even tell you, you don't need university.\""
+  },
+  "/2012/05/28/building-gifpost.html": {
+    "description": "A few months ago just before heading to bed I got a text from Stephen with a \"stupid idea\"."
+  },
+  "/2015/10/05/npm-scripts.html": {
+    "description": "In this post we're going to take a quick look at npm scripts, and the thought process behind writing them."
+  }
+}

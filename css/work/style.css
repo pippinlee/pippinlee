@@ -80,7 +80,7 @@ body {
 }
 
 
-button:focus {outline:0;}
+
 
 .view-btn:hover  {
   background-color: #fdea8c!important;
@@ -353,7 +353,7 @@ a  {
   color: #302D2D;
   line-height: 1.5em;
   letter-spacing: 2px;
-  color: #7f7d7d;
+  color: #666;
 }
 
 .item-highlight-title {
@@ -376,7 +376,7 @@ a  {
 
 .tech-items {
   font-size: 40px;
-  color: #7f7d7d;
+  color: #666;
   line-height: 1.5em;
 }
 
@@ -484,4 +484,47 @@ a  {
   margin: 0;
   padding: 20px;
   padding-top: 10px;
+}
+
+/* Static project cards and accessible controls. */
+.site-header .site-nav a { color: #383838 !important; }
+.intro-text { color: #383838; }
+.intro-text a { color: #383838 !important; text-decoration: underline; }
+.intro-text p { line-height: inherit; margin-bottom: 0; }
+.work-title { font-size: 32px; margin: 0 0 24px; letter-spacing: 0; }
+.item-image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.project-details { padding: 0 50px; }
+.project-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 20px; }
+.project-heading .item-title { color: #383838; }
+.project-link, .project-status {
+  margin: 20px 0;
+  padding: 12px 16px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #f3f3f3;
+  font-size: 15px;
+  font-family: monospace;
+  overflow-wrap: anywhere;
+}
+.project-link { text-decoration: underline; }
+.project-status { color: #555; }
+.project-status span { display: block; }
+.project-details .item-description-title,
+.project-details .item-highlight-title { padding: 0; margin: 20px 0 10px; font-size: 24px; }
+.project-details .item-description { padding: 0; }
+.project-details .tech { padding: 0 0 0 24px; }
+.project-details .tech-items { padding: 0; }
+a:focus, button:focus { outline: 3px solid #383838; outline-offset: 4px; }
+.skip-link { color: #383838 !important; letter-spacing: 0; }
+@media (max-width: 991px) {
+  .project-details { padding: 0 25px; }
+  .project-heading { display: block; text-align: left; }
+  .project-link { display: inline-block; }
+  .project-status { display: inline-block; }
+  .item { margin-top: 80px; margin-bottom: 80px; }
 }

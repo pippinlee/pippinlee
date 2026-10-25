@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   {% include head-work.html %}
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     {% include header.html %}
+    <main id="main-content" tabindex="-1">
       {{ content }}
+    </main>
   </body>
 </html>

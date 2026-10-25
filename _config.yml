@@ -12,28 +12,28 @@ thetheme:
 
   # Header and footer text
   header_text: >
-     <p>Where Pippin Lee asks questions about running up hills, software and our interaction with it, and biking down hills. Currently building tools and systems for machine learning at <a href="https://www.dessa.com/">Dessa</a>, and looking for stars with <a href="http://space2vec.com">space2vec</a>.</p>
-     </br></br>
+     <p>Where Pippin Lee asks questions about running up hills, software and our interaction with it, and biking down hills. Currently building tools and systems for machine learning at <a href="https://www.dessa.com/">Dessa</a>, and looking for stars with <a href="https://github.com/pippinlee/space2vec-ml-code">space2vec</a>.</p>
+     <br><br>
      <div class="social">
 
-       <a href="https://github.com/pippinlee" title="Follow on Github">
-         <i class="fa fa-fw fa-github"></i>
+       <a href="https://github.com/pippinlee" title="Follow on Github" aria-label="Follow on Github">
+         <i aria-hidden="true" class="fa fa-fw fa-github"></i>
        </a>
 
-       <a href="https://twitter.com/pippinlee" title="Follow on Twitter">
-         <i class="fa fa-fw fa-twitter"></i>
+       <a href="https://twitter.com/pippinlee" title="Follow on Twitter" aria-label="Follow on Twitter">
+         <i aria-hidden="true" class="fa fa-fw fa-twitter"></i>
        </a>
 
-       <a href="https://instagram.com/pippinlee" title="Follow on Instagram">
-         <i class="fa fa-fw fa-instagram"></i>
+       <a href="https://instagram.com/pippinlee" title="Follow on Instagram" aria-label="Follow on Instagram">
+         <i aria-hidden="true" class="fa fa-fw fa-instagram"></i>
        </a>
 
-       <a href="http://stackoverflow.com/users/1234279/pippin" title="Find on Stack Overflow">
-        <i class="fa fa-fw fa-stack-exchange"></i>
+       <a href="http://stackoverflow.com/users/1234279/pippin" title="Find on Stack Overflow" aria-label="Find on Stack Overflow">
+        <i aria-hidden="true" class="fa fa-fw fa-stack-exchange"></i>
        </a>
 
-       <a href="mailto:pippinblee@gmail.com" title="Email">
-        <i class="fa fa-fw fa-envelope"></i>
+       <a href="mailto:pippinblee@gmail.com" title="Email" aria-label="Email">
+        <i aria-hidden="true" class="fa fa-fw fa-envelope"></i>
        </a>
 
       </div>

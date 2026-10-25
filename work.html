@@ -1,6 +1,6 @@
 ---
 layout: page-work
-title:
+title: Work
 permalink: /work/
 published: true
 ---
@@ -10,14 +10,43 @@ published: true
 
     <div class="container intro">
       <div class="row">
-        <div class="col-sm-12 col-md-8 col-lg-8 intro-text">Influenced by an early life of journalism and photography, the software I enjoy building is a mixture of interfaces that experiment, and interfaces that teach. I’m most interested in work that allows me to ask questions of the overlap between art and science. I’ll always be a child of the open web. The work here is a sample of both professional and hobby projects. If curious you can read more <a href="{{ '/about' | relative_url }}">about me</a> and <a href="{{ '/2016/02/16/The-Elements-of-Programming-Style.html' | relative_url }}">how</a> I think about software.
+        <div class="col-sm-12 col-md-8 col-lg-8 intro-text"><h1 class="work-title">Work</h1>
+          <p>Influenced by an early life of journalism and photography, the software I enjoy building is a mixture of interfaces that experiment, and interfaces that teach. I’m most interested in work that allows me to ask questions of the overlap between art and science. I’ll always be a child of the open web. The work here is a sample of both professional and hobby projects. If curious you can read more <a href="{{ '/about' | relative_url }}">about me</a> and <a href="{{ '/2016/02/16/The-Elements-of-Programming-Style.html' | relative_url }}">how</a> I think about software.</p>
         </div>
       </div>
     </div>
 
-    <!-- work items rendered below -->
-    <content></content>
-
-    <script type="text/javascript" src="{{ '/js/work/jquery.js' | relative_url }}"></script>
-    <script type="text/javascript" src="{{ '/js/work/data.js' | relative_url }}"></script>
-    <script type="text/javascript" src="{{ '/js/work/template.js' | relative_url }}"></script>
+    <div class="work-projects">
+      {% for entry in site.data.work %}
+      {% assign project = entry[1] %}
+      <section class="container item" aria-labelledby="{{ entry[0] }}-title" style="border-bottom-color: {{ project.color }}; box-shadow: 0 0 1px 0 {{ project.shadow1 | remove_first: '../' }}, 0 1px 10px 0 {{ project.shadow2 }}">
+        <div class="row">
+          <img class="col-sm-12 item-image" id="{{ entry[0] }}" src="{{ project.images[0] | remove_first: '..' | relative_url }}" alt="{{ project.image_alt | escape }}" width="{{ project.image_width }}" height="{{ project.image_height }}" loading="lazy" decoding="async">
+        </div>
+        <div class="project-details">
+          <div class="project-heading">
+            <h2 class="item-title" id="{{ entry[0] }}-title">{{ project['item-title'] }}</h2>
+            {% if project.website_unavailable %}
+            <p class="project-status">Website unavailable <span>{{ project['item-link'] }}</span></p>
+            {% else %}
+            <a class="project-link" href="{{ project['item-anchor'] }}">{{ project['item-link'] }}</a>
+            {% endif %}
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h3 class="item-description-title">Description</h3>
+              <p class="item-description">{{ project['item-description'] }}</p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <h3 class="item-highlight-title">Technology</h3>
+              <ul class="tech">
+                {% for technology in project.tech %}
+                <li class="tech-items">{{ technology }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endfor %}
+    </div>
